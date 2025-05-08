@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Dhub-Dev-s-workspace-rgovaa.us-east-1.xata.sh/db/recruitment",
+  "codegen": {
+    "output": "src/lib/xata/index.ts"
+  }
+}
