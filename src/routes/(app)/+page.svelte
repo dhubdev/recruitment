@@ -12,7 +12,6 @@
 
 <Hero
 	type="center-content"
-	title="🌍 Your Gateway to Life-Changing Opportunities 🚀"
-	subline="Ready to level up your career? At Jordan Recruitments, we don't just find you a job — we connect you with top-tier employers and unlock access to game-changing roles tailored to your skills and passion. 🔑✨
-Let's turn your dream job into your next step. 💼🌟"
+	title="🌍 Unlock Your Dream Job with Jordan Recruitments! 🚀"
+	subline="We go beyond resumes — connecting talent to top-tier opportunities. 💼✨ Your next big move starts now. Let's get you hired! 🌟"
 />
