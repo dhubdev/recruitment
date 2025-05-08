@@ -17,7 +17,7 @@
 			class="inline-flex items-center gap-x-2 rounded-full border p-1 ps-3 text-sm transition"
 			href="/#"
 		>
-			PRO release - Join to waitlist
+		🚀 Join the Talent Waitlist!
 			<span
 				class="inline-flex size-10 items-center justify-center gap-x-2 rounded-full bg-muted-foreground/15 px-2.5 py-1.5 text-sm font-semibold"
 			>
