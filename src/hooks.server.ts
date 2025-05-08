@@ -7,7 +7,7 @@ export const clerk = withClerkHandler();
 
 export const getUser: Handle = async ({ event, resolve }) => {
   const { locals } = event
-  const { userId } = locals.auth
+  const { userId } = locals.auth()
 
   if (userId) {
     const userTxt = await clerkClient.users.getUser(userId as string)
