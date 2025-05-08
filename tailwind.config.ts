@@ -16,6 +16,14 @@ const config: Config = {
 		},
 		extend: {
 			colors: {
+				alternate: "#188bc4",
+				shade: {
+					'1': '#bbd4ff',
+					'2': '#91aadf',
+					'3': '#6882b5',
+					'4': '#405c8c',
+					'5': '#143965'
+				},
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
 				ring: "hsl(var(--ring) / <alpha-value>)",
@@ -90,7 +98,52 @@ const config: Config = {
       		},
 		},
 	},
-	plugins: [tailwindcssAnimate],
+	plugins: [
+		function ({ addUtilities }) {
+			const newUtilities = {
+				'.center': {
+					width: '100%',
+					maxWidth: '1440px',
+					marginLeft: 'auto',
+					marginRight: 'auto',
+					padding: '16px'
+				},
+				'.amazonchip': {
+					backgroundColor: 'transparent',
+					borderRadius: '4px',
+					fontSize: '13px',
+					border: '1px solid #d5d9d9',
+					boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+				},
+				'.amazonchipfilter': {
+					borderRadius: '50px',
+					fontSize: '13px',
+					border: '1px solid #d5d9d911',
+					boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
+				},
+				'.clip': {
+					clipPath: 'polygon(30% 0, 100% 0%, 100% 100%, 0% 100%)'
+				},
+				'.twolines': {
+					whiteSpace: 'initial',
+					textOverflow: 'ellipsis',
+					display: '-webkit-box',
+					'-webkit-box-orient': 'vertical',
+					'-webkit-line-clamp': '2',
+					overflow: 'hidden'
+				},
+				'.oneline': {
+					width: '100%',
+					overflow: 'hidden',
+					whiteSpace: 'nowrap',
+					textOverflow: 'ellipsis'
+				}
+			}
+			addUtilities(newUtilities, ['responsive', 'hover'])
+		},
+		tailwindcssAnimate,
+		require('@tailwindcss/typography'),
+	],
 };
 
 export default config;

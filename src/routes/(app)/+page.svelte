@@ -11,7 +11,15 @@
 </script>
 
 <Hero
-	type="center-content"
-	title="🌍 Unlock Your Dream Job with Jordan Recruitments! 🚀"
+	type="left-right-image"
+	badge={{
+		text: "💼 Your Career Launcher",
+		url: '/listings'
+	}}
+	title="Unlock Your Dream Job with Jordan Recruitments! 🚀"
 	subline="We go beyond resumes — connecting talent to top-tier opportunities. 💼✨ Your next big move starts now. Let's get you hired! 🌟"
+	image={{
+		src: "https://www.jordanrecruitments.com/_next/image?url=%2Frecruit2.webp&w=3840&q=75",
+		alt: "Jordan Recruitments"
+	}}
 />

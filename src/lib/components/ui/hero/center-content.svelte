@@ -17,7 +17,7 @@
 			class="inline-flex items-center gap-x-2 rounded-full border p-1 ps-3 text-sm transition"
 			href="/#"
 		>
-		🚀 Join the Talent Waitlist!
+			PRO release - Join to waitlist
 			<span
 				class="inline-flex size-10 items-center justify-center gap-x-2 rounded-full bg-muted-foreground/15 px-2.5 py-1.5 text-sm font-semibold"
 			>
@@ -41,7 +41,7 @@
 	<!-- end announcement banner -->
 	<!-- title -->
 	<div class="mx-auto mt-5 max-w-2xl text-center">
-		<h1 class="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+		<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
 			{title}
 		</h1>
 	</div>

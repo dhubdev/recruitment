@@ -7,7 +7,7 @@ export const load = (async ({ locals }) => {
   const user = locals.user
 
   return {
-    ...buildClerkProps(locals.auth),
+    ...buildClerkProps(locals.auth()),
     userId,
     user
   };

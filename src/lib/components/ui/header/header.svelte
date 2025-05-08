@@ -10,7 +10,7 @@
 	let { logo: Brand }: Props = $props();
 </script>
 
-<Wrap class="sticky left-0 top-0 z-[50] bg-white shadow-lg dark:bg-secondary">
+<Wrap class="sticky left-0 top-0 z-[50] bg-white shadow-md dark:bg-secondary">
 	<div class="relative flex h-14 items-center justify-between">
 		<Brand />
 		<div class="flex items-center gap-2">
