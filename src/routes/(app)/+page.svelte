@@ -19,7 +19,7 @@
 	title="Unlock Your Dream Job with Jordan Recruitments! 🚀"
 	subline="We go beyond resumes — connecting talent to top-tier opportunities. 💼✨ Your next big move starts now. Let's get you hired! 🌟"
 	image={{
-		src: "https://www.jordanrecruitments.com/bg.webp",
+		src: "https://www.jordanrecruitments.com/1920x1080.webp",
 		alt: "Jordan Recruitments"
 	}}
 />
