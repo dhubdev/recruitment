@@ -2,11 +2,10 @@
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import type { ComponentProps } from 'svelte';
 	import { getContext } from 'svelte';
-	import { SettingsIcon, StoreIcon, ShapesIcon, BoxIcon, BaggageClaimIcon, RulerIcon, HouseIcon, CirclePlayIcon, RssIcon } from 'lucide-svelte';
+	import { SettingsIcon, StoreIcon, HouseIcon, BriefcaseIcon } from 'lucide-svelte';
 	import type { iRoute, iUser } from '$lib/interface';
 	import { page } from '$app/state';
 	import Brand from './Brand.svelte';
-	import Prayer from '../icons/Prayer.svelte';
 
 	let me = getContext('me') as iUser;
 
@@ -29,19 +28,9 @@
 			icon: HouseIcon
 		},
 		{
-			name: 'Sermons',
-			href: `/admin/sermons`,
-			icon: CirclePlayIcon
-		},
-		{
-			name: 'Prayer Cells',
-			href: `/admin/prayercells`,
-			icon: Prayer
-		},
-		{
-			name: 'Blogs',
-			href: `/admin/blogs`,
-			icon: RssIcon
+			name: 'Jobs',
+			href: `/admin/jobs`,
+			icon: BriefcaseIcon
 		},
 		{
 			name: 'Settings',

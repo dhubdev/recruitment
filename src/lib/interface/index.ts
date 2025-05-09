@@ -143,6 +143,7 @@ export interface iJob extends iXata {
 	content: string;
 	location: string;
 	nature: string;
+	closingDate: string;
 	file: string | iFile;
 }
 

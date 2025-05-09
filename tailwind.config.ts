@@ -18,11 +18,11 @@ const config: Config = {
 			colors: {
 				alternate: "#188bc4",
 				shade: {
-					'1': '#bbd4ff',
-					'2': '#91aadf',
-					'3': '#6882b5',
-					'4': '#405c8c',
-					'5': '#143965'
+					'1': '#e6bbff',
+					'2': '#be99ff',
+					'3': '#9778ff',
+					'4': '#6e58ff',
+					'5': '#3f39e8'
 				},
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",

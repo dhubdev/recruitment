@@ -8,7 +8,7 @@
 	let variables = $state(
 		$mode === 'dark'
 			? {
-					colorPrimary: '#143965',
+					colorPrimary: '#3f39e8',
 					colorTextOnPrimaryBackground: '#fff'
 				}
 			: {}
