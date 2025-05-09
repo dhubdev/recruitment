@@ -12,6 +12,7 @@
 	let { data }: { data: PageServerData } = $props();
 
 	const columns = getColumns(modalStore);
+	
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
