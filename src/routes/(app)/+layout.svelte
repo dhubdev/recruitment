@@ -5,8 +5,8 @@
 	import { metaStore } from '$lib/stores';
 	import Header from '$lib/components/ui/header/header.svelte';
 	import Footer from '$lib/components/ui/footer/footer.svelte';
-	import Logo from '$lib/components/icons/Logo.svelte';
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
+	import Brand from '$lib/components/sections/Brand.svelte';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
@@ -37,10 +37,10 @@
 	<meta property="twitter:image" content={$metaStore.ogimage} />
 </svelte:head>
 <div class="bg-body dark:bg-background">
-	<Header logo={Logo} />
+	<Header logo={Brand} />
 	<Wrap>
 		{@render children()}
 	</Wrap>
-	<Footer slogan="Unlock Your Dream Job" logo={Logo} organizationName="Jordan Recruitments" />
+	<Footer slogan="Unlock Your Dream Job" logo={Brand} organizationName="Jordan Recruitments" />
 </div>
 <!-- <BottomNav /> -->
