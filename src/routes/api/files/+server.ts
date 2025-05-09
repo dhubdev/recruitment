@@ -9,7 +9,7 @@ import { throwIfError } from '$lib/server';
 
 export const GET: RequestHandler = async () => {
   return new Response();
-};
+}; 
 
 export const POST: RequestHandler = async ({ request }) => {
 
