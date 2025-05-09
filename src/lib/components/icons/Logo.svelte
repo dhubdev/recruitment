@@ -21,7 +21,7 @@
     />
     <circle
       style="display:inline;fill-opacity:1;stroke-width:0.788665;stroke-linecap:round;stroke-dasharray:3.15465, 1.57733"
-      class="fill-shade-1"
+      class="fill-shade-3"
       id="circle7081"
       cx="38.741631"
       cy="41.124226"
@@ -34,7 +34,8 @@
       id="path7116"
     />
     <path
-      style="fill:#188bc4;fill-opacity:1;stroke:none;stroke-width:0.642536px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      class="fill-shade-3"
+      style="fill-opacity:1;stroke:none;stroke-width:0.642536px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
       d="m 18.842486,77.545415 c 0,0 4.703137,-21.033061 24.281815,-17.536871 22.033505,3.934553 16.075463,34.961319 16.075463,34.961319 0,0 -15.625797,2.360732 -27.317044,-5.171128 C 20.060441,82.182461 18.842486,77.545415 18.842486,77.545415 Z"
       id="path7892"
     />
