@@ -8,12 +8,18 @@
 		text: string;
 		url: string;
 	}
+
+	export interface iButtons {
+		primary?: iTextUrl;
+		secondary?: iTextUrl;
+	}
 </script>
 
 <script lang="ts">
 	import { ArrowRight, ArrowUpRight } from 'lucide-svelte';
 	import { Badge } from '../badge';
 	import { Button } from '../button';
+
 	interface Props {
 		badge?: iTextUrl;
 		title: string;
@@ -60,7 +66,7 @@
 				</Badge>
 			{/if}
 			<div>
-				<h1 class="my-6 text-pretty text-3xl font-bold lg:text-5xl text-primary dark:text-white">
+				<h1 class="my-6 text-pretty text-3xl font-bold text-primary dark:text-white lg:text-5xl">
 					{title}
 				</h1>
 				<p class="mb-8 max-w-xl text-muted-foreground lg:text-xl">

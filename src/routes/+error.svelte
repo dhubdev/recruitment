@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import Binoculars from '$lib/components/icons/Binoculars.svelte';
+	import Binoculars from '$lib/components/icons/binoculars.svelte';
 	import { Button } from '$lib/components/ui/button';
 </script> 
  

@@ -22,4 +22,14 @@
 		src: "https://www.jordanrecruitments.com/1920x1080.webp",
 		alt: "Jordan Recruitments"
 	}}
+	buttons={{
+		primary: {
+			text: "Browse listings",
+			url: '/listings'
+		},
+		secondary: {
+			text: 'Contact Us',
+			url: '/contact'
+		}
+	}}
 />

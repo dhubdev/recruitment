@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CenterContent from './center-content.svelte';
-	import LeftRightImage, { type iImageSrcAlt, type iTextUrl } from './left-right-image.svelte';
+	import LeftRightImage, { type iButtons, type iImageSrcAlt, type iTextUrl } from './left-right-image.svelte';
 
 	interface Props {
 		type: 'center-content' | '3d-isometric' | 'animated-features' | 'left-right-image';
@@ -8,8 +8,9 @@
 		subline: string;
 		image?: iImageSrcAlt;
 		badge?: iTextUrl;
+		buttons?: iButtons
 	}
-	let { type, title, subline, image, badge }: Props = $props();
+	let { type, title, subline, image, badge, buttons }: Props = $props();
 </script>
 
 {#if type === 'center-content'}
@@ -17,5 +18,5 @@
 {/if}
 
 {#if type === 'left-right-image'}
-	<LeftRightImage {title} {subline} image={image as iImageSrcAlt} {badge} />
+	<LeftRightImage {buttons} {title} {subline} image={image as iImageSrcAlt} {badge} />
 {/if}
