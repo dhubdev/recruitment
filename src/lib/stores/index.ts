@@ -1,10 +1,10 @@
 import { initialForm } from "$lib/constants";
-import { iJob, type iFormModal, type iMeta, type iModal } from "$lib/interface";
+import type { iJob, iFormModal, iMeta, iModal } from "$lib/interface";
 import { writable } from "svelte/store";
 
 const modalStore = writable<iModal>({
   open: false,
-  type: 'chat',
+  type: 'job',
 })
 
 const metaStore = writable<iMeta>({
