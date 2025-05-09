@@ -3,6 +3,7 @@ resources
 
 # Output
 .output
+.xata
 .vercel
 .netlify
 .wrangler
