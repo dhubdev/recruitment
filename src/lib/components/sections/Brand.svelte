@@ -8,5 +8,5 @@
 	variant="ghost"
 	class="flex h-auto p-0 hover:bg-transparent justify-start"
 >
-	<Logo class="!w-full" />
+	<Logo />
 </Button>
