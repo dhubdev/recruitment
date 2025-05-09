@@ -21,7 +21,7 @@ export type iResult = {
 	data?: any;
 };
 
-type ModalType = 'chat';
+type ModalType = 'job' | 'deleteJob';
 
 export type MessageRoleType = 'user' | 'assistant';
 
@@ -139,6 +139,7 @@ export interface iFormModal {
 }
 
 export interface iJob extends iXata {
+	source: string;
 	title: string
 	content: string;
 	location: string;
