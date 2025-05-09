@@ -1,12 +1,11 @@
 <script lang="ts">
-	// import Header from '$lib/components/sections/Header.svelte';
-	// import Footer from '$lib/components/sections/Footer.svelte';
 	import type { iUser } from '$lib/interface';
-	// import BottomNav from '$lib/components/widgets/BottomNav.svelte';
 	import type { LayoutData } from './$types';
 	import { setContext, type Snippet } from 'svelte';
 	import { metaStore } from '$lib/stores';
-	// import Dialogs from '$lib/components/widgets/Dialogs.svelte';
+	import Header from '$lib/components/ui/header/header.svelte';
+	import Footer from '$lib/components/ui/footer/footer.svelte';
+	import Logo from '$lib/components/icons/Logo.svelte';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
@@ -39,7 +38,9 @@
 <div class="bg-body dark:bg-background">
 	<!-- <Header /> -->
 	<div>
+		<Header logo={Logo} />
 		{@render children()}
+		<Footer slogan="Unlock Your Dream Job" logo={Logo} organizationName="Jordan Recruitments" />
 	</div>
 	<!-- <Footer /> -->
 </div>
