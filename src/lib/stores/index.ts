@@ -12,7 +12,51 @@ const metaStore = writable<iMeta>({
   description: 'Jobs at your finger tips',
   ogimage: 'https://www.dhubeducation.com/screenshot-wide.webp',
   link: 'https://www.dhubeducation.com/',
-  keywords: ['study', 'abroad', 'education', 'international', 'masters', 'first degree', 'Study Abroad']
+  keywords: [
+    "IT jobs",
+    "tech careers",
+    "software developer",
+    "information technology",
+    "remote tech jobs",
+    "IT support roles",
+    "coding jobs",
+    "developer opportunities",
+    "IT recruitment agency",
+    "junior developer",
+
+    "cleaning jobs",
+    "housekeeping staff",
+    "janitorial work",
+    "domestic cleaning",
+    "office cleaning roles",
+    "cleaner vacancy",
+    "part-time cleaning",
+    "cleaning careers",
+    "residential cleaners",
+    "sanitation worker",
+
+    "teaching jobs",
+    "school staff recruitment",
+    "education careers",
+    "teacher assistant",
+    "academic positions",
+    "tutor roles",
+    "early childhood education",
+    "educational consultant",
+    "classroom assistant",
+    "school teacher",
+
+    "care worker jobs",
+    "support worker",
+    "caregiver vacancy",
+    "elderly care careers",
+    "health and social care",
+    "domiciliary care",
+    "nursing assistant",
+    "live-in carer",
+    "personal support worker",
+    "care home staff"
+  ]
 });
 
 const formsModalStore = writable<iFormModal>(initialForm)
