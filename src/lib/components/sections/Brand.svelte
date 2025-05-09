@@ -6,7 +6,11 @@
 <Button
 	href="/"
 	variant="ghost"
-	class="flex h-auto p-0 hover:bg-transparent justify-start"
+	class="grid h-auto grid-cols-[40px_1fr] items-center p-0 hover:bg-transparent"
 >
 	<Logo />
+	<div class="-mt-3 leading-[.2]">
+		<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
+		<span class="text-muted-foreground">Recruitments</span>
+	</div>
 </Button>

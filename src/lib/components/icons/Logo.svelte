@@ -8,7 +8,7 @@
 	let { class: className }: Props = $props();
 </script>
 
-<svg width="512" height="512" class="size-8" viewBox="0 0 135.46666 135.46667">
+<svg class={cn("size-10", className)} viewBox="0 0 135.46666 135.46667">
   <defs id="defs2" />
   <g id="layer2">
     <circle
@@ -21,7 +21,7 @@
     />
     <circle
       style="display:inline;fill-opacity:1;stroke-width:0.788665;stroke-linecap:round;stroke-dasharray:3.15465, 1.57733"
-      class="fill-[#188bc4]"
+      class="fill-shade-1"
       id="circle7081"
       cx="38.741631"
       cy="41.124226"
