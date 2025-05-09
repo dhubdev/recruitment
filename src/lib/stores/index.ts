@@ -5,6 +5,8 @@ import { writable } from "svelte/store";
 const modalStore = writable<iModal>({
   open: false,
   type: 'job',
+  title: '',
+  description: ''
 })
 
 const metaStore = writable<iMeta>({

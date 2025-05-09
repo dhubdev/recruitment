@@ -6,6 +6,7 @@
 	import Header from '$lib/components/ui/header/header.svelte';
 	import Footer from '$lib/components/ui/footer/footer.svelte';
 	import Logo from '$lib/components/icons/Logo.svelte';
+	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
@@ -36,12 +37,10 @@
 	<meta property="twitter:image" content={$metaStore.ogimage} />
 </svelte:head>
 <div class="bg-body dark:bg-background">
-	<!-- <Header /> -->
-	<div>
-		<Header logo={Logo} />
+	<Header logo={Logo} />
+	<Wrap>
 		{@render children()}
-		<Footer slogan="Unlock Your Dream Job" logo={Logo} organizationName="Jordan Recruitments" />
-	</div>
-	<!-- <Footer /> -->
+	</Wrap>
+	<Footer slogan="Unlock Your Dream Job" logo={Logo} organizationName="Jordan Recruitments" />
 </div>
 <!-- <BottomNav /> -->

@@ -82,6 +82,8 @@ export type TActionType = 'create' | 'edit'
 
 export interface iModal {
 	type: ModalType;
+  title: string;
+  description: string;
 	open: boolean;
 	data?: any;
 }
