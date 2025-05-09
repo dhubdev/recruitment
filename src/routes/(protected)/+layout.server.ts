@@ -16,7 +16,7 @@ export const load = (async ({ locals, url }) => {
   const me = await getMe(user.emailAddresses[0].emailAddress) as iUser
 
 
-  if (me.role !== Role.ADMIN) {
+  if (!me || me.role !== Role.ADMIN) {
     throw redirect(302, '/')
   }
   
