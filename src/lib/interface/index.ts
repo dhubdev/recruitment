@@ -129,7 +129,6 @@ export interface iSection {
 	content: string;
 }
 
-
 export interface iFormModal {
 	type: TField,
 	open: boolean;
