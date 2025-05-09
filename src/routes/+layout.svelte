@@ -19,9 +19,9 @@
 		</div>
 	</Wrap>
 	<Footer
-		slogan="Raising a total kingdom child"
+		slogan="Unlock Your Dream Job"
 		logo={Logo}
-		organizationName="RCN Lagos Children Department"
+		organizationName="Jordan Recruitments"
 	/>
 	<ModeWatcher />
 </ClerkProvider>
