@@ -4,3 +4,8 @@ export const createWhatsAppUrl = (msg: string, phone: string) => {
 	url.searchParams.set('text', msg);
 	return url.href;
 };
+
+export function capitalize(word: string) {
+  if (!word) return '';
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}

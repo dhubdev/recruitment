@@ -1,3 +1,5 @@
+import type { iFormModal, iJob } from "$lib/interface";
+
 export enum Role {
 	ADMIN = 'admin',
 	CHILD = 'child',
@@ -22,4 +24,21 @@ export function isExcludedFromFooter(path: string): boolean {
 		}
 		return path === pattern;
 	});
+}
+
+export const initialForm = {
+  type: 'job',
+  open: false,
+  data: null,
+  title: '',
+  action: 'create'
+} satisfies iFormModal
+
+
+export const defaultJob: Partial<iJob> = {
+	title: '',
+	content: '',
+	location: '',
+	nature: '',
+	file: ''
 }

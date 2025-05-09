@@ -65,6 +65,7 @@
 		"vitest": "^3.0.0"
 	},
 	"dependencies": {
+		"@ai-sdk/google": "^1.2.17",
 		"@clerk/themes": "^2.2.42",
 		"@tanstack/table-core": "^8.21.3",
 		"@tiptap/core": "^2.11.7",
@@ -79,12 +80,14 @@
 		"@tiptap/starter-kit": "^2.11.7",
 		"@toolsntuts/utils": "^0.2.9",
 		"@xata.io/client": "^0.0.0-next.v93343b9646f57a1e5c51c35eccf0767c2bb80baa",
+		"ai": "^4.3.15",
 		"croppie": "^2.6.5",
 		"datatables.net-dt": "^2.3.0",
 		"datatables.net-responsive-dt": "^3.0.4",
 		"esm-env": "^1.2.2",
 		"jsrepo": "^2.0.2",
 		"lucide-svelte": "^0.485.0",
+		"marked": "^15.0.11",
 		"runed": "^0.26.0",
 		"svelte-clerk": "^0.12.0",
 		"svelte-easy-crop": "^4.0.1",

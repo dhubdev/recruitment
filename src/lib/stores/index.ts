@@ -1,4 +1,5 @@
-import type { iMeta, iModal } from "$lib/interface";
+import { initialForm } from "$lib/constants";
+import type { iFormModal, iMeta, iModal } from "$lib/interface";
 import { writable } from "svelte/store";
 
 const modalStore = writable<iModal>({
@@ -14,5 +15,6 @@ const metaStore = writable<iMeta>({
   keywords: ['study', 'abroad', 'education', 'international', 'masters', 'first degree', 'Study Abroad']
 });
 
+const formsModalStore = writable<iFormModal>(initialForm)
 
-export { modalStore, metaStore }
+export { modalStore, metaStore, formsModalStore }

@@ -76,6 +76,10 @@ export interface iLegalRoute extends iRoute {
 	name: 'terms of use' | 'cookie policy' | 'privacy policy';
 }
 
+export type TField = 'job'
+
+export type TActionType = 'create' | 'edit'
+
 export interface iModal {
 	type: ModalType;
 	open: boolean;
@@ -124,3 +128,26 @@ export interface iSection {
 	title: string;
 	content: string;
 }
+
+
+export interface iFormModal {
+	type: TField,
+	open: boolean;
+	data?: any,
+	title: string;
+	action: TActionType
+}
+
+export interface iJob extends iXata {
+	title: string
+	content: string;
+	location: string;
+	nature: string;
+	file: string | iFile;
+}
+
+// Content & Social Media Officer
+// We’re looking for a creative and passionate Content & Social Media Officer to join our team!
+// Location: Remote
+// Full time 
+// To apply, send your CV to: dhubeducation@gmail.com 
