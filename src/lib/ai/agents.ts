@@ -33,6 +33,7 @@ export const runAgent = async <T extends ZodRawShape>({
     prompt: generatePrompt(input)
   });
 
+  console.log({ generated })
   const { object: metrics } = await generateObject({
     model,
     schema,

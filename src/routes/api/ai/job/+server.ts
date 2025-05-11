@@ -15,12 +15,12 @@ export const POST: RequestHandler = async ({ request }) => {
       jobDescription: z.boolean(),
       jobRequirements: z.boolean(),
       whatWeOffer: z.boolean(),
-      clarity: z.number().min(1).max(10)
+      clarity: z.number().min(0).max(1)
     }),
     generatePrompt: (input) =>
       `Write a world class job vacancy: ${input}. Focus on the job description requirements, and what we offer`,
     evaluatePrompt: (copy) =>
-      `Evaluate this marketing copy for:
+      `Evaluate this copy for:
       1. Job description
       2. Job requirements
       3. What we offer
@@ -32,7 +32,7 @@ export const POST: RequestHandler = async ({ request }) => {
       ${!qm.jobRequirements ? "- A list of job requirements" : ""}
       ${qm.jobDescription ? "- A world class job description" : ""}
       ${qm.whatWeOffer ? "- The perks we offer" : ""}
-      ${qm.clarity < 7 ? "- Improved clarity and directness" : ""}
+      ${qm.clarity < 0.5 ? "- Improved clarity and directness" : ""}
 
       Original copy: ${copy}`
   });

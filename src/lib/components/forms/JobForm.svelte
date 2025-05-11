@@ -63,23 +63,13 @@
 		const result = await aiSubmitForm(evt, 'job');
 
 		if (result) {
-			console.log({ result })
+			console.log({ result  })
 			placeholder.title = result.qualityMetrics.title;
 			placeholder.content = result.qualityMetrics.content;
 			aiContent = result.copy;
 			content = result.copy;
 		}
 		aiLoading = false;
-	};
-
-	const handleDeleteApi = async () => {
-		deleteResourceApi({
-			resource: job,
-			endpoint: 'jobs',
-			redirect: '/admin/jobs',
-			successMessage: 'Job deleted',
-			errorMessage: 'Make sure you remove fields using this job'
-		});
 	};
 
 	const getcontent = ($content: string) => (content = $content);
