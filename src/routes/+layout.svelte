@@ -3,6 +3,7 @@
 	import { ClerkProvider } from 'svelte-clerk';
 	import { PUBLIC_CLERK_PUBLISHABLE_KEY } from '$env/static/public';
 	import { ModeWatcher } from 'mode-watcher';
+	import { Toaster } from 'svelte-sonner';
 
 	let { children } = $props();
 </script>
@@ -12,4 +13,5 @@
 		{@render children()}
 	</div>
 	<ModeWatcher />
+	<Toaster richColors position="top-center" />
 </ClerkProvider>
