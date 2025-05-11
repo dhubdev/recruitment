@@ -80,7 +80,7 @@ export const aiSubmitForm = async (evt: SubmitEvent, resource: AIResource) => {
   const prompt = entries.prompt as string
 
   try {
-    const url = `/api/ai/agents/${resource}`
+    const url = `/api/ai/${resource}`
     const options: RequestInit = {
       method: 'post',
       headers: {
