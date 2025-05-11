@@ -40,7 +40,7 @@ export const defaultJob = {
 	content: '',
 	location: '',
 	nature: '',
-	file: ''
+	file: undefined
 }
 
 export const natureOptions: { label: string, value: string }[] = [
