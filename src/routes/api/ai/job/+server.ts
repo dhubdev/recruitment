@@ -24,7 +24,13 @@ export const POST: RequestHandler = async ({ request }) => {
       1. Job description
       2. Job requirements
       3. What we offer
-      Return response in html tag
+
+      From the copy generate:
+      1. Title of the vacancy
+      2. Brief 2 line description of the job listing
+      3. Nature of the job: Full time / part time
+      4. Location of the job: On-site / Remote / Hybrid
+      5. Return response in html tag
 
       Copy to evaluate: ${copy}`,
     improvePrompt: (copy, qm) =>
