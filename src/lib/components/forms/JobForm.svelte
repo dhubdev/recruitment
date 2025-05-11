@@ -86,7 +86,7 @@
 
 <form onsubmit={handleAiSubmit} class="space-y-2">
 	<Textarea
-		name="blogcontent"
+		name="prompt"
 		placeholder="Paste blog name to generate AI content for blog"
 		class={removeRingClasses()}
 	></Textarea>
