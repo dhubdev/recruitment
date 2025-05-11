@@ -84,72 +84,70 @@
 	const getcontent = ($content: string) => (content = $content);
 </script>
 
-<ScrollArea class="h-[70vh] landscape:h-[50vh] portrait:h-[70vh]">
-	<form onsubmit={handleAiSubmit} class="space-y-2">
-		<Textarea
-			name="blogcontent"
-			placeholder="Paste blog name to generate AI content for blog"
-			class={removeRingClasses()}
-		></Textarea>
-		{#if aiLoading}
-			<Button size="icon">
-				<SpinLoader />
-			</Button>
-		{:else}
-			<Button type="submit">Generate</Button>
-		{/if}
-	</form>
-	<form {onsubmit} class="w-full space-y-4">
-		<div class="grid grid-cols-1 gap-4">
-			<div>
-				<Label for="title">Title</Label>
-				<Input
-					id="title"
-					disabled={loading}
-					required
-					placeholder="Job title"
-					name="title"
-					bind:value={placeholder.title}
-					class={removeRingClasses()}
-				/>
-			</div>
-			<div>
-				<Label for="nature">Nature</Label>
-				<Input
-					id="nature"
-					disabled={loading}
-					required
-					placeholder="Nature of the job (Remote / On-Site / Hybrid)"
-					name="nature"
-					bind:value={placeholder.nature}
-					class={removeRingClasses()}
-				/>
-			</div>
-			<div>
-				<Label for="location">Location</Label>
-				<Input
-					id="location"
-					disabled={loading}
-					required
-					placeholder="Job location"
-					name="location"
-					bind:value={placeholder.location}
-					class={removeRingClasses()}
-				/>
-			</div>
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-				<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
-				{#key aiContent}
-					<TiptapEditor {content} title="Blog content" {getcontent} />
-				{/key}
-			</div>
+<form onsubmit={handleAiSubmit} class="space-y-2">
+	<Textarea
+		name="blogcontent"
+		placeholder="Paste blog name to generate AI content for blog"
+		class={removeRingClasses()}
+	></Textarea>
+	{#if aiLoading}
+		<Button size="icon">
+			<SpinLoader />
+		</Button>
+	{:else}
+		<Button type="submit">Generate</Button>
+	{/if}
+</form>
+<form {onsubmit} class="w-full space-y-4">
+	<div class="grid grid-cols-1 gap-4">
+		<div>
+			<Label for="title">Title</Label>
+			<Input
+				id="title"
+				disabled={loading}
+				required
+				placeholder="Job title"
+				name="title"
+				bind:value={placeholder.title}
+				class={removeRingClasses()}
+			/>
 		</div>
-		{#if loading}
-			<Button size="icon">
-				<SpinLoader />
-			</Button>
-		{:else}
-			<Button type="submit">{action}</Button>
-		{/if}
-	</form>
-</ScrollArea>
+		<div>
+			<Label for="nature">Nature</Label>
+			<Input
+				id="nature"
+				disabled={loading}
+				required
+				placeholder="Nature of the job (Remote / On-Site / Hybrid)"
+				name="nature"
+				bind:value={placeholder.nature}
+				class={removeRingClasses()}
+			/>
+		</div>
+		<div>
+			<Label for="location">Location</Label>
+			<Input
+				id="location"
+				disabled={loading}
+				required
+				placeholder="Job location"
+				name="location"
+				bind:value={placeholder.location}
+				class={removeRingClasses()}
+			/>
+		</div>
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
+			{#key aiContent}
+				<TiptapEditor {content} title="Blog content" {getcontent} />
+			{/key}
+		</div>
+	</div>
+	{#if loading}
+		<Button size="icon">
+			<SpinLoader />
+		</Button>
+	{:else}
+		<Button type="submit">{action}</Button>
+	{/if}
+</form>

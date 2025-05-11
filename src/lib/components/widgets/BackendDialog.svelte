@@ -4,10 +4,11 @@
 	import type { iJob } from '$lib/interface';
 	import JobForm from '../forms/JobForm.svelte';
 	import DeleteJobForm from '../forms/delete/DeleteJobForm.svelte';
+	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
 </script>
 
 <Dialog.Root open={$modalStore.open}>
-	<Dialog.Content class="mx-auto w-[calc(100%-32px)] max-w-4xl p-4 rounded-lg">
+	<Dialog.Content class="mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-4">
 		<Dialog.Header class="contents gap-0 space-y-0 text-left">
 			<Dialog.Title class="p-1 text-base">
 				<h2>{$modalStore.title}</h2>
@@ -18,7 +19,9 @@
 			{$modalStore.description}
 		</Dialog.Description>
 		{#if $modalStore.type === 'job'}
-			<JobForm job={$modalStore.data as iJob} />
+			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh]">
+				<JobForm job={$modalStore.data as iJob} />
+			</ScrollArea>
 		{/if}
 
 		{#if $modalStore.type === 'deleteJob'}

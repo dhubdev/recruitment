@@ -5,9 +5,11 @@
 	let { data }: { data: PageServerData } = $props();
 </script>
 
-{#await data.getJob}
-	<p>Loading...</p>
-{:then result}
-	{@const job = result.data}
-	<JobForm {job} />
-{/await}
+<div class="p-4">
+	{#await data.getJob}
+		<p>Loading...</p>
+	{:then result}
+		{@const job = result.data}
+		<JobForm {job} />
+	{/await}
+</div>
