@@ -63,6 +63,7 @@
 		const result = await aiSubmitForm(evt, 'job');
 
 		if (result) {
+			console.log({ result })
 			placeholder.title = result.qualityMetrics.title;
 			placeholder.content = result.qualityMetrics.content;
 			aiContent = result.copy;
