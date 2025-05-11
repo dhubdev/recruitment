@@ -78,7 +78,7 @@
 <form onsubmit={handleAiSubmit} class="space-y-2">
 	<Textarea
 		name="prompt"
-		placeholder="Paste blog name to generate AI content for blog"
+		placeholder="Paste job name to generate AI content for job"
 		class={removeRingClasses()}
 	></Textarea>
 	{#if aiLoading}
@@ -109,7 +109,7 @@
 				id="nature"
 				disabled={loading}
 				required
-				placeholder="Nature of the job (Remote / On-Site / Hybrid)"
+				placeholder="Nature of the job (Part-Time / Full-Time)"
 				name="nature"
 				bind:value={placeholder.nature}
 				class={removeRingClasses()}
@@ -121,7 +121,7 @@
 				id="location"
 				disabled={loading}
 				required
-				placeholder="Job location"
+				placeholder="Job location (Remote / On-Site / Hybrid)"
 				name="location"
 				bind:value={placeholder.location}
 				class={removeRingClasses()}
@@ -130,7 +130,7 @@
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
 			{#key aiContent}
-				<TiptapEditor {content} title="Blog content" {getcontent} />
+				<TiptapEditor {content} title="job content" {getcontent} />
 			{/key}
 		</div>
 	</div>
