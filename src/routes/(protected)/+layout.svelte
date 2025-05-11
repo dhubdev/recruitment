@@ -6,6 +6,7 @@
 	import AppSidebar from '$lib/components/sections/AppSidebar.svelte';
 	import DashboardHeader from '$lib/components/sections/DashboardHeader.svelte';
 	import FormsModal from '$lib/components/widgets/FormsModal.svelte';
+	import BackendDialog from '$lib/components/widgets/BackendDialog.svelte';
 
 	let { data, children }: { data: LayoutServerData; children: Snippet } = $props();
 
@@ -22,3 +23,4 @@
 	</Sidebar.Inset>
 </Sidebar.Provider>
 <FormsModal />
+<BackendDialog />

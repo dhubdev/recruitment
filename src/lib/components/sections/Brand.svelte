@@ -6,7 +6,7 @@
 <Button
 	href="/"
 	variant="ghost"
-	class="h-auto items-center hover:bg-transparent"
+	class="h-auto items-center hover:bg-transparent p-0"
 >
 	<Logo class="size-10" />
 	<div class="-mt-3 leading-[.2]">

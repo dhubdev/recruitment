@@ -31,7 +31,7 @@
 	<div class="flex items-center justify-center gap-2 md:justify-start">
 		<Button onclick={addJob}>
 			<PlusIcon class="size-4" />
-			<span>Add Referee</span>
+			<span>Add Job</span>
 		</Button>
 	</div>
 	{#await data.getJobs}
