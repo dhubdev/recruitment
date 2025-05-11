@@ -35,10 +35,36 @@ export const initialForm = {
 } satisfies iFormModal
 
 
-export const defaultJob: Partial<iJob> = {
+export const defaultJob = {
 	title: '',
 	content: '',
 	location: '',
 	nature: '',
 	file: ''
 }
+
+export const natureOptions: { label: string, value: string }[] = [
+	{
+		label: 'Full-Time',
+		value: 'full-time'
+	},
+	{
+		label: 'Part-Time',
+		value: 'part-time'
+	}
+]
+
+export const locationOptions: { label: string, value: string }[] = [
+	{
+		label: 'Onsite',
+		value: 'onsite'
+	},
+	{
+		label: 'Remote',
+		value: 'remote'
+	},
+	{
+		label: 'Hybrid',
+		value: 'hybrid'
+	}
+]

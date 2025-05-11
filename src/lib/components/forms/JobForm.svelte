@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { aiSubmitForm, deleteResourceApi, submitForm } from '$lib/client/actions';
-	import { defaultJob, Role } from '$lib/constants';
+	import { defaultJob, locationOptions, natureOptions, Role } from '$lib/constants';
 	import type { iFile, iJob, iUser } from '$lib/interface';
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
@@ -17,6 +17,7 @@
 	import TiptapEditor from '../ui/tiptap-editor/tiptap-editor.svelte';
 	import ImageDropZone from '../ui/file-drop-zone/image-drop-zone.svelte';
 	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
+	import Select from '../ui/select/select.svelte';
 
 	interface Props {
 		job?: iJob;
@@ -29,8 +30,6 @@
 	let loading = $state(false);
 	let aiLoading = $state(false);
 
-	const title = job ? 'Edit Job' : 'Create Job';
-	const description = job ? 'Edit a Job' : 'Add a new Job';
 	const action = job ? 'Save changes' : 'Create';
 
 	let placeholder = $state(job ? job : defaultJob);
@@ -104,28 +103,12 @@
 			/>
 		</div>
 		<div>
-			<Label for="nature">Nature</Label>
-			<Input
-				id="nature"
-				disabled={loading}
-				required
-				placeholder="Nature of the job (Part-Time / Full-Time)"
-				name="nature"
-				bind:value={placeholder.nature}
-				class={removeRingClasses()}
-			/>
+			<Label for="nature">Nature of the job</Label>
+			<Select options={natureOptions} name="nature" bind:value={placeholder.nature} />
 		</div>
 		<div>
 			<Label for="location">Location</Label>
-			<Input
-				id="location"
-				disabled={loading}
-				required
-				placeholder="Job location (Remote / On-Site / Hybrid)"
-				name="location"
-				bind:value={placeholder.location}
-				class={removeRingClasses()}
-			/>
+			<Select options={locationOptions} name="location" bind:value={placeholder.location} />
 		</div>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
