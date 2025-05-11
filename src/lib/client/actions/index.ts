@@ -54,8 +54,6 @@ export const submitForm = async <T extends HasMaybeFileAndContent>(
     const action = isUpdating ? 'updating' : 'creating';
     const capitalized = capitalize(resource)
 
-    console.log({ action, message, status })
-
     if (status === 'error') {
       toast.error(message, {
         description: `Error ${action} ${resource.slice(0, -1)}`,
