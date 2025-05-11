@@ -77,7 +77,7 @@
 <form onsubmit={handleAiSubmit} class="space-y-2">
 	<Textarea
 		name="prompt"
-		placeholder="Paste job name to generate AI content for job"
+		placeholder="Enter a short job listing (e.g., “Remote Content & Social Media Officer, full-time”) and AI will generate a detailed job description."
 		class={removeRingClasses()}
 	></Textarea>
 	{#if aiLoading}
