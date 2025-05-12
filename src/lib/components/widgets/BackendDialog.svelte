@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { modalStore } from '$lib/stores';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import type { iJob } from '$lib/interface';
+	import type { iDoc, iJob } from '$lib/interface';
 	import JobForm from '../forms/JobForm.svelte';
 	import DeleteJobForm from '../forms/delete/DeleteJobForm.svelte';
 	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
+	import DocForm from '../forms/DocForm.svelte';
+	import DeleteDocForm from '../forms/delete/DeleteDocForm.svelte';
 </script>
 
 <Dialog.Root open={$modalStore.open}>
@@ -26,6 +28,16 @@
 
 		{#if $modalStore.type === 'deleteJob'}
 			<DeleteJobForm job={$modalStore.data as iJob} />
+		{/if}
+
+		{#if $modalStore.type === 'doc'}
+			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh]">
+				<DocForm doc={$modalStore.data as iDoc} />
+			</ScrollArea>
+		{/if}
+		
+		{#if $modalStore.type === 'deleteJob'}
+			<DeleteDocForm doc={$modalStore.data as iDoc} />
 		{/if}
 	</Dialog.Content>
 </Dialog.Root>

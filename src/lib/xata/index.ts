@@ -9,6 +9,91 @@ import { defaultOptions } from "./config";
 
 const tables = [
   {
+    name: "doc",
+    checkConstraints: {
+      doc_xata_id_length_xata_id: {
+        name: "doc_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {
+      file_link: {
+        name: "file_link",
+        columns: ["file"],
+        referencedTable: "file",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+    },
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_doc_xata_id_key: {
+        name: "_pgroll_new_doc_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "content",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "file",
+        type: "link",
+        link: { table: "file" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "title",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
     name: "file",
     checkConstraints: {
       file_xata_id_length_xata_id: {
@@ -145,6 +230,14 @@ const tables = [
       },
       {
         name: "nature",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "source",
         type: "text",
         notNull: false,
         unique: false,
@@ -314,6 +407,9 @@ const tables = [
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
+export type Doc = InferredTypes["doc"];
+export type DocRecord = Doc & XataRecord;
+
 export type File = InferredTypes["file"];
 export type FileRecord = File & XataRecord;
 
@@ -324,6 +420,7 @@ export type User = InferredTypes["user"];
 export type UserRecord = User & XataRecord;
 
 export type DatabaseSchema = {
+  doc: DocRecord;
   file: FileRecord;
   job: JobRecord;
   user: UserRecord;

@@ -45,6 +45,13 @@ export const defaultJob = {
 	file: undefined
 }
 
+export const defaultDoc = {
+	title: '',
+	content: '',
+	slug: '',
+	file: undefined
+}
+
 export const natureOptions: { label: string, value: string }[] = [
 	{
 		label: 'Full-Time',
@@ -53,6 +60,21 @@ export const natureOptions: { label: string, value: string }[] = [
 	{
 		label: 'Part-Time',
 		value: 'part-time'
+	}
+]
+
+export const docOptions: { label: string, value: string }[] = [
+	{
+		label: 'Privacy Policy',
+		value: 'privacy-policy'
+	},
+	{
+		label: 'Cookie Policy',
+		value: 'cookie-policy'
+	},
+	{
+		label: 'Terms of Use',
+		value: 'terms-of-use'
 	}
 ]
 

@@ -2,29 +2,6 @@
 	import { getContext } from 'svelte';
 	import { Role } from '../../../constants/index';
 
-	const me = getContext('me') as iUser;
-	let defaultLinks: iRoute[] = [
-		{
-			name: 'home',
-			href: '/',
-			isAuthorized: true
-		},
-		{
-			name: 'admin',
-			href: '/admin',
-			isAuthorized: me.role === Role.ADMIN
-		},
-		{
-			name: 'about',
-			href: '/about',
-			isAuthorized: true
-		},
-		// {
-		// 	name: 'blogs',
-		// 	href: '/blogs',
-		// 	isAuthorized: true
-		// }
-	];
 </script>
 
 <script lang="ts">
@@ -38,6 +15,24 @@
 		links?: iRoute[];
 	}
 
+	const me = getContext('me') as iUser;
+	let defaultLinks: iRoute[] = [
+		{
+			name: 'home',
+			href: '/',
+			isAuthorized: true
+		},
+		{
+			name: 'admin',
+			href: '/admin',
+			isAuthorized: me?.role === Role.ADMIN
+		},
+		{
+			name: 'about',
+			href: '/about',
+			isAuthorized: true
+		},
+	];
 	let { class: className, links = defaultLinks }: Props = $props();
 
 	const pathname = page.url.pathname;

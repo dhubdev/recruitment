@@ -10,9 +10,8 @@ import Checkbox from '$lib/components/ui/checkbox/checkbox.svelte';
 import { CopyIcon, PencilLineIcon, Trash2Icon } from "lucide-svelte";
 import { onCopy } from '@toolsntuts/utils';
 import { get, type Writable } from 'svelte/store';
-import type { iJob, iModal } from '$lib/interface';
-import { jobStore } from '$lib/stores';
-import JobSource from './components/job-source.svelte';
+import type { iDoc, iModal } from '$lib/interface';
+import { docStore } from '$lib/stores';
 
 export type Payment = {
 	id: string;
@@ -33,15 +32,15 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			name: "Edit Row",
 			className: "text-blue-500",
 			action: (id: string) => {
-				const jobs = get(jobStore)
-				const job = jobs.find(ref => ref.xata_id === id)
+				const docs = get(docStore)
+				const doc = docs.find(ref => ref.xata_id === id)
 				modalStore.update(existing => ({
 					...existing,
 					open: true,
-					data: job,
-					title: 'Update Job',
-					description: 'Fill the form below to update job listing',
-					type: 'job'
+					data: doc,
+					title: 'Update Doc',
+					description: 'Fill the form below to update doc listing',
+					type: 'doc'
 				}))
 			},
 			icon: PencilLineIcon
@@ -50,22 +49,22 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			name: "Delete Row",
 			className: "text-red-500",
 			action: async (id: string) => {
-				const jobs = get(jobStore)
-				const job = jobs.find(ref => ref.xata_id === id)
+				const docs = get(docStore)
+				const doc = docs.find(ref => ref.xata_id === id)
 				modalStore.update(existing => ({
 					...existing,
 					open: true,
-					data: job,
+					data: doc,
 					title: 'Delete Row',
-					description: `This action cannot be undone. This will permanently delete ${job?.title} and remove it's data from our servers.`,
-					type: 'deleteJob'
+					description: `This action cannot be undone. This will permanently delete ${doc?.title} and remove it's data from our servers.`,
+					type: 'deleteDoc'
 				}))
 			},
 			icon: Trash2Icon
 		}
 	]
 
-	const columns: ColumnDef<iJob>[] = [
+	const columns: ColumnDef<iDoc>[] = [
 		{
 			id: 'select',
 			header: ({ table }) =>
@@ -85,13 +84,6 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			enableHiding: false
 		},
 		{
-			accessorKey: 'source',
-			header: 'Source',
-			cell: ({ row }) => {
-				return renderComponent(JobSource, { job: row.original });
-			}
-		},
-		{
 			accessorKey: 'title',
 			header: ({ column }) =>
 				renderComponent(DataTableSortButton, {
@@ -100,16 +92,8 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 				}),
 		},
 		{
-			accessorKey: 'location',
-			header: ({ column }) =>
-				renderComponent(DataTableSortButton, {
-					onclick: column.getToggleSortingHandler(),
-					title: 'Location'
-				}),
-		},
-		{
-			accessorKey: 'nature',
-			header: 'Nature'
+			accessorKey: 'slug',
+			header: 'Slug'
 		},
 		{
 			id: 'actions',

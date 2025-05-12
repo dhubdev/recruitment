@@ -21,7 +21,7 @@ export type iResult = {
 	data?: any;
 };
 
-type ModalType = 'job' | 'deleteJob';
+type ModalType = 'job' | 'deleteJob' | 'doc' | 'deleteDoc';
 
 export type MessageRoleType = 'user' | 'assistant';
 
@@ -147,6 +147,13 @@ export interface iJob extends iXata {
 	nature: string;
 	closingDate: string;
 	file: string | iFile;
+}
+
+export interface iDoc extends iXata {
+	title: string;
+	content: string;
+	slug: string;
+	file?: string | iFile
 }
 
 // Content & Social Media Officer

@@ -5,64 +5,59 @@
 	import DataTable from '$lib/components/ui/data-table/data-table.svelte';
 	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
 	import { page } from '$app/state';
-	import type { iFile, iJob } from '$lib/interface';
-	import { jobStore, modalStore } from '$lib/stores';
+	import type { iFile, iDoc } from '$lib/interface';
+	import { docStore, modalStore } from '$lib/stores';
 	import { getColumns } from './column';
 	import { Button } from '$lib/components/ui/button';
 	import { PlusIcon } from 'lucide-svelte';
-	import { toDatetimeLocal } from '$lib/fxns';
 	import type { iResult } from '@toolsntuts/utils';
 
 	let { data }: { data: PageServerData } = $props();
 
 	const columns = getColumns(modalStore);
-	const addJob = () => {
+	const addDoc = () => {
 		$modalStore = {
 			...$modalStore,
 			open: true,
-			title: 'Add Job',
-			description: 'Fill the form below to add a new job',
-			type: 'job'
+			title: 'Add Doc',
+			description: 'Fill the form below to add a new doc',
+			type: 'doc'
 		};
 	};
 
-	const flatten = (job: iJob) => ({
-		id: job.xata_id,
-		title: job.title,
-		location: job.location,
-		nature: job.nature,
-		source: job.source,
-		closingDate: job.closingDate ? job.closingDate : '',
-		createdAt: job.xata_createdat.toLocaleString(),
-		updatedAt: job.xata_updatedat.toLocaleString(),
-		file: job.file ? (job.file as iFile)?.url : ''
+	const flatten = (doc: iDoc) => ({
+		id: doc.xata_id,
+		title: doc.title,
+		createdAt: doc.xata_createdat.toLocaleString(),
+		updatedAt: doc.xata_updatedat.toLocaleString(),
+		file: doc.file ? (doc.file as iFile)?.url : ''
 	});
 
-	const getJobs = (result: iResult) => {
-		$jobStore = result.data as iJob[];
-		return result.data as iJob[];
+	const getDocs = (result: iResult) => {
+		$docStore = result.data as iDoc[]
+		return result.data as iDoc[]
 	};
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
-	<Heading title="Job Listings" description="Add and manage job listings" />
+	<Heading title="Doc Listings" description="Add and manage doc listings" />
 	<Separator />
 	<div class="flex items-center justify-center gap-2 md:justify-start">
-		<Button onclick={addJob}>
+		<Button onclick={addDoc}>
 			<PlusIcon class="size-4" />
-			<span>Add Job</span>
+			<span>Add Doc</span>
 		</Button>
 	</div>
-	{#await data.getJobs}
+	{#await data.getDocs}
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
-		{@const jobs = getJobs(result)}
-		<DataTable {flatten} {columns} data={jobs} />
+		{@const docs = getDocs(result)}
+		<DataTable {flatten} {columns} data={docs} />
 	{:catch error}
 		<AlertWidget
 			variant="destructive"
 			message={error.message}
-			title="Error loading jobs"
+			title="Error loading docs"
 			href={page.url.pathname}
 			linkText="Reload"
 		/>

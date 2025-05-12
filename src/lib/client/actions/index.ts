@@ -12,7 +12,7 @@ interface HasMaybeFileAndContent {
 }
 
 interface SubmitFormOptions<T extends HasMaybeFileAndContent> {
-  resource: 'jobs';
+  resource: 'jobs' | 'docs';
   data: Partial<T>;
   entity?: { xata_id: string };
 }
@@ -71,7 +71,7 @@ export const submitForm = async <T extends HasMaybeFileAndContent>(
   }
 };
 
-type AIResource = 'job'
+type AIResource = 'job' | 'doc'
 export const aiSubmitForm = async (evt: SubmitEvent, resource: AIResource) => {
   evt.preventDefault()
   const form = evt.target as HTMLFormElement
