@@ -21,7 +21,7 @@ export type iResult = {
 	data?: any;
 };
 
-type ModalType = 'job' | 'deleteJob' | 'doc' | 'deleteDoc';
+type ModalType = 'job' | 'deleteJob' | 'doc' | 'deleteDoc'
 
 export type MessageRoleType = 'user' | 'assistant';
 
@@ -84,6 +84,11 @@ export interface iModal {
 	type: ModalType;
   title: string;
   description: string;
+	open: boolean;
+	data?: any;
+}
+
+export interface iDocModal {
 	open: boolean;
 	data?: any;
 }

@@ -7,6 +7,7 @@
 	import DashboardHeader from '$lib/components/sections/DashboardHeader.svelte';
 	import FormsModal from '$lib/components/widgets/FormsModal.svelte';
 	import BackendDialog from '$lib/components/widgets/BackendDialog.svelte';
+	import ViewDocDialog from '$lib/components/widgets/ViewDocDialog.svelte';
 
 	let { data, children }: { data: LayoutServerData; children: Snippet } = $props();
 
@@ -24,3 +25,4 @@
 </Sidebar.Provider>
 <FormsModal />
 <BackendDialog />
+<ViewDocDialog />

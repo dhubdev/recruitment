@@ -7,11 +7,11 @@ import { renderComponent } from '$lib/components/ui/data-table';
 import DataTableActions, { type iDataTableActions } from '$lib/components/ui/data-table/data-table-actions.svelte';
 import DataTableSortButton from '$lib/components/ui/data-table/data-table-sort-button.svelte';
 import Checkbox from '$lib/components/ui/checkbox/checkbox.svelte';
-import { CopyIcon, PencilLineIcon, Trash2Icon } from "lucide-svelte";
+import { CopyIcon, EyeIcon, PencilLineIcon, Trash2Icon } from "lucide-svelte";
 import { onCopy } from '@toolsntuts/utils';
 import { get, type Writable } from 'svelte/store';
 import type { iDoc, iModal } from '$lib/interface';
-import { docStore } from '$lib/stores';
+import { docModalStore, docStore } from '$lib/stores';
 
 export type Payment = {
 	id: string;
@@ -27,6 +27,19 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			name: "Copy ID",
 			action: onCopy,
 			icon: CopyIcon
+		},
+		{
+			name: "View Row",
+			action: (id: string) => {
+				const docs = get(docStore)
+				const doc = docs.find(ref => ref.xata_id === id)
+				docModalStore.update(existing => ({
+					...existing,
+					open: true,
+					data: doc
+				}))
+			},
+			icon: EyeIcon
 		},
 		{
 			name: "Edit Row",
