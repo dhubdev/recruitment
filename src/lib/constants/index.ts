@@ -39,6 +39,8 @@ export const defaultJob = {
 	title: '',
 	content: '',
 	location: '',
+	source: '',
+	closingDate: '',
 	nature: '',
 	file: undefined
 }

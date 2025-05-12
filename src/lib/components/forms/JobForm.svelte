@@ -4,10 +4,6 @@
 	import type { iFile, iJob, iUser } from '$lib/interface';
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
-	import Heading from '../sections/Heading.svelte';
-	import DeleteAlertDialog from '../ui/alert-dialog/delete-alert-dialog.svelte';
-	import { Trash2Icon } from 'lucide-svelte';
-	import Separator from '../ui/separator/separator.svelte';
 	import Textarea from '../ui/textarea/textarea.svelte';
 	import { removeRingClasses } from '@toolsntuts/utils';
 	import { Button } from '../ui/button';
@@ -16,7 +12,6 @@
 	import { Input } from '../ui/input';
 	import TiptapEditor from '../ui/tiptap-editor/tiptap-editor.svelte';
 	import ImageDropZone from '../ui/file-drop-zone/image-drop-zone.svelte';
-	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
 	import Select from '../ui/select/select.svelte';
 
 	interface Props {
@@ -99,6 +94,31 @@
 				placeholder="Job title"
 				name="title"
 				bind:value={placeholder.title}
+				class={removeRingClasses()}
+			/>
+		</div>
+		<div>
+			<Label for="source">Source</Label>
+			<Input
+				id="source"
+				disabled={loading}
+				required
+				placeholder="Job source (e.g. Dhub Education)"
+				name="source"
+				bind:value={placeholder.source}
+				class={removeRingClasses()}
+			/>
+		</div>
+		<div>
+			<Label for="closingDate">Closing Date</Label>
+			<Input
+				id="closingDate"
+				type="datetime-local"
+				disabled={loading}
+				required
+				placeholder="Job closing date"
+				name="closingDate"
+				bind:value={placeholder.closingDate}
 				class={removeRingClasses()}
 			/>
 		</div>
