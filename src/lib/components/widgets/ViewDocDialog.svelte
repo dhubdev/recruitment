@@ -27,7 +27,7 @@
 				{title}
 			</Dialog.Title>
 			<div bind:this={content} onscroll={handleScroll} class="overflow-y-auto">
-				<Dialog.Description class="px-6 py-4">
+				<Dialog.Description class="px-6 py-4 prose dark:prose-invert">
 					{@html docContent}
 				</Dialog.Description>
 			</div>
