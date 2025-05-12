@@ -1,6 +1,6 @@
 import type { iJob } from '$lib/interface';
 import { authGuard } from '$lib/server';
-import { updateJob } from '$lib/xata/job';
+import { deleteJob, updateJob } from '$lib/xata/job';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
@@ -19,4 +19,14 @@ export const PATCH: RequestHandler = async ({ locals, request, params }) => {
   const result = await updateJob(id, partialJob)
   
   return json(result);
+};
+
+export const DELETE: RequestHandler = async ({ locals, request, params }) => {
+  const { id } = params
+
+  authGuard(locals)
+
+  const result = await deleteJob(id)
+
+  return json(result)
 };
