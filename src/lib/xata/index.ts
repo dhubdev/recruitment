@@ -5,6 +5,7 @@ import type {
   SchemaInference,
   XataRecord,
 } from "@xata.io/client";
+import { defaultOptions } from "./config";
 
 const tables = [
   {
@@ -434,11 +435,6 @@ export type DatabaseSchema = {
 };
 
 const DatabaseClient = buildClient();
-
-const defaultOptions = {
-  databaseURL:
-    "https://Dhub-Dev-s-workspace-rgovaa.us-east-1.xata.sh/db/recruitment",
-};
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
   constructor(options?: BaseClientOptions) {
