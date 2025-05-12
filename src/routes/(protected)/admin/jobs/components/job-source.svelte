@@ -11,7 +11,7 @@
 
 <div class="flex items-center gap-2">
 	<Avatar>
-		<AvatarImage src={(job.file as iFile).url} alt={job.title} />
+		<AvatarImage src={(job.file as iFile)?.url} alt={job.title} />
 		<AvatarFallback class="uppercase">{job.title[0]}{job.title[1]}</AvatarFallback>
 	</Avatar>
 	<div class="flex flex-col">
