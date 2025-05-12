@@ -8,6 +8,7 @@
 	import FormsModal from '$lib/components/widgets/FormsModal.svelte';
 	import BackendDialog from '$lib/components/widgets/BackendDialog.svelte';
 	import ViewDocDialog from '$lib/components/widgets/ViewDocDialog.svelte';
+	import { docModalStore } from '$lib/stores';
 
 	let { data, children }: { data: LayoutServerData; children: Snippet } = $props();
 
@@ -25,4 +26,6 @@
 </Sidebar.Provider>
 <FormsModal />
 <BackendDialog />
-<ViewDocDialog />
+{#if $docModalStore.open}
+	<ViewDocDialog />
+{/if}

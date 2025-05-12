@@ -5,15 +5,32 @@ import { addDoc, deleteDoc } from '$lib/xata/doc';
 import { onError } from '@toolsntuts/utils';
 import { authGuard, throwIfError } from '$lib/server';
 import { json } from '@sveltejs/kit';
+import type { iJob } from '$lib/interface';
+import { updateJob } from '$lib/xata/job';
 
 export const GET: RequestHandler = async () => {
   return new Response();
 };
 
 
-export const DELETE: RequestHandler = async ({ request, params }) => {
+export const PATCH: RequestHandler = async ({ request, params, locals }) => {
+  
+  const { id } = params
+
+  authGuard(locals)
+
+  const job = await request.json() as iJob
+
+  const result = updateJob(id, job)
+
+  return json(result)
+};
+
+export const DELETE: RequestHandler = async ({ request, params, locals }) => {
 
   const { id } = params
+
+  authGuard(locals)
   try {
     const formData = await request.formData()
     const fileId = formData.get("fileId") as string
