@@ -6,6 +6,7 @@
 	import type { iRoute, iUser } from '$lib/interface';
 	import { page } from '$app/state';
 	import Brand from './Brand.svelte';
+	import { Role } from '$lib/constants';
 
 	let me = getContext('me') as iUser;
 
@@ -15,17 +16,13 @@
 		...restProps
 	}: ComponentProps<typeof Sidebar.Root> = $props();
 
+	const isAdmin = me.role === Role.ADMIN;
 
 	let routes: iRoute[] = [
 		{
 			name: 'Overview',
 			href: `/admin`,
 			icon: StoreIcon
-		},
-		{
-			name: 'Homepage',
-			href: `/admin/homepage`,
-			icon: HouseIcon
 		},
 		{
 			name: 'Jobs',
@@ -39,9 +36,16 @@
 		}
 	];
 
-	const pathname = $state(page.url.pathname)
+	isAdmin &&
+		routes.push({
+			name: 'Homepage',
+			href: `/admin/homepage`,
+			icon: HouseIcon
+		});
 
-	const isActive = (href: string) => href === pathname
+	const pathname = $state(page.url.pathname);
+
+	const isActive = (href: string) => href === pathname;
 </script>
 
 <Sidebar.Root bind:ref {collapsible} {...restProps}>
@@ -54,7 +58,7 @@
 				<Sidebar.Menu>
 					{#each routes as { href, name, icon: Icon } (href)}
 						<Sidebar.MenuItem>
-							<Sidebar.MenuButton variant={isActive(href) ? "outline" : "default"}>
+							<Sidebar.MenuButton variant={isActive(href) ? 'outline' : 'default'}>
 								{#snippet child({ props })}
 									<a {href} {...props}>
 										<Icon class="size-4" />
