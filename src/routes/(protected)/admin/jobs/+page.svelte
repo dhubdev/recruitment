@@ -33,7 +33,7 @@
 		closingDate: toDatetimeLocal(job.closingDate),
 		createdAt: toDatetimeLocal(job.xata_createdat.toLocaleString()),
 		updatedAt: toDatetimeLocal(job.xata_updatedat.toLocaleString()),
-		file: (job.file as iFile).url
+		file: job.file ? (job.file as iFile)?.url : ''
 	})
 </script>
 
