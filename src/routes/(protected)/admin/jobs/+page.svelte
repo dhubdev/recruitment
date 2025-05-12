@@ -31,6 +31,7 @@
 		title: job.title,
 		location: job.location,
 		nature: job.nature,
+		source: job.source,
 		closingDate: job.closingDate ? job.closingDate : '',
 		createdAt: job.xata_createdat.toLocaleString(),
 		updatedAt: job.xata_updatedat.toLocaleString(),
