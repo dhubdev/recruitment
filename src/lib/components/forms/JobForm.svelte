@@ -13,6 +13,7 @@
 	import TiptapEditor from '../ui/tiptap-editor/tiptap-editor.svelte';
 	import ImageDropZone from '../ui/file-drop-zone/image-drop-zone.svelte';
 	import Select from '../ui/select/select.svelte';
+	import { cn } from '$lib/utils';
 
 	interface Props {
 		job?: iJob;
@@ -73,7 +74,7 @@
 	<Textarea
 		name="prompt"
 		placeholder="Enter a short job listing (e.g., “Remote Content & Social Media Officer, full-time”) and AI will generate a detailed job description."
-		class={removeRingClasses()}
+		class={cn(removeRingClasses(), "resize-none")}
 	></Textarea>
 	{#if aiLoading}
 		<Button size="icon">
