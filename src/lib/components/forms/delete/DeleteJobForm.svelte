@@ -21,7 +21,11 @@
 			loading = true;
 			const url = `/api/jobs/${job.xata_id}`;
 			const options: RequestInit = {
-				method: 'delete'
+				method: 'delete',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(job)
 			};
 			const response = await fetch(url, options);
 			const { status, message } = (await response.json()) as iResult;
