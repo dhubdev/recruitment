@@ -6,11 +6,12 @@
 	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
 	import { page } from '$app/state';
 	import type { iFile, iJob } from '$lib/interface';
-	import { modalStore } from '$lib/stores';
+	import { jobsStore, modalStore } from '$lib/stores';
 	import { getColumns } from './column';
 	import { Button } from '$lib/components/ui/button';
 	import { PlusIcon } from 'lucide-svelte';
 	import { toDatetimeLocal } from '$lib/fxns';
+	import type { iResult } from '@toolsntuts/utils';
 
 	let { data }: { data: PageServerData } = $props();
 
@@ -34,7 +35,12 @@
 		createdAt: job.xata_createdat.toLocaleString(),
 		updatedAt: job.xata_updatedat.toLocaleString(),
 		file: job.file ? (job.file as iFile)?.url : ''
-	})
+	});
+
+	const getJobs = (result: iResult) => {
+		$jobsStore = result.data as iJob[]
+		return result.data as iJob[]
+	};
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
@@ -47,9 +53,9 @@
 		</Button>
 	</div>
 	{#await data.getJobs}
-		<DataTable {flatten}  {columns} data={[]} />
+		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
-		{@const jobs = result.data as iJob[]}
+		{@const jobs = getJobs(result)}
 		<DataTable {flatten} {columns} data={jobs} />
 	{:catch error}
 		<AlertWidget
