@@ -16,13 +16,16 @@
 		...restProps
 	}: ComponentProps<typeof Sidebar.Root> = $props();
 
-	const isAdmin = me.role === Role.ADMIN;
-
 	let routes: iRoute[] = [
 		{
 			name: 'Overview',
 			href: `/admin`,
 			icon: StoreIcon
+		},
+		{
+			name: 'Homepage',
+			href: `/admin/homepage`,
+			icon: HouseIcon
 		},
 		{
 			name: 'Jobs',
@@ -35,13 +38,6 @@
 			icon: SettingsIcon
 		}
 	];
-
-	isAdmin &&
-		routes.push({
-			name: 'Homepage',
-			href: `/admin/homepage`,
-			icon: HouseIcon
-		});
 
 	const pathname = $state(page.url.pathname);
 

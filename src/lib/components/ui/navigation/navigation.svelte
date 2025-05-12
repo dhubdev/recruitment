@@ -1,4 +1,8 @@
 <script module>
+	import { getContext } from 'svelte';
+	import { Role } from '../../../constants/index';
+
+	const me = getContext('me') as iUser;
 	let defaultLinks: iRoute[] = [
 		{
 			name: 'home',
@@ -8,27 +12,25 @@
 		{
 			name: 'admin',
 			href: '/admin',
-			isAuthorized: true
+			isAuthorized: me.role === Role.ADMIN
 		},
 		{
 			name: 'about',
 			href: '/about',
 			isAuthorized: true
 		},
-		{
-			name: 'blogs',
-			href: '/blogs',
-			isAuthorized: true
-		}
+		// {
+		// 	name: 'blogs',
+		// 	href: '/blogs',
+		// 	isAuthorized: true
+		// }
 	];
 </script>
 
 <script lang="ts">
 	import { page } from '$app/state';
 	import { cn } from '../../../utils/index';
-	import { getContext } from 'svelte';
 	import type { iRoute, iUser } from '../../../interface/index';
-	import { Role } from '../../../constants/index';
 	import { Button } from '../button';
 
 	interface Props {
@@ -36,16 +38,7 @@
 		links?: iRoute[];
 	}
 
-	const me = getContext('me') as iUser;
-
 	let { class: className, links = defaultLinks }: Props = $props();
-
-	$effect(() => {
-		const condition = me && me.role === Role.ADMIN;
-		console.log({ condition, me });
-	});
-
-	let isAuthorized = $derived(me && me.role === Role.ADMIN);
 
 	const pathname = page.url.pathname;
 	const isActiveRoute = (path: string) => pathname === path;
