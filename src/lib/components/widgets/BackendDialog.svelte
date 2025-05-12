@@ -10,7 +10,7 @@
 </script>
 
 <Dialog.Root open={$modalStore.open}>
-	<Dialog.Content class="mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-4">
+	<Dialog.Content class="mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-2">
 		<Dialog.Header class="contents gap-0 space-y-0 text-left">
 			<Dialog.Title class="p-1 text-base">
 				<h2>{$modalStore.title}</h2>
@@ -21,7 +21,7 @@
 			{$modalStore.description}
 		</Dialog.Description>
 		{#if $modalStore.type === 'job'}
-			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh]">
+			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh] p-2">
 				<JobForm job={$modalStore.data as iJob} />
 			</ScrollArea>
 		{/if}
@@ -31,7 +31,7 @@
 		{/if}
 
 		{#if $modalStore.type === 'doc'}
-			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh]">
+			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh] p-2">
 				<DocForm doc={$modalStore.data as iDoc} />
 			</ScrollArea>
 		{/if}
