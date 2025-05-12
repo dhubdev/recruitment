@@ -26,10 +26,10 @@ export const getDoc = async (docId: string) => {
   }
 }
 
-export const updateDoc = async (docId: string, data: any) => {
+export const updateDoc = async (id: string, data: any) => {
   const xata = getXataClient()
   try {
-    const doc = await xata.db.doc.update(docId, data)
+    const doc = await xata.db.doc.update(id, data)
     return onSuccess(doc)
   } catch (error: any) {
     console.log("updateDoc()", error.message)

@@ -5,7 +5,6 @@ import type {
   SchemaInference,
   XataRecord,
 } from "@xata.io/client";
-import { defaultOptions } from "./config";
 
 const tables = [
   {
@@ -50,6 +49,14 @@ const tables = [
         unique: false,
         defaultValue: null,
         comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "slug",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
       },
       {
         name: "title",
@@ -427,6 +434,11 @@ export type DatabaseSchema = {
 };
 
 const DatabaseClient = buildClient();
+
+const defaultOptions = {
+  databaseURL:
+    "https://Dhub-Dev-s-workspace-rgovaa.us-east-1.xata.sh/db/recruitment",
+};
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
   constructor(options?: BaseClientOptions) {

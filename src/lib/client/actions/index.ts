@@ -36,6 +36,8 @@ export const submitForm = async <T extends HasMaybeFileAndContent>(
     file: fileValue, // Safely assign correct value
   };
 
+  console.log({ payload })
+
   const isUpdating = Boolean(entity?.xata_id);
   const url = isUpdating ? `/api/${resource}/${entity!.xata_id}` : `/api/${resource}`;
   const method = isUpdating ? 'PATCH' : 'POST';
@@ -62,7 +64,7 @@ export const submitForm = async <T extends HasMaybeFileAndContent>(
       toast.success(message, {
         description: `${capitalized} ${isUpdating ? 'updated' : 'created'} successfully`,
       });
-      location.reload();
+      // location.reload();
     }
   } catch (error: any) {
     toast.error(error.message, {

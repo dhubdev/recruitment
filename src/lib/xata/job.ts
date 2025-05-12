@@ -42,6 +42,8 @@ export const deleteJob = async (id: string) => {
 }
 
 export const updateJob = async (id: string, data: any) => {
+
+  console.log({ data, from: "updateJob" })
   const xata = getXataClient()
 
   try {

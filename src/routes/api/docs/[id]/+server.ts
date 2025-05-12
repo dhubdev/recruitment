@@ -5,8 +5,8 @@ import { addDoc, deleteDoc } from '$lib/xata/doc';
 import { onError } from '@toolsntuts/utils';
 import { authGuard, throwIfError } from '$lib/server';
 import { json } from '@sveltejs/kit';
-import type { iJob } from '$lib/interface';
-import { updateJob } from '$lib/xata/job';
+import type { iDoc } from '$lib/interface';
+import { updateDoc } from '$lib/xata/doc';
 
 export const GET: RequestHandler = async () => {
   return new Response();
@@ -19,9 +19,9 @@ export const PATCH: RequestHandler = async ({ request, params, locals }) => {
 
   authGuard(locals)
 
-  const job = await request.json() as iJob
+  const doc = await request.json() as iDoc
 
-  const result = updateJob(id, job)
+  const result = updateDoc(id, doc)
 
   return json(result)
 };
