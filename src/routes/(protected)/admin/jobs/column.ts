@@ -85,6 +85,13 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			enableHiding: false
 		},
 		{
+			accessorKey: 'source',
+			header: 'Source',
+			cell: ({ row }) => {
+				return renderComponent(JobSource, { job: row.original });
+			}
+		},
+		{
 			accessorKey: 'title',
 			header: ({ column }) =>
 				renderComponent(DataTableSortButton, {
@@ -103,10 +110,6 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 		{
 			accessorKey: 'nature',
 			header: 'Nature'
-		},
-		{
-			accessorKey: 'source',
-			header: 'Source'
 		},
 		{
 			id: 'actions',
