@@ -31,11 +31,13 @@ export const POST: RequestHandler = async ({ request }) => {
       3. Nature of the job: Full time / part time
       4. Location of the job: On-site / Remote / Hybrid
 
-      Return response in html tag ensure the following
-      1. It is semantically correct 
-      2. Every section begins an appropriate heading tag h2, h3, h4 with the id of that heading tag a slug of the heading content
-      3. Don't use strong for subtitles, use only heading tags
-      4. The following string will be the content of the section with appropriate tags like the paragraph, table, ul etc.
+      Requirements:
+      1. Every **section must begin** with a heading tag ('<h2>', '<h3>', or '<h4>' depending on context).
+      2. The **heading tag must have an id** that is a URL-friendly slug of its text content (e.g., "Privacy Policy" becomes 'id="privacy-policy"').
+      3. Do **not** use '<strong>' or other inline tags to simulate section headings — **only use real heading tags** ('<h2>'–'<h4>') for titles or subtitles.
+      4. Use appropriate HTML tags for content like '<p>', '<ul>', '<ol>', '<table>', and '<code>' as needed.
+      5. The output must be wrapped in a single '<section>' or a set of semantic '<section>' tags.
+      6. The output must be pure HTML. Do not include any Markdown or commentary.
 
       Copy to evaluate: ${copy}`,
     improvePrompt: (copy, qm) =>

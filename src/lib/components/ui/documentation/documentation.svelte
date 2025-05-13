@@ -54,7 +54,7 @@
 </script>
 
 <div class="flex flex-col min-h-screen">
-  <header class="p-4 border-b bg-white sticky top-0 z-40 shadow-sm">
+  <header class="p-4 border-b bg-white dark:bg-secondary sticky top-0 z-40 shadow-sm">
     <div class="flex justify-between items-center">
       <h1 class="text-lg font-semibold">Documentation</h1>
       <div class="flex gap-2 lg:hidden">
@@ -91,7 +91,7 @@
   </header>
 
   <div class="flex flex-1 w-full">
-    <aside class="hidden md:block w-64 border-r border-gray-200 p-6 overflow-y-auto sticky top-20">
+    <aside class="hidden md:block w-64 border-r border-muted-foreground/20 p-6 overflow-y-auto sticky top-20">
       <h2 class="text-xl font-semibold mb-4">All Blogs</h2>
       <ul class="space-y-2">
         {#each documentations as post}
@@ -109,7 +109,7 @@
       {/each}
     </main>
 
-    <aside class="hidden lg:block w-64 border-l border-gray-200 p-6 overflow-y-auto sticky top-20">
+    <aside class="hidden lg:block w-64 border-l border-muted-foreground/20 p-6 overflow-y-auto sticky top-20">
       <h2 class="text-xl font-semibold mb-4">On This Page</h2>
       <ul class="space-y-2 text-sm">
         {#each headings as h}
@@ -124,7 +124,7 @@
     </aside>
   </div>
 
-  <footer class="p-6 border-t text-center text-sm bg-gray-50">
+  <footer class="p-6 border-t text-center text-sm bg-gray-50 dark:bg-secondary">
     © 2025 Your Name. All rights reserved.
   </footer>
 </div>
