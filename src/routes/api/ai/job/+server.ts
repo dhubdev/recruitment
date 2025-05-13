@@ -30,7 +30,11 @@ export const POST: RequestHandler = async ({ request }) => {
       2. Brief 2 line description of the job listing
       3. Nature of the job: Full time / part time
       4. Location of the job: On-site / Remote / Hybrid
-      5. Return response in html tag
+
+      Return response in html tag ensure the following
+      1. It is semantically correct 
+      2. Every section begins an appropriate heading tag with the id of that heading tag a slug of the heading content
+      3. The following string will be the content of the section with appropriate tags like the paragraph, table, ul etc.
 
       Copy to evaluate: ${copy}`,
     improvePrompt: (copy, qm) =>

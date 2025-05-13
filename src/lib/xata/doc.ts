@@ -26,6 +26,20 @@ export const getDoc = async (docId: string) => {
   }
 }
 
+export const getDocBySlug = async (slug: string) => {
+  const xata = getXataClient()
+
+  try {
+    const doc = await xata.db.doc.filter({
+      slug
+    }).getFirst()
+    return onSuccess(doc)
+  } catch (error: any) {
+    console.log("addDoc()", error.message)
+    return onError(error.message)
+  }
+}
+
 export const updateDoc = async (id: string, data: any) => {
   const xata = getXataClient()
   try {

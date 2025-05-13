@@ -21,7 +21,10 @@ export const POST: RequestHandler = async ({ request }) => {
       1. Call to action
       2. Clarity
 
-      Return response in html tag
+      Return response in html tag ensure the following
+      1. It is semantically correct 
+      2. Every section begins an appropriate heading tag with the id of that heading tag a slug of the heading content
+      3. The following string will be the content of the section with appropriate tags like the paragraph, table, ul etc.
 
       Copy to evaluate: ${copy}`,
     improvePrompt: (copy, qm) =>
