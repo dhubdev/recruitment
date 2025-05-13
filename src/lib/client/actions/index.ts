@@ -64,7 +64,7 @@ export const submitForm = async <T extends HasMaybeFileAndContent>(
       toast.success(message, {
         description: `${capitalized} ${isUpdating ? 'updated' : 'created'} successfully`,
       });
-      // location.reload();
+      location.reload();
     }
   } catch (error: any) {
     toast.error(error.message, {
