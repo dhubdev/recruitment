@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { submitForm } from '$lib/client/actions';
-	import { Role } from '$lib/constants';
+	import { defaultDocumentCategory, Role } from '$lib/constants';
 	import type { iDocumentCategory, iUser } from '$lib/interface';
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
@@ -8,21 +8,22 @@
 	import SpinLoader from '../ui/spin-loader/spin-loader.svelte';
 	import { Label } from '../ui/label';
 	import { TagsInput } from '../ui/tags-input';
+	import { removeRingClasses } from '@toolsntuts/utils';
+	import { Input } from '../ui/input';
 
 	interface Props {
-		documentCategories?: iDocumentCategory[];
+		documentCategory?: iDocumentCategory;
 	}
 
 	const me = getContext('me') as iUser;
 
-	let { documentCategories }: Props = $props();
+	let { documentCategory }: Props = $props();
 
 	let loading = $state(false);
-	let aiLoading = $state(false);
 
-	const action = documentCategories ? 'Save changes' : 'Create';
+	const action = documentCategory ? 'Save changes' : 'Create';
 
-	let placeholder = $state(documentCategories ? documentCategories.map(dc => dc.category) : []);
+	let placeholder = $state(documentCategory ?? defaultDocumentCategory);
 
 	const onsubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
@@ -33,9 +34,9 @@
 			toast.error('You are not authorized to perform this action');
 		} else {
 			// await submitForm<iDocumentCategory>(evt, {
-			// 	resource: 'documentCategoriess',
+			// 	resource: 'documentCategorys',
 			// 	data: { content, file: placeholder.file },
-			// 	entity: documentCategories
+			// 	entity: documentCategory
 			// });
 		}
 
@@ -47,8 +48,16 @@
 <form {onsubmit} class="w-full space-y-4">
 	<div class="grid grid-cols-1 gap-4">
 		<div>
-			<Label for="nature">Document Categories</Label>
-			<TagsInput bind:value={placeholder} />
+			<Label for="category">Category</Label>
+			<Input
+				id="category"
+				disabled={loading}
+				required
+				placeholder="Document Category"
+				name="category"
+				bind:value={placeholder.category}
+				class={removeRingClasses()}
+			/>
 		</div>
 	</div>
 	{#if loading}

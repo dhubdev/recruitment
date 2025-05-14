@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { modalStore } from '$lib/stores';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import type { iDoc, iJob } from '$lib/interface';
+	import type { iDoc, iDocumentCategory, iJob } from '$lib/interface';
 	import JobForm from '../forms/JobForm.svelte';
 	import DeleteJobForm from '../forms/delete/DeleteJobForm.svelte';
 	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
 	import DocForm from '../forms/DocForm.svelte';
 	import DeleteDocForm from '../forms/delete/DeleteDocForm.svelte';
+	import DocCategoryForm from '../forms/DocCategoryForm.svelte';
 </script>
 
 <Dialog.Root open={$modalStore.open}>
@@ -33,6 +34,12 @@
 		{#if $modalStore.type === 'doc'}
 			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh] md:landscape:h-[70vh] p-2">
 				<DocForm doc={$modalStore.data as iDoc} />
+			</ScrollArea>
+		{/if}
+
+		{#if $modalStore.type === 'docCategory'}
+			<ScrollArea class="h-[70vh] portrait:h-[70vh] landscape:h-[50vh] md:landscape:h-[70vh] p-2">
+				<DocCategoryForm documentCategory={$modalStore.data as iDocumentCategory} />
 			</ScrollArea>
 		{/if}
 		
