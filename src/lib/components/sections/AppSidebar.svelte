@@ -7,6 +7,7 @@
 	import { page } from '$app/state';
 	import Brand from './Brand.svelte';
 	import { Role } from '$lib/constants';
+	import Logo from '../icons/Logo.svelte';
 
 	let me = getContext('me') as iUser;
 
@@ -51,7 +52,26 @@
 
 <Sidebar.Root bind:ref {collapsible} {...restProps}>
 	<Sidebar.Header class="border-b">
-		<Brand />
+		<!-- <Brand /> -->
+		<Sidebar.Menu>
+			<Sidebar.MenuItem>
+				<Sidebar.MenuButton size="lg">
+					{#snippet child({ props })}
+						<a href="/" {...props}>
+							<div
+								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+							>
+								<Logo class="size-4" />
+							</div>
+							<div class="grid flex-1 text-left text-sm leading-tight">
+								<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
+								<span class="text-shade-3 dark:text-muted-foreground">Recruitments</span>
+							</div>
+						</a>
+					{/snippet}
+				</Sidebar.MenuButton>
+			</Sidebar.MenuItem>
+		</Sidebar.Menu>
 	</Sidebar.Header>
 	<Sidebar.Content>
 		<Sidebar.Group>
