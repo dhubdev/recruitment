@@ -34,6 +34,7 @@
 
 	let aiContent = $state(placeholder.content);
 	let content = $state(placeholder.content);
+	let documentCategory = $state(placeholder?.category ? (placeholder.category as iDocumentCategory).category : '')
 
 	const onsubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
@@ -105,7 +106,7 @@
 		</div>
 		<div>
 			<Label for="nature">Document Category</Label>
-			<Select options={categoryOptions} name="category" value={(placeholder.category as iDocumentCategory).category} />
+			<Select options={categoryOptions} name="category" bind:value={documentCategory} />
 		</div>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
