@@ -57,8 +57,7 @@
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton size="lg">
 					{#snippet child({ props })}
-						<Brand {...props} class="flex items-center gap-1" />
-						<!-- <a href="/" {...props}>
+						<a href="/" {...props}>
 							<div
 								class="flex aspect-square size-10 items-center justify-center rounded-lg bg-sidebar-primary dark:bg-white"
 							>
@@ -68,7 +67,7 @@
 								<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
 								<span class="text-shade-3 dark:text-muted-foreground">Recruitments</span>
 							</div>
-						</a> -->
+						</a>
 					{/snippet}
 				</Sidebar.MenuButton>
 			</Sidebar.MenuItem>
