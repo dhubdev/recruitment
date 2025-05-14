@@ -11,13 +11,13 @@
 
 <a href="/" {...rest} class={cn('flex items-center gap-1', className)}>
 	<div
-		class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary dark:bg-white"
+		class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary"
 	>
 		<Logo class="size-5" />
 	</div>
 
-	<div class="grid flex-1 text-left text-sm leading-tight">
-		<span class="truncate font-semibold">Jordan</span>
-		<span class="truncate text-xs text-shade-3 dark:text-muted-foreground">Recruitments</span>
+	<div class="grid flex-1 text-left text-sm leading-[1]">
+		<span class="truncate font-semibold text-primary text-[16px]">Jordan</span>
+		<span class="truncate text-xs font-medium dark:text-muted-foreground">Recruitments</span>
 	</div>
 </a>

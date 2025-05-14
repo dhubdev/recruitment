@@ -63,9 +63,11 @@
 							>
 								<Logo class="size-5" />
 							</div>
-							<div class="grid flex-1 text-left text-sm leading-tight">
-								<span class="truncate font-semibold">Jordan</span>
-								<span class="truncate text-xs text-shade-3 dark:text-muted-foreground">Recruitments</span>
+							<div class="grid flex-1 text-left text-sm leading-[1]">
+								<span class="truncate text-[16px] font-semibold text-primary">Jordan</span>
+								<span class="truncate text-xs font-medium dark:text-muted-foreground"
+									>Recruitments</span
+								>
 							</div>
 						</a>
 					{/snippet}
