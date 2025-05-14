@@ -8,6 +8,13 @@
 	import DocForm from '../forms/DocForm.svelte';
 	import DeleteDocForm from '../forms/delete/DeleteDocForm.svelte';
 	import DocCategoryForm from '../forms/DocCategoryForm.svelte';
+	import DeleteDocCategoryForm from '../forms/delete/DeleteDocCategoryForm.svelte';
+
+	interface Props {
+		documentCategories?: iDocumentCategory[]
+	}
+
+	let { documentCategories }: Props = $props()
 </script>
 
 <Dialog.Root open={$modalStore.open}>
@@ -22,7 +29,9 @@
 			{$modalStore.description}
 		</Dialog.Description>
 		{#if $modalStore.type === 'job'}
-			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:h-fit md:landscape:max-h-[70vh]">
+			<ScrollArea
+				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
+			>
 				<JobForm job={$modalStore.data as iJob} />
 			</ScrollArea>
 		{/if}
@@ -32,21 +41,26 @@
 		{/if}
 
 		{#if $modalStore.type === 'doc'}
-			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:h-fit md:landscape:max-h-[70vh]">
-				<DocForm doc={$modalStore.data as iDoc} />
-			</ScrollArea>
-		{/if}
-
-		{#if $modalStore.type === 'docCategory'}
-			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:h-fit md:landscape:max-h-[70vh]">
-				<DocCategoryForm
-					documentCategory={$modalStore.data as iDocumentCategory}
-				/>
+			<ScrollArea
+				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
+			>
+				<DocForm documentCategories={documentCategories ?? []} doc={$modalStore.data as iDoc} />
 			</ScrollArea>
 		{/if}
 
 		{#if $modalStore.type === 'deleteJob'}
 			<DeleteDocForm doc={$modalStore.data as iDoc} />
+		{/if}
+
+		{#if $modalStore.type === 'docCategory'}
+			<ScrollArea
+				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
+			>
+				<DocCategoryForm documentCategory={$modalStore.data as iDocumentCategory} />
+			</ScrollArea>
+		{/if}
+		{#if $modalStore.type === 'deleteDocCategory'}
+			<DeleteDocCategoryForm documentCategory={$modalStore.data as iDocumentCategory} />
 		{/if}
 	</Dialog.Content>
 </Dialog.Root>

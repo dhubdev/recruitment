@@ -49,7 +49,8 @@ export const defaultDoc = {
 	title: '',
 	content: '',
 	slug: '',
-	file: undefined
+	file: undefined,
+	category: undefined
 }
 
 export const defaultDocumentCategory = {

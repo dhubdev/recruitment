@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { aiSubmitForm, submitForm } from '$lib/client/actions';
-	import { defaultDoc, docOptions, locationOptions, natureOptions, Role } from '$lib/constants';
-	import type { iFile, iDoc, iUser } from '$lib/interface';
+	import { defaultDoc, docOptions, Role } from '$lib/constants';
+	import type { iFile, iDoc, iUser, iDocumentCategory } from '$lib/interface';
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
 	import Textarea from '../ui/textarea/textarea.svelte';
@@ -17,16 +17,18 @@
 
 	interface Props {
 		doc?: iDoc;
+		documentCategories: iDocumentCategory[]
 	}
 
 	const me = getContext('me') as iUser;
 
-	let { doc }: Props = $props();
+	let { doc, documentCategories }: Props = $props();
 
 	let loading = $state(false);
 	let aiLoading = $state(false);
 
 	const action = doc ? 'Save changes' : 'Create';
+	const categoryOptions = documentCategories.map(category => ({ label: category, value: category }))
 
 	let placeholder = $state(doc ? doc : defaultDoc);
 
@@ -100,6 +102,10 @@
 		<div>
 			<Label for="nature">Type of Doc</Label>
 			<Select options={docOptions} name="slug" bind:value={placeholder.slug} />
+		</div>
+		<div>
+			<Label for="nature">Document Category</Label>
+			<Select options={categoryOptions} name="category" bind:value={placeholder.category} />
 		</div>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />

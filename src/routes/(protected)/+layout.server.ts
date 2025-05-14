@@ -3,6 +3,7 @@ import type { LayoutServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 import { getMe } from '$lib/xata/user'
 import { Role } from '$lib/constants';
+import { getDocumentCategories } from '$lib/xata/documentcategory';
 
 export const load = (async ({ locals, url }) => {
 
@@ -20,5 +21,5 @@ export const load = (async ({ locals, url }) => {
     throw redirect(302, '/')
   }
   
-  return { me };
+  return { me, getDocumentCategories: getDocumentCategories() };
 }) satisfies LayoutServerLoad;
