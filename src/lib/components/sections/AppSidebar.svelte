@@ -39,6 +39,11 @@
 			icon: FileTextIcon
 		},
 		{
+			name: 'Document Categories',
+			href: `/admin/doc-categories`,
+			icon: FileTextIcon
+		},
+		{
 			name: 'Settings',
 			href: `/admin/settings`,
 			icon: SettingsIcon
