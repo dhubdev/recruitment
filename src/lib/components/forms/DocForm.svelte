@@ -105,7 +105,7 @@
 		</div>
 		<div>
 			<Label for="nature">Document Category</Label>
-			<Select options={categoryOptions} name="category" bind:value={placeholder.category as string} />
+			<Select options={categoryOptions} name="category" value={(placeholder.category as iDocumentCategory).category} />
 		</div>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
