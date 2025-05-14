@@ -28,7 +28,7 @@
 	let aiLoading = $state(false);
 
 	const action = doc ? 'Save changes' : 'Create';
-	const categoryOptions = documentCategories.map((docCat: iDocumentCategory) => ({ label: docCat.category, value: docCat.category }))
+	const categoryOptions = documentCategories.map((docCat: iDocumentCategory) => ({ label: docCat.category, value: docCat.xata_id }))
 
 	let placeholder = $state(doc ? doc : defaultDoc);
 
