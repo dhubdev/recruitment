@@ -41,7 +41,7 @@
 			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:landscape:h-[70vh]">
 				<DocCategoryForm
 					documentCategory={$modalStore.data.documentCategory as iDocumentCategory}
-					documentCategories={$modalStore.data.documentCategories as iDocumentCategory[]}
+					documentcategories={$modalStore.data.documentcategories as iDocumentCategory[]}
 				/>
 			</ScrollArea>
 		{/if}

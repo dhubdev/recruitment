@@ -12,7 +12,7 @@
 
 	interface Props {
 		documentCategory?: iDocumentCategory;
-		documentCategories?: iDocumentCategory[]
+		documentcategories?: iDocumentCategory[]
 	}
 
 	const me = getContext('me') as iUser;
@@ -34,7 +34,7 @@
 			toast.error('You are not authorized to perform this action');
 		} else {
 			await submitForm<iDocumentCategory>(evt, {
-				resource: 'documentCategories',
+				resource: 'documentcategories',
 				data: { content: undefined, file: undefined },
 				entity: documentCategory
 			});
