@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="grid flex-1 text-left text-sm leading-[1]">
-		<span class="truncate font-semibold text-primary text-[16px]">Jordan</span>
+		<span class="truncate font-semibold text-primary dark:text-white text-[16px]">Jordan</span>
 		<span class="truncate text-xs font-medium dark:text-muted-foreground">Recruitments</span>
 	</div>
 </a>
