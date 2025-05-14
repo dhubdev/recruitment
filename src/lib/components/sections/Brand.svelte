@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Logo from '$lib/components/icons/Logo.svelte';
+	import { cn } from '$lib/utils';
 
 	interface Props {
 		class?: string
@@ -8,7 +9,7 @@
 	let { class: className, ...rest }: Props = $props()
 </script>
 
-<a href="/" {...rest} class={className}>
+<a href="/" {...rest} class={cn("flex items-center gap-1", className)}>
 	<div
 		class="flex aspect-square size-10 items-center justify-center rounded-lg bg-primary dark:bg-white"
 	>
