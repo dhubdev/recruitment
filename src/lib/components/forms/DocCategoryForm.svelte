@@ -7,12 +7,12 @@
 	import { Button } from '../ui/button';
 	import SpinLoader from '../ui/spin-loader/spin-loader.svelte';
 	import { Label } from '../ui/label';
-	import { TagsInput } from '../ui/tags-input';
 	import { removeRingClasses } from '@toolsntuts/utils';
 	import { Input } from '../ui/input';
 
 	interface Props {
 		documentCategory?: iDocumentCategory;
+		documentCategories?: iDocumentCategory[]
 	}
 
 	const me = getContext('me') as iUser;
@@ -33,11 +33,11 @@
 		if (me.role !== Role.ADMIN) {
 			toast.error('You are not authorized to perform this action');
 		} else {
-			// await submitForm<iDocumentCategory>(evt, {
-			// 	resource: 'documentCategorys',
-			// 	data: { content, file: placeholder.file },
-			// 	entity: documentCategory
-			// });
+			await submitForm<iDocumentCategory>(evt, {
+				resource: 'documentCategories',
+				data: { content: undefined, file: undefined },
+				entity: documentCategory
+			});
 		}
 
 		loading = false;

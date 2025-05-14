@@ -50,7 +50,7 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 				modalStore.update(existing => ({
 					...existing,
 					open: true,
-					data: docCategory,
+					data: {docCategory},
 					title: 'Update Doc',
 					description: 'Fill the form below to update docCategory listing',
 					type: 'docCategory'

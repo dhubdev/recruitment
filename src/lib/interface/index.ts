@@ -163,7 +163,9 @@ export interface iDoc extends iXata {
 }
 
 export interface iDocumentCategory extends iXata {
-	category: string
+	category: string;
+	file?: string | iFile;
+	content?: string
 }
 
 // Content & Social Media Officer

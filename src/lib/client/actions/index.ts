@@ -12,7 +12,7 @@ interface HasMaybeFileAndContent {
 }
 
 interface SubmitFormOptions<T extends HasMaybeFileAndContent> {
-  resource: 'jobs' | 'docs';
+  resource: 'jobs' | 'docs' | 'documentCategories';
   data: Partial<T>;
   entity?: { xata_id: string };
 }
