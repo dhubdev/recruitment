@@ -1,16 +1,21 @@
 <script lang="ts">
 	import Logo from '$lib/components/icons/Logo.svelte';
-	import { Button } from '$lib/components/ui/button';
+
+	interface Props {
+		class?: string
+	}
+
+	let { class: className, ...rest }: Props = $props()
 </script>
 
-<Button
-	href="/"
-	variant="ghost"
-	class="h-auto items-center hover:bg-transparent p-0"
->
-	<Logo class="size-10" />
-	<div class="-mt-3 leading-[.2]">
+<a href="/" {...rest}>
+	<div
+		class="flex aspect-square size-10 items-center justify-center rounded-lg bg-sidebar-primary dark:bg-white"
+	>
+		<Logo class="size-4" />
+	</div>
+	<div class="-mt-3 grid flex-1 text-left text-sm leading-[.2]">
 		<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
 		<span class="text-shade-3 dark:text-muted-foreground">Recruitments</span>
 	</div>
-</Button>
+</a>
