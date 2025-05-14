@@ -36,6 +36,8 @@
 	let content = $state(placeholder.content);
 	let documentCategory = $state(placeholder?.category ? (placeholder.category as iDocumentCategory).category : '')
 
+	$effect(() => console.log({ documentCategory, placeholder }))
+
 	const onsubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
 
