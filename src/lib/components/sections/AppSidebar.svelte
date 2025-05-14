@@ -65,7 +65,7 @@
 							</div>
 							<div class="grid flex-1 text-left text-sm leading-tight">
 								<span class="truncate font-semibold">Jordan</span>
-								<span class="truncate text-xs text-muted-foreground">Recruitments</span>
+								<span class="truncate text-xs text-shade-3 dark:text-muted-foreground">Recruitments</span>
 							</div>
 						</a>
 					{/snippet}
