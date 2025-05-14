@@ -1,5 +1,5 @@
 import { initialForm } from "$lib/constants";
-import { type iJob, type iFormModal, type iMeta, type iModal, type iDoc, type iDocModal } from "$lib/interface";
+import type { iJob, iFormModal, iMeta, iModal, iDoc, iDocModal, iDocumentCategory } from "$lib/interface";
 import { writable } from "svelte/store";
 
 const modalStore = writable<iModal>({
@@ -71,4 +71,6 @@ const jobStore = writable<iJob[]>([])
 
 const docStore = writable<iDoc[]>([])
 
-export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore }
+const docCategoryStore = writable<iDocumentCategory[]>([])
+
+export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore }

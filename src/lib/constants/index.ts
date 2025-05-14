@@ -52,6 +52,10 @@ export const defaultDoc = {
 	file: undefined
 }
 
+export const defaultDocumentCategory = {
+	category: ''
+}
+
 export const natureOptions: { label: string, value: string }[] = [
 	{
 		label: 'Full-Time',

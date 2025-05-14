@@ -1,11 +1,9 @@
-import { getDoc, getDocs } from '$lib/xata/doc';
+import { getJob } from '$lib/xata/job';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {
 
   const { id } = params
 
-  return {
-    getDocs: getDocs()
-  };
+  return { getJob: getJob(id) };
 }) satisfies PageServerLoad;

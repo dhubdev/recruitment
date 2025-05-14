@@ -18,7 +18,11 @@ export const getDoc = async (docId: string) => {
   const xata = getXataClient()
 
   try {
-    const doc = await xata.db.doc.read(docId)
+    const doc = await xata.db.doc
+      .filter({ xata_id: docId })
+      .select(["*", "category.*"])
+      .getFirst()
+
     return onSuccess(doc)
   } catch (error: any) {
     console.log("addDoc()", error.message)
@@ -74,6 +78,7 @@ export const getDocs = async () => {
 
   try {
     const docs = await xata.db.doc
+      .select(["*", "category.*"])
       .getMany({ pagination: { size: 200 } })
     return onSuccess(docs)
   } catch (error: any) {

@@ -8,7 +8,6 @@
 	import { cn } from '$lib/utils';
 	import Check from 'lucide-svelte/icons/check';
 	import { ChevronsUpDownIcon, CirclePlusIcon } from 'lucide-svelte';
-	import type { iCategory } from '$lib/interface';
 
 	interface Props {
 		onselect: (store: any) => void

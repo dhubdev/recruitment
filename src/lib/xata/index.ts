@@ -18,6 +18,13 @@ const tables = [
       },
     },
     foreignKeys: {
+      category_link: {
+        name: "category_link",
+        columns: ["category"],
+        referencedTable: "documentcategory",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
       file_link: {
         name: "file_link",
         columns: ["file"],
@@ -34,6 +41,15 @@ const tables = [
       },
     },
     columns: [
+      {
+        name: "category",
+        type: "link",
+        link: { table: "documentcategory" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"documentcategory"}',
+      },
       {
         name: "content",
         type: "text",
@@ -61,6 +77,66 @@ const tables = [
       },
       {
         name: "title",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
+    name: "documentcategory",
+    checkConstraints: {
+      doc_category_xata_id_length_xata_id: {
+        name: "doc_category_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {},
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_doc_category_xata_id_key: {
+        name: "_pgroll_new_doc_category_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "category",
         type: "text",
         notNull: false,
         unique: false,
@@ -418,6 +494,9 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type Doc = InferredTypes["doc"];
 export type DocRecord = Doc & XataRecord;
 
+export type Documentcategory = InferredTypes["documentcategory"];
+export type DocumentcategoryRecord = Documentcategory & XataRecord;
+
 export type File = InferredTypes["file"];
 export type FileRecord = File & XataRecord;
 
@@ -429,6 +508,7 @@ export type UserRecord = User & XataRecord;
 
 export type DatabaseSchema = {
   doc: DocRecord;
+  documentcategory: DocumentcategoryRecord;
   file: FileRecord;
   job: JobRecord;
   user: UserRecord;
