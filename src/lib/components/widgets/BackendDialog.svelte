@@ -22,7 +22,7 @@
 			{$modalStore.description}
 		</Dialog.Description>
 		{#if $modalStore.type === 'job'}
-			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:landscape:h-[70vh]">
+			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]">
 				<JobForm job={$modalStore.data as iJob} />
 			</ScrollArea>
 		{/if}
@@ -32,7 +32,7 @@
 		{/if}
 
 		{#if $modalStore.type === 'doc'}
-			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:landscape:h-[70vh]">
+			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]">
 				<DocForm doc={$modalStore.data as iDoc} />
 			</ScrollArea>
 		{/if}
