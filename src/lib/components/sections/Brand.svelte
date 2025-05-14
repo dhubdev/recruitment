@@ -10,7 +10,7 @@
 
 <a href="/" {...rest} class={className}>
 	<div
-		class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary dark:bg-white"
+		class="flex aspect-square size-10 items-center justify-center rounded-lg bg-primary dark:bg-white"
 	>
 		<Logo class="size-6" />
 	</div>
