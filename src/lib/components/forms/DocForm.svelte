@@ -28,7 +28,7 @@
 	let aiLoading = $state(false);
 
 	const action = doc ? 'Save changes' : 'Create';
-	const categoryOptions = documentCategories.map(category => ({ label: category, value: category }))
+	const categoryOptions = documentCategories.map((docCat: iDocumentCategory) => ({ label: docCat.category, value: docCat.category }))
 
 	let placeholder = $state(doc ? doc : defaultDoc);
 
@@ -105,7 +105,7 @@
 		</div>
 		<div>
 			<Label for="nature">Document Category</Label>
-			<Select options={categoryOptions} name="category" bind:value={placeholder.category} />
+			<Select options={categoryOptions} name="category" bind:value={placeholder.category as string} />
 		</div>
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 			<ImageDropZone endpoint="/api/files" file={placeholder.file as iFile} {onFile} />
