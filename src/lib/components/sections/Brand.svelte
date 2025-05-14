@@ -11,9 +11,9 @@
 
 <a href="/" {...rest} class={cn('flex items-center gap-1', className)}>
 	<div
-		class="flex aspect-square size-9 items-center justify-center rounded-lg bg-primary dark:bg-white"
+		class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary dark:bg-white"
 	>
-		<Logo class="size-6" />
+		<Logo class="size-5" />
 	</div>
 	<div class="grid flex-1 text-left text-sm leading-[.2]">
 		<p class="font-semibold text-primary dark:text-white">Jordan</p>
