@@ -2,7 +2,7 @@
 
 </script>
 <div
-	class="sticky top-0 z-10 border-b bg-background/60 text-sm font-medium backdrop-blur-md md:top-0 md:bg-card lg:hidden"
+	class="sticky top-0 z-10 border-b bg-background text-sm font-medium backdrop-blur-md md:top-0 md:bg-card lg:hidden"
 >
 	<button
 		type="button"
