@@ -59,7 +59,7 @@
 					{#snippet child({ props })}
 						<a href="/" {...props}>
 							<div
-								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary dark:bg-white"
+								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary"
 							>
 								<Logo class="size-5" />
 							</div>
