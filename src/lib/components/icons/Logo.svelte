@@ -21,7 +21,7 @@
     />
     <circle
       style="display:inline;fill-opacity:1;stroke-width:0.788665;stroke-linecap:round;stroke-dasharray:3.15465, 1.57733"
-      class="fill-shade-1 dark:fill-shade-3"
+      class="fill-white dark:fill-primary"
       id="circle7081"
       cx="38.741631"
       cy="41.124226"
@@ -34,7 +34,7 @@
       id="path7116"
     />
     <path
-      class="fill-shade-1 dark:fill-shade-3"
+      class="fill-white dark:fill-primary"
       style="fill-opacity:1;stroke:none;stroke-width:0.642536px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
       d="m 18.842486,77.545415 c 0,0 4.703137,-21.033061 24.281815,-17.536871 22.033505,3.934553 16.075463,34.961319 16.075463,34.961319 0,0 -15.625797,2.360732 -27.317044,-5.171128 C 20.060441,82.182461 18.842486,77.545415 18.842486,77.545415 Z"
       id="path7892"
@@ -47,7 +47,7 @@
     />
     <path
       id="path8861"
-      class="fill-shade-1 dark:fill-shade-3"
+      class="fill-white dark:fill-primary"
       style="fill-opacity:1;stroke-width:0.717707;stroke-linecap:round;stroke-dasharray:2.87078, 1.43541"
       d="M 100.51989,29.108185 C 88.140885,4.5118083 58.954242,-6.4629094 33.436124,3.8834476 7.9228048,14.240349 -5.3676819,42.447271 2.8884105,68.715727 L 8.0191282,66.634275 C 0.89702155,43.201959 12.81674,18.20493 35.507199,8.988591 58.205851,-0.21010316 84.173566,9.4169562 95.390324,31.189168 Z"
     />
