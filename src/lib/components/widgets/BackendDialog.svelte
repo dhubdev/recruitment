@@ -40,8 +40,7 @@
 		{#if $modalStore.type === 'docCategory'}
 			<ScrollArea class="h-[70vh] p-2 portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]">
 				<DocCategoryForm
-					documentCategory={$modalStore.data.documentCategory as iDocumentCategory}
-					documentcategories={$modalStore.data.documentcategories as iDocumentCategory[]}
+					documentCategory={$modalStore.data as iDocumentCategory}
 				/>
 			</ScrollArea>
 		{/if}

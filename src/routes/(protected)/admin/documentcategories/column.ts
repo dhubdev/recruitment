@@ -46,11 +46,11 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			className: "text-blue-500",
 			action: (id: string) => {
 				const docs = get(docCategoryStore)
-				const docCategory = docs.find(ref => ref.xata_id === id)
+				const documentCategory = docs.find(ref => ref.xata_id === id)
 				modalStore.update(existing => ({
 					...existing,
 					open: true,
-					data: {docCategory},
+					data: documentCategory,
 					title: 'Update Doc',
 					description: 'Fill the form below to update docCategory listing',
 					type: 'docCategory'

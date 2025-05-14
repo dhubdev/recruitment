@@ -12,7 +12,6 @@
 
 	interface Props {
 		documentCategory?: iDocumentCategory;
-		documentcategories?: iDocumentCategory[]
 	}
 
 	const me = getContext('me') as iUser;
