@@ -10,9 +10,9 @@
 
 <a href="/" {...rest}>
 	<div
-		class="flex aspect-square size-10 items-center justify-center rounded-lg bg-primary dark:bg-white"
+		class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary dark:bg-white"
 	>
-		<Logo class="size-8" />
+		<Logo class="size-6" />
 	</div>
 	<div class="-mt-3 grid flex-1 text-left text-sm leading-[.2]">
 		<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
