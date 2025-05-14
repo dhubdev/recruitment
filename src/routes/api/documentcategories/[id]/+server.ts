@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 import { deleteFile } from '$lib/server/imagekit';
 import { deleteXataFile } from '$lib/xata/file';
-import { addDocumentCategory, deleteDocumentCategory } from '$lib/xata/documentcategory';
+import { deleteDocumentCategory } from '$lib/xata/documentcategory';
 import { onError } from '@toolsntuts/utils';
 import { authGuard, throwIfError } from '$lib/server';
 import { json } from '@sveltejs/kit';
@@ -32,16 +32,6 @@ export const DELETE: RequestHandler = async ({ request, params, locals }) => {
 
   authGuard(locals)
   try {
-    const formData = await request.formData()
-    const fileId = formData.get("fileId") as string
-
-    if (fileId) {
-      const xataDocumentCategoryResult = await deleteXataFile(fileId)
-      throwIfError(xataDocumentCategoryResult)
-      const documentcategoryResult = await deleteFile(fileId)
-      throwIfError(documentcategoryResult)
-  
-    }
     const result = await deleteDocumentCategory(id)
 
     return json(result)
