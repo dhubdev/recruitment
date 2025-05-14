@@ -59,9 +59,9 @@
 					{#snippet child({ props })}
 						<a href="/" {...props}>
 							<div
-								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary dark:bg-white text-sidebar-primary-foreground"
+								class="flex aspect-square size-10 items-center justify-center rounded-lg bg-sidebar-primary dark:bg-white"
 							>
-								<Logo class="size-3" />
+								<Logo class="size-4" />
 							</div>
 							<div class="grid flex-1 text-left text-sm -mt-3 leading-[.2]">
 								<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
