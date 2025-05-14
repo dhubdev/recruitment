@@ -57,7 +57,7 @@
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton size="lg">
 					{#snippet child({ props })}
-						<Brand {...props} />
+						<Brand {...props} class="flex items-center gap-1" />
 						<!-- <a href="/" {...props}>
 							<div
 								class="flex aspect-square size-10 items-center justify-center rounded-lg bg-sidebar-primary dark:bg-white"
