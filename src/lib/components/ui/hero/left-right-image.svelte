@@ -66,7 +66,7 @@
 				</Badge>
 			{/if}
 			<div>
-				<h1 class="my-6 text-pretty text-3xl font-bold text-primary dark:text-white lg:text-5xl">
+				<h1 class="my-6 text-pretty text-3xl font-bold text-shade-4 dark:text-white lg:text-5xl">
 					{title}
 				</h1>
 				<p class="mb-8 max-w-xl text-muted-foreground lg:text-xl">
