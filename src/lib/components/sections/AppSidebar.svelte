@@ -52,18 +52,18 @@
 
 <Sidebar.Root bind:ref {collapsible} {...restProps}>
 	<Sidebar.Header class="border-b">
-		<!-- <Brand /> -->
+		<Brand />
 		<Sidebar.Menu>
 			<Sidebar.MenuItem>
 				<Sidebar.MenuButton size="lg">
 					{#snippet child({ props })}
 						<a href="/" {...props}>
 							<div
-								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground"
+								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary dark:bg-white text-sidebar-primary-foreground"
 							>
-								<Logo class="size-4" />
+								<Logo class="size-3" />
 							</div>
-							<div class="grid flex-1 text-left text-sm leading-tight">
+							<div class="grid flex-1 text-left text-sm -mt-3 leading-[.2]">
 								<p class="text-lg font-semibold text-primary dark:text-white">Jordan</p>
 								<span class="text-shade-3 dark:text-muted-foreground">Recruitments</span>
 							</div>
