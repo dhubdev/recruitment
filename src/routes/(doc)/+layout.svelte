@@ -1,17 +1,43 @@
 <script lang="ts">
-	import * as Breadcrumb from "$lib/components/ui/breadcrumb/index.js";
-	import { Separator } from "$lib/components/ui/separator/index.js";
-	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import AppSidebar from "./components/app-sidebar.svelte";
-	import NavRight from "./components/sidebar/nav-right.svelte";
-	import NavTop from "./components/sidebar/nav-top.svelte";
+	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
+	import { Separator } from '$lib/components/ui/separator/index.js';
+	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
+	import { onMount, type Snippet } from 'svelte';
+	import AppSidebar from './components/app-sidebar.svelte';
+	import NavRight from './components/sidebar/nav-right.svelte';
+	import NavTop from './components/sidebar/nav-top.svelte';
+	import type { LayoutServerData } from './$types';
+	import type { iResult } from '@toolsntuts/utils';
+	import { docStore, groupedDocs } from '$lib/stores';
+	import type { iDoc } from '$lib/interface';
+
+	interface Props {
+		data: LayoutServerData,
+		children: Snippet
+	}
+
+	let { children, data }: Props = $props()
+
+	const setDocuments = (result: iResult) => {
+		$docStore = result.data as iDoc[]
+		groupedDocs.group(result.data as iDoc[])
+	}
+
+	
+
+	onMount(() => {
+		data.getDocs.then(setDocuments)
+		.catch(error => console.error(error))
+	})
 </script>
 
 <Sidebar.Provider>
 	<AppSidebar />
 	<Sidebar.Inset>
 		<NavTop />
-		<header class="flex sticky top-9 z-[10] bg-background lg:top-0 h-16 shrink-0 items-center gap-2">
+		<header
+			class="sticky top-9 z-[10] flex h-16 shrink-0 items-center gap-2 bg-background lg:top-0"
+		>
 			<div class="flex items-center gap-2 px-4">
 				<Sidebar.Trigger class="-ml-1" />
 				<Separator orientation="vertical" class="mr-2 h-4" />
@@ -29,13 +55,7 @@
 			</div>
 		</header>
 		<div class="flex flex-1 flex-col gap-4 p-4 pt-0">
-			<div class="grid auto-rows-min gap-4 md:grid-cols-3">
-				<div class="bg-muted/50 aspect-video rounded-xl"></div>
-				<div class="bg-muted/50 aspect-video rounded-xl"></div>
-				<div class="bg-muted/50 aspect-video rounded-xl"></div>
-			</div>
-			<!-- <div class="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min"></div> -->
-			<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit aliquam commodi harum natus hic quam distinctio nihil nobis temporibus quas in, consectetur, inventore voluptate debitis obcaecati dolore iure nemo nisi?</p>
+			{@render children()}
 		</div>
 	</Sidebar.Inset>
 	<NavRight />

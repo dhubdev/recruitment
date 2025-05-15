@@ -73,4 +73,22 @@ const docStore = writable<iDoc[]>([])
 
 const docCategoryStore = writable<iDocumentCategory[]>([])
 
-export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore }
+function createGroupedDocs() {
+	const { subscribe, set, update } = writable<Map<string, iDoc[] | undefined>>(new Map());
+
+	function group(docs: iDoc[]) {
+		// Object.groupBy is supported in modern environments
+		const grouped = Object.groupBy(docs, (doc) => (doc.category as iDocumentCategory).category);
+		set(new Map(Object.entries(grouped)));
+	}
+
+	return {
+		subscribe,
+		group,
+    update
+	};
+}
+
+const groupedDocs = createGroupedDocs();
+
+export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, groupedDocs }
