@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { extractTopLevelTagsWithSlugIds, slugify } from '$lib/fxns';
+	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 
 	let { data }: { data: PageServerData } = $props();
 
-	const tags = extractTopLevelTagsWithSlugIds(data.doc.content);
+	let tags = $state<string[]>([]);
+
+	onMount(() => {
+		tags = extractTopLevelTagsWithSlugIds(data.doc.content);
+	});
 </script>
 
 <div class="prose dark:prose-invert">
