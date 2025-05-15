@@ -75,17 +75,39 @@ export function toDatetimeLocal(dateString: string): string {
 	return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 
-export function extractTopLevelTags(html: string): string[] {
+export function extractTopLevelTagsWithSlugIds(html: string): string[] {
 	const result: string[] = [];
 	const wrapper = document.createElement('div');
 	wrapper.innerHTML = html;
 
 	for (const node of Array.from(wrapper.childNodes)) {
 		if (node.nodeType === Node.ELEMENT_NODE) {
-			result.push((node as HTMLElement).outerHTML);
+			const element = node as HTMLElement;
+
+			// Skip empty tags
+			if (element.innerHTML.trim() === '') continue;
+
+			// If it's a heading tag, slugify the text and add an id
+			if (/^H[1-6]$/.test(element.tagName)) {
+				const slug = slugify(element.textContent || '');
+				element.id = slug;
+			}
+
+			result.push(element.outerHTML);
 		}
 	}
 
 	return result;
 }
+
+// Slugify function: converts "My Heading!" -> "my-heading"
+function slugify(text: string): string {
+	return text
+		.toLowerCase()
+		.trim()
+		.replace(/[\s\W-]+/g, '-')
+		.replace(/^-+|-+$/g, ''); // remove leading/trailing hyphens
+}
+
+
 
