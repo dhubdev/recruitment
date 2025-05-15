@@ -101,7 +101,7 @@ export function extractTopLevelTagsWithSlugIds(html: string): string[] {
 }
 
 // Slugify function: converts "My Heading!" -> "my-heading"
-function slugify(text: string): string {
+export function slugify(text: string): string {
 	return text
 		.toLowerCase()
 		.trim()

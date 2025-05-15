@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { extractTopLevelTagsWithSlugIds } from '$lib/fxns';
+	import { extractTopLevelTagsWithSlugIds, slugify } from '$lib/fxns';
 	import type { PageServerData } from './$types';
 
 	let { data }: { data: PageServerData } = $props();
@@ -8,6 +8,7 @@
 </script>
 
 <div class="prose dark:prose-invert">
+	<h2 id={slugify(data.doc.title)}>{data.doc.title}</h2>
 	{#each tags as tag, i}
 		{@html tag}
 	{/each}
