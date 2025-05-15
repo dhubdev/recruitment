@@ -109,5 +109,13 @@ export function slugify(text: string): string {
 		.replace(/^-+|-+$/g, ''); // remove leading/trailing hyphens
 }
 
+export function extractHeadingTagsOnly(htmlArray: string[]): string[] {
+	return htmlArray.filter((html) => /^<h[1-6]\b[^>]*>.*<\/h[1-6]>$/i.test(html.trim()));
+}
 
+export function stripHtmlTags(html: string): string {
+	const tempEl = document.createElement('div');
+	tempEl.innerHTML = html;
+	return tempEl.textContent?.trim() || '';
+}
 

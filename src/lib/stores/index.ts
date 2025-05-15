@@ -71,6 +71,8 @@ const jobStore = writable<iJob[]>([])
 
 const docStore = writable<iDoc[]>([])
 
+const headingStore = writable<string[]>([])
+
 const docCategoryStore = writable<iDocumentCategory[]>([])
 
 function createGroupedDocs() {
@@ -91,4 +93,4 @@ function createGroupedDocs() {
 
 const groupedDocs = createGroupedDocs();
 
-export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, groupedDocs }
+export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, groupedDocs, headingStore }

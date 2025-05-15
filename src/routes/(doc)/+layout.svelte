@@ -8,7 +8,7 @@
 	import NavTop from './components/sidebar/nav-top.svelte';
 	import type { LayoutServerData } from './$types';
 	import type { iResult } from '@toolsntuts/utils';
-	import { docStore, groupedDocs } from '$lib/stores';
+	import { groupedDocs } from '$lib/stores';
 	import type { iDoc } from '$lib/interface';
 
 	interface Props {
@@ -19,7 +19,6 @@
 	let { children, data }: Props = $props()
 
 	const setDocuments = (result: iResult) => {
-		$docStore = result.data as iDoc[]
 		groupedDocs.group(result.data as iDoc[])
 	}
 
@@ -36,8 +35,7 @@
 	<Sidebar.Inset>
 		<NavTop />
 		<header
-			class="sticky top-9 z-[10] flex h-16 shrink-0 items-center gap-2 bg-background lg:top-0"
-		>
+			class="sticky top-9 z-[10] flex h-16 shrink-0 items-center gap-2 bg-background lg:top-0">
 			<div class="flex items-center gap-2 px-4">
 				<Sidebar.Trigger class="-ml-1" />
 				<Separator orientation="vertical" class="mr-2 h-4" />
