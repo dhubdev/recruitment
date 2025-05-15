@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { TextIcon } from 'lucide-svelte';
-	import { headingStore } from '$lib/stores';
+	import { htmlSectionStore } from '$lib/stores';
 	import { slugify, stripHtmlTags } from '$lib/fxns';
 	import { cn } from '$lib/utils';
 
@@ -49,14 +49,13 @@
 				></div>
 
 				<div class="flex flex-col gap-1 border-s-2 text-muted-foreground">
-					{#each $headingStore as heading}
-						{@const slug = slugify(stripHtmlTags(heading)) }
+					{#each $htmlSectionStore as section, i}
 						<a
-							href={`#${slug}`}
-							onclick={(e) => scrollToHeading(e, slug)}
-							class={cn("py-1 ps-4 transition-colors", isActive(slug) && "text-primary" )}
+							href={`#${section.id}`}
+							onclick={(e) => scrollToHeading(e, section.id)}
+							class={cn("py-1 ps-4 transition-colors", isActive(section.id) && "text-primary" )}
 						>
-							{stripHtmlTags(heading)}
+							{stripHtmlTags(section.title)}
 						</a>
 					{/each}
 				</div>

@@ -1,4 +1,4 @@
-import type { iSection } from '../interface/index';
+import type { iHTMLSection, iSection } from '../interface/index';
 
 export const createWhatsAppUrl = (msg: string, phone: string) => {
 	const url = new URL('https://api.whatsapp.com/send/');
@@ -74,6 +74,60 @@ export function toDatetimeLocal(dateString: string): string {
 
 	return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
+
+export function generateSectionsFromHtmlString(html: string): iHTMLSection[] {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = html;
+
+  const sections: iHTMLSection[] = [];
+  let currentSection: { id: string, title: string, contentNodes: Node[] } | null = null;
+
+  const flushCurrentSection = () => {
+    if (currentSection) {
+      const sectionWrapper = document.createElement('section');
+      sectionWrapper.id = currentSection.id;
+      currentSection.contentNodes.forEach(node => sectionWrapper.appendChild(node.cloneNode(true)));
+      sections.push({
+        id: currentSection.id,
+        title: currentSection.title,
+        content: sectionWrapper.outerHTML
+      });
+      currentSection = null;
+    }
+  };
+
+  for (const node of Array.from(wrapper.childNodes)) {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      const element = node as HTMLElement;
+
+      // Skip empty tags
+      if (element.innerHTML.trim() === '') continue;
+
+      // If it's a heading tag, start a new section
+      if (/^H[1-6]$/i.test(element.tagName)) {
+        flushCurrentSection(); // finalize the previous section
+
+        const title = stripHtmlTags(element.outerHTML);
+        const id = slugify(title);
+
+        element.id = id; // Assign ID to heading
+        currentSection = {
+          id,
+          title,
+          contentNodes: [element]
+        };
+      } else if (currentSection) {
+        currentSection.contentNodes.push(element);
+      }
+    }
+  }
+
+  // Final section flush
+  flushCurrentSection();
+
+  return sections;
+}
+
 
 export function extractTopLevelTagsWithSlugIds(html: string): string[] {
 	const result: string[] = [];

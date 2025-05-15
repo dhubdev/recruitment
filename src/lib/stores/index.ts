@@ -1,5 +1,5 @@
 import { initialForm } from "$lib/constants";
-import type { iJob, iFormModal, iMeta, iModal, iDoc, iDocModal, iDocumentCategory } from "$lib/interface";
+import type { iJob, iFormModal, iMeta, iModal, iDoc, iDocModal, iDocumentCategory, iHTMLSection } from "$lib/interface";
 import { writable } from "svelte/store";
 
 const modalStore = writable<iModal>({
@@ -71,7 +71,7 @@ const jobStore = writable<iJob[]>([])
 
 const docStore = writable<iDoc[]>([])
 
-const headingStore = writable<string[]>([])
+const htmlSectionStore = writable<iHTMLSection[]>([])
 
 const docCategoryStore = writable<iDocumentCategory[]>([])
 
@@ -93,4 +93,4 @@ function createGroupedDocs() {
 
 const groupedDocs = createGroupedDocs();
 
-export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, groupedDocs, headingStore }
+export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, groupedDocs, htmlSectionStore }

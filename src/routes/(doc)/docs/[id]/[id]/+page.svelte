@@ -1,22 +1,19 @@
 <script lang="ts">
-	import { extractHeadingTagsOnly, extractTopLevelTagsWithSlugIds, slugify } from '$lib/fxns';
+	import { generateSectionsFromHtmlString } from '$lib/fxns';
 	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
-	import { headingStore } from '$lib/stores';
+	import { htmlSectionStore } from '$lib/stores';
 
 	let { data }: { data: PageServerData } = $props();
 
-	let tags = $state<string[]>([]);
-
 	onMount(() => {
-		tags = extractTopLevelTagsWithSlugIds(data.doc.content);
-		$headingStore = extractHeadingTagsOnly(tags)
+		$htmlSectionStore = generateSectionsFromHtmlString(data.doc.content);
 	});
 </script>
 
 <div class="prose dark:prose-invert">
-	<h1 id={slugify(data.doc.title)}>{data.doc.title}</h1>
-	{#each tags as tag, i}
-		{@html tag}
+	<h1>{data.doc.title}</h1>
+	{#each $htmlSectionStore as section, i}
+		{@html section.content}
 	{/each}
 </div>

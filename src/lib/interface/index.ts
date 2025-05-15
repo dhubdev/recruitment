@@ -168,6 +168,8 @@ export interface iDocumentCategory extends iXata {
 	content?: string
 }
 
+export interface iHTMLSection { id: string, title: string, content: string }
+
 // Content & Social Media Officer
 // We’re looking for a creative and passionate Content & Social Media Officer to join our team!
 // Location: Remote
