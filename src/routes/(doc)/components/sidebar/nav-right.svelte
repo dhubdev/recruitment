@@ -2,6 +2,9 @@
 	import { TextIcon } from 'lucide-svelte';
 	import { headingStore } from '$lib/stores';
 	import { slugify, stripHtmlTags } from '$lib/fxns';
+	import { cn } from '$lib/utils';
+
+	let activeHeading = $state('')
 
 	// Function to handle smooth scrolling with 64px offset
 	function scrollToHeading(e: MouseEvent, id: string) {
@@ -11,8 +14,12 @@
 			const offset = 64;
 			const y = el.getBoundingClientRect().top + window.scrollY - offset;
 			window.scrollTo({ top: y, behavior: 'smooth' });
+			activeHeading = id
 		}
 	}
+
+	const isActive = (id: string) => id === activeHeading
+
 </script>
 
 <div
@@ -29,17 +36,6 @@
 		class="flex flex-col overflow-hidden"
 		style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"
 	>
-		<style>
-			[data-radix-scroll-area-viewport] {
-				scrollbar-width: none;
-				-ms-overflow-style: none;
-				-webkit-overflow-scrolling: touch;
-			}
-			[data-radix-scroll-area-viewport]::-webkit-scrollbar {
-				display: none;
-			}
-		</style>
-
 		<div
 			data-radix-scroll-area-viewport=""
 			class="relative size-full min-h-0 rounded-[inherit] text-sm"
@@ -57,9 +53,8 @@
 						{@const slug = slugify(stripHtmlTags(heading)) }
 						<a
 							href={`#${slug}`}
-							on:click={(e) => scrollToHeading(e, slug)}
-							class="py-1 ps-4 transition-colors data-[active=true]:font-medium data-[active=false]:text-primary"
-							data-active="true"
+							onclick={(e) => scrollToHeading(e, slug)}
+							class={cn("py-1 ps-4 transition-colors", isActive(slug) && "text-primary" )}
 						>
 							{stripHtmlTags(heading)}
 						</a>
