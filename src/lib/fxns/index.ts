@@ -110,7 +110,6 @@ export function generateSectionsFromHtmlString(html: string): iHTMLSection[] {
         const title = stripHtmlTags(element.outerHTML);
         const id = slugify(title);
 
-        element.id = id; // Assign ID to heading
         currentSection = {
           id,
           title,
