@@ -15,6 +15,13 @@ const config: Config = {
 			}
 		},
 		extend: {
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '100%', // Ensures prose width is 100%
+					},
+				},
+			},
 			colors: {
 				alternate: "#188bc4",
 				shade: {

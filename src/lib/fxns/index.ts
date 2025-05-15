@@ -74,3 +74,18 @@ export function toDatetimeLocal(dateString: string): string {
 
 	return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
+
+export function extractTopLevelTags(html: string): string[] {
+	const result: string[] = [];
+	const wrapper = document.createElement('div');
+	wrapper.innerHTML = html;
+
+	for (const node of Array.from(wrapper.childNodes)) {
+		if (node.nodeType === Node.ELEMENT_NODE) {
+			result.push((node as HTMLElement).outerHTML);
+		}
+	}
+
+	return result;
+}
+
