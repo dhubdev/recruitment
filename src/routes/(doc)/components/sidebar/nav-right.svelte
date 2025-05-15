@@ -1,11 +1,18 @@
 <script lang="ts">
 	import { TextIcon } from 'lucide-svelte';
-
 	import { headingStore } from '$lib/stores';
-	import { onMount } from 'svelte';
-	import { extractTopLevelTagsWithSlugIds, slugify, stripHtmlTags } from '$lib/fxns';
+	import { slugify, stripHtmlTags } from '$lib/fxns';
 
-	let tags = $state();
+	// Function to handle smooth scrolling with 64px offset
+	function scrollToHeading(e: MouseEvent, id: string) {
+		e.preventDefault();
+		const el = document.getElementById(id);
+		if (el) {
+			const offset = 64;
+			const y = el.getBoundingClientRect().top + window.scrollY - offset;
+			window.scrollTo({ top: y, behavior: 'smooth' });
+		}
+	}
 </script>
 
 <div
@@ -16,6 +23,7 @@
 		<TextIcon class="size-4" />
 		<span>On this page</span>
 	</h3>
+
 	<div
 		dir="ltr"
 		class="flex flex-col overflow-hidden"
@@ -31,6 +39,7 @@
 				display: none;
 			}
 		</style>
+
 		<div
 			data-radix-scroll-area-viewport=""
 			class="relative size-full min-h-0 rounded-[inherit] text-sm"
@@ -42,31 +51,19 @@
 					class="absolute start-0 hidden w-0.5 bg-primary transition-all"
 					style="top: 0px; height: 28px; display: block;"
 				></div>
+
 				<div class="flex flex-col gap-1 border-s-2 text-muted-foreground">
-					{#each $headingStore as heading, i}
+					{#each $headingStore as heading}
+						{@const slug = slugify(stripHtmlTags(heading)) }
 						<a
+							href={`#${slug}`}
+							on:click={(e) => scrollToHeading(e, slug)}
+							class="py-1 ps-4 transition-colors data-[active=true]:font-medium data-[active=false]:text-primary"
 							data-active="true"
-							href={`#${slugify(heading)}`}
-							class="py-1 ps-4 transition-colors data-[active=true]:font-medium data-[active=true]:text-primary"
-							>{stripHtmlTags(heading)}</a
 						>
+							{stripHtmlTags(heading)}
+						</a>
 					{/each}
-					<!-- <a
-						data-active="false"
-						href="#features"
-						class="py-1 ps-7 transition-colors data-[active=true]:font-medium data-[active=true]:text-primary"
-						>Features</a
-					><a
-						data-active="false"
-						href="#tech-stack"
-						class="py-1 ps-7 transition-colors data-[active=true]:font-medium data-[active=true]:text-primary"
-						>Tech Stack</a
-					><a
-						data-active="false"
-						href="#quick-setup"
-						class="py-1 ps-7 transition-colors data-[active=true]:font-medium data-[active=true]:text-primary"
-						>Quick Setup</a
-					> -->
 				</div>
 			</div>
 		</div>
