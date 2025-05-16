@@ -31,6 +31,17 @@
 		$docCategoryStore = result.data as iDocumentCategory[];
 		return result.data as iDocumentCategory[];
 	};
+
+	const bulkDelete = (selected: any[]) => {
+		$modalStore = {
+			...$modalStore,
+			open: true,
+			title: 'Delete Document Categories',
+			description: 'Are you sure you want to delete these categories?',
+			type: 'deleteDocCategory',
+			data: selected
+		};
+	};
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
@@ -46,7 +57,7 @@
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
 		{@const docs = getDocs(result)}
-		<DataTable {flatten} {columns} data={docs} />
+		<DataTable {bulkDelete} {flatten} {columns} data={docs} />
 	{:catch error}
 		<AlertWidget
 			variant="destructive"

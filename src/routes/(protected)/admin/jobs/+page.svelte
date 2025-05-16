@@ -42,6 +42,17 @@
 		$jobStore = result.data as iJob[];
 		return result.data as iJob[];
 	};
+
+	const bulkDelete = (selected: any[]) => {
+		$modalStore = {
+			...$modalStore,
+			open: true,
+			title: 'Delete Document Jobs',
+			description: 'Are you sure you want to delete these jobs?',
+			type: 'deleteJob',
+			data: selected
+		};
+	};
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
@@ -57,7 +68,7 @@
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
 		{@const jobs = getJobs(result)}
-		<DataTable {flatten} {columns} data={jobs} />
+		<DataTable {bulkDelete} {flatten} {columns} data={jobs} />
 	{:catch error}
 		<AlertWidget
 			variant="destructive"
