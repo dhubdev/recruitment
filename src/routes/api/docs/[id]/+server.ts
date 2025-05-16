@@ -33,7 +33,7 @@ export const DELETE: RequestHandler = async ({ request, params, locals }) => {
   authGuard(locals)
   try {
     const partialDoc = await request.json() as Partial<iDoc>
-    const fileId = (partialDoc.file as iFile).fileId
+    const fileId = partialDoc.file ? (partialDoc.file as iFile)?.fileId : null
     
 
     if (fileId) {
