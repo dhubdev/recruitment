@@ -39,7 +39,14 @@
 	};
 
 	const bulkDelete = (selected: any[]) => {
-		console.log({ selected })
+		$modalStore = {
+			...$modalStore,
+			open: true,
+			title: 'Delete Documents',
+			description: 'Are you sure you want to delete these documents?',
+			type: 'deleteDoc',
+			data: selected
+		};
 	}
 </script>
 

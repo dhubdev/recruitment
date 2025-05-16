@@ -48,8 +48,8 @@
 			</ScrollArea>
 		{/if}
 
-		{#if $modalStore.type === 'deleteJob'}
-			<DeleteDocForm doc={$modalStore.data as iDoc} />
+		{#if $modalStore.type === 'deleteDoc'}
+			<DeleteDocForm docs={$modalStore.data as iDoc[]} />
 		{/if}
 
 		{#if $modalStore.type === 'docCategory'}

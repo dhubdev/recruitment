@@ -67,7 +67,7 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 				modalStore.update(existing => ({
 					...existing,
 					open: true,
-					data: doc,
+					data: [doc],
 					title: 'Delete Row',
 					description: `This action cannot be undone. This will permanently delete ${doc?.title} and remove it's data from our servers.`,
 					type: 'deleteDoc'

@@ -8,34 +8,41 @@
 	import { toast } from 'svelte-sonner';
 
 	interface Props {
-		doc: iDoc;
+		docs: iDoc[];
 		class?: string;
 	}
 
 	let loading = $state(false);
 
-	let { doc, class: className }: Props = $props();
+	let { docs, class: className }: Props = $props();
 
+	const promise = async (doc: iDoc) => {
+		const url = `/api/docs/${doc.xata_id}`;
+		const options: RequestInit = {
+			method: 'delete',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(doc)
+		};
+		const response = await fetch(url, options);
+		return (await response.json()) as iResult;
+	};
 	let onclick = async () => {
 		try {
 			loading = true;
-			const url = `/api/docs/${doc.xata_id}`;
-			const options: RequestInit = {
-				method: 'delete',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(doc)
-			};
-			const response = await fetch(url, options);
-			const { status, message } = (await response.json()) as iResult;
+			const promises = docs.map((doc) => promise(doc));
+			const results = await Promise.all(promises);
 
-			if (status === 'error') {
-				toast.error(message);
-			} else {
-				toast.success("Successfully deleted Referee");
-				location.reload();
-			}
+			results.map((result) => {
+				const { status, message } = result;
+				if (status === 'error') {
+					throw new Error(message);
+				}
+				return result;
+			});
+			toast.success('Successfully deleted Referee');
+			location.reload();
 		} catch (error: any) {
 			toast.error(error.message);
 		} finally {
