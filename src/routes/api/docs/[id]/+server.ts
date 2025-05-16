@@ -32,10 +32,9 @@ export const DELETE: RequestHandler = async ({ request, params, locals }) => {
 
   authGuard(locals)
   try {
-    const partialDoc = await request.json() as Partial<iDoc>
-    const fileId = partialDoc.file ? (partialDoc.file as iFile)?.fileId : null
+    const doc = await request.json() as iDoc
+    const fileId = doc.file ? (doc.file as iFile)?.fileId : null
     
-
     if (fileId) {
       const xataDocResult = await deleteXataFile(fileId)
       throwIfError(xataDocResult)

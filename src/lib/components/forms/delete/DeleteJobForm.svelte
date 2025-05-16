@@ -40,7 +40,7 @@
 				}
 				return result;
 			});
-			toast.success('Successfully deleted Referee');
+			toast.success('Successfully deleted');
 			location.reload();
 		} catch (error: any) {
 			toast.error(error.message);

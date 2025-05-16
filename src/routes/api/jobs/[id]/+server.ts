@@ -31,9 +31,9 @@ export const DELETE: RequestHandler = async ({ locals, request, params }) => {
 
   try {
     const job = await request.json() as iJob
-    const fileId = (job.file as iFile)?.fileId
+    const fileId = job.file ? (job.file as iFile)?.fileId : null
     
-    if (job.file) {
+    if (fileId) {
       const xataFileResult = await deleteXataFile(fileId)
       throwIfError(xataFileResult)
       const fileResult = await deleteFile(fileId)
