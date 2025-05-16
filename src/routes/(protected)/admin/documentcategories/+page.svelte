@@ -40,6 +40,7 @@
 			description: 'Are you sure you want to delete these categories?',
 			type: 'deleteDocCategory',
 			data: selected,
+			className: 'max-w-md'
 		};
 	};
 </script>

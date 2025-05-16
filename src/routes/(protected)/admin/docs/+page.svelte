@@ -34,8 +34,8 @@
 	});
 
 	const getDocs = (result: iResult) => {
-		$docStore = result.data as iDoc[]
-		return result.data as iDoc[]
+		$docStore = result.data as iDoc[];
+		return result.data as iDoc[];
 	};
 
 	const bulkDelete = (selected: any[]) => {
@@ -45,9 +45,10 @@
 			title: 'Delete Documents',
 			description: 'Are you sure you want to delete these documents?',
 			type: 'deleteDoc',
-			data: selected
+			data: selected,
+			className: 'max-w-md'
 		};
-	}
+	};
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">

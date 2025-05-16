@@ -50,7 +50,8 @@
 			title: 'Delete Document Jobs',
 			description: 'Are you sure you want to delete these jobs?',
 			type: 'deleteJob',
-			data: selected
+			data: selected,
+			className: 'max-w-md'
 		};
 	};
 </script>
