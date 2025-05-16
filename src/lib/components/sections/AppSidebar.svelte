@@ -40,7 +40,7 @@
 		},
 		{
 			name: 'Document Categories',
-			href: `/admin/doc-categories`,
+			href: `/admin/documentcategories`,
 			icon: FileTextIcon
 		},
 		{
