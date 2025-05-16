@@ -19,8 +19,8 @@
 		$modalStore = {
 			...$modalStore,
 			open: true,
-			title: 'Add Doc',
-			description: 'Fill the form below to add a new doc',
+			title: 'Add Document',
+			description: 'Fill the form below to add a new document',
 			type: 'doc'
 		};
 	};
@@ -40,7 +40,7 @@
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
-	<Heading title="Doc Listings" description="Add and manage doc listings" />
+	<Heading title="Documents" description="Add and manage documents" />
 	<Separator />
 	<div class="flex items-center justify-center gap-2 md:justify-start">
 		<Button onclick={addDoc}>
@@ -57,7 +57,7 @@
 		<AlertWidget
 			variant="destructive"
 			message={error.message}
-			title="Error loading docs"
+			title="Error loading documentss"
 			href={page.url.pathname}
 			linkText="Reload"
 		/>
