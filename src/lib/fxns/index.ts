@@ -127,6 +127,55 @@ export function generateSectionsFromHtmlString(html: string): iHTMLSection[] {
   return sections;
 }
 
+export function generateSectionsFromHtmlStringTwo(html: string): iHTMLSection[] {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = html;
+
+  const sections: { id: string, title: string, content: string }[] = [];
+  let currentId = '';
+  let currentTitle = '';
+  let currentContent: string[] = [];
+  let started = false;
+
+  for (const node of Array.from(wrapper.childNodes)) {
+    if (node.nodeType === Node.ELEMENT_NODE) {
+      const element = node as HTMLElement;
+
+      // Skip empty tags
+      if (element.innerHTML.trim() === '') continue;
+
+      // Heading tag signals a new section
+      if (/^H[1-6]$/i.test(element.tagName)) {
+        if (started) {
+          sections.push({
+            id: currentId,
+            title: currentTitle,
+            content: currentContent.map(n => n).join('')
+          });
+          currentContent = [];
+        }
+
+        currentTitle = stripHtmlTags(element.outerHTML);
+        currentId = slugify(currentTitle);
+        element.id = currentId;
+        started = true;
+      } else if (started) {
+        currentContent.push(element.outerHTML);
+      }
+    }
+  }
+
+  // Push the last section if any
+  if (started) {
+    sections.push({
+      id: currentId,
+      title: currentTitle,
+      content: currentContent.map(n => n).join('')
+    });
+  }
+
+  return sections;
+}
 
 export function extractTopLevelTagsWithSlugIds(html: string): string[] {
 	const result: string[] = [];

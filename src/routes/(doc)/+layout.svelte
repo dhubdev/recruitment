@@ -8,8 +8,9 @@
 	import NavTop from './components/sidebar/nav-top.svelte';
 	import type { LayoutServerData } from './$types';
 	import type { iResult } from '@toolsntuts/utils';
-	import { groupedDocs } from '$lib/stores';
 	import type { iDoc } from '$lib/interface';
+	import CrumbPath from '$lib/components/ui/crumb-path/crumb-path.svelte';
+	import { groupedDocs } from './lib/stores';
 
 	interface Props {
 		data: LayoutServerData,
@@ -39,7 +40,8 @@
 			<div class="flex items-center gap-2 px-4">
 				<Sidebar.Trigger class="-ml-1" />
 				<Separator orientation="vertical" class="mr-2 h-4" />
-				<Breadcrumb.Root>
+				<CrumbPath />
+				<!-- <Breadcrumb.Root>
 					<Breadcrumb.List>
 						<Breadcrumb.Item class="hidden md:block">
 							<Breadcrumb.Link href="#">Building Your Application</Breadcrumb.Link>
@@ -49,7 +51,7 @@
 							<Breadcrumb.Page>Data Fetching</Breadcrumb.Page>
 						</Breadcrumb.Item>
 					</Breadcrumb.List>
-				</Breadcrumb.Root>
+				</Breadcrumb.Root> -->
 			</div>
 		</header>
 		<div class="flex flex-1 flex-col gap-4 p-4 pt-0">
