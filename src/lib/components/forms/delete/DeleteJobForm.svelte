@@ -8,34 +8,40 @@
 	import { toast } from 'svelte-sonner';
 
 	interface Props {
-		job: iJob;
+		jobs: Array<iJob>;
 		class?: string;
 	}
 
 	let loading = $state(false);
 
-	let { job, class: className }: Props = $props();
+	let { jobs, class: className }: Props = $props();
 
+	const promise = async (job: iJob) => {
+		const url = `/api/jobs/${job.xata_id}`;
+		const options: RequestInit = {
+			method: 'delete',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(job)
+		};
+		const response = await fetch(url, options);
+		const result = (await response.json()) as iResult;
+		return result;
+	};
 	let onclick = async () => {
 		try {
 			loading = true;
-			const url = `/api/jobs/${job.xata_id}`;
-			const options: RequestInit = {
-				method: 'delete',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(job)
-			};
-			const response = await fetch(url, options);
-			const { status, message } = (await response.json()) as iResult;
-
-			if (status === 'error') {
-				toast.error(message);
-			} else {
-				toast.success("Successfully deleted Referee");
-				location.reload();
-			}
+			const promises = jobs.map(promise);
+			const results = await Promise.all(promises);
+			results.forEach((result) => {
+				if (result.status === 'error') {
+					throw new Error(result.message);
+				}
+				return result;
+			});
+			toast.success('Successfully deleted Referee');
+			location.reload();
 		} catch (error: any) {
 			toast.error(error.message);
 		} finally {

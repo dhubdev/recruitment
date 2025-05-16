@@ -32,7 +32,7 @@
 	let onclick = async () => {
 		try {
 			loading = true;
-			const promises = docs.map((doc) => promise(doc));
+			const promises = docs.map(promise);
 			const results = await Promise.all(promises);
 
 			results.forEach((result) => {
