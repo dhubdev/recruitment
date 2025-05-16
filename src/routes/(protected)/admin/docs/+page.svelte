@@ -56,7 +56,7 @@
 	<div class="flex items-center justify-center gap-2 md:justify-start">
 		<Button onclick={addDoc}>
 			<PlusIcon class="size-4" />
-			<span>Add Doc</span>
+			<span>Add Document</span>
 		</Button>
 	</div>
 	{#await data.getDocs}
