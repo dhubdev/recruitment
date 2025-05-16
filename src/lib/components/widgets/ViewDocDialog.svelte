@@ -26,7 +26,7 @@
 			<Dialog.Title class="border-b border-border px-6 py-4 text-base">
 				{title}
 			</Dialog.Title>
-			<div bind:this={content} onscroll={handleScroll} class="overflow-y-auto">
+			<div bind:this={content} onscroll={handleScroll} class="overflow-y-auto h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]">
 				<Dialog.Description class="px-6 py-4 prose dark:prose-invert">
 					{@html docContent}
 				</Dialog.Description>
