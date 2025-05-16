@@ -4,7 +4,7 @@
 	import type { iDoc } from '$lib/interface';
 	import { modalStore } from '$lib/stores';
 	import { cn } from '$lib/utils';
-	import type { iResult } from '@toolsntuts/utils';
+	import { onError, type iResult } from '@toolsntuts/utils';
 	import { toast } from 'svelte-sonner';
 
 	interface Props {
@@ -17,16 +17,20 @@
 	let { docs, class: className }: Props = $props();
 
 	const promise = async (doc: iDoc) => {
-		const url = `/api/docs/${doc.xata_id}`;
-		const options: RequestInit = {
-			method: 'delete',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(doc)
-		};
-		const response = await fetch(url, options);
-		return (await response.json()) as iResult;
+		try {
+			const url = `/api/docs/${doc.xata_id}`;
+			const options: RequestInit = {
+				method: 'delete',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(doc)
+			};
+			const response = await fetch(url, options);
+			return (await response.json()) as iResult;
+		} catch (error: any) {
+			return onError(error)
+		}
 	};
 	let onclick = async () => {
 		try {
@@ -34,7 +38,7 @@
 			const promises = docs.map((doc) => promise(doc));
 			const results = await Promise.all(promises);
 
-			console.log({ docs })
+			console.log({ docs });
 
 			results.map((result) => {
 				const { status, message } = result;
