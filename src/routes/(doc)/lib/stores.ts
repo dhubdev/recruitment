@@ -5,7 +5,11 @@ const docStore = writable<iDoc[]>([])
 
 const htmlSectionStore = writable<iHTMLSection[]>([])
 
-const currentSectionStore = writable<Element>()
+const currentHtml = writable<{ section: Element | null, link: Element | null, id: string }>({
+  section: null,
+  link: null,
+  id: ''
+})
 
 function createGroupedDocs() {
   const { subscribe, set, update } = writable<Map<string, iDoc[] | undefined>>(new Map());
@@ -26,4 +30,4 @@ function createGroupedDocs() {
 const groupedDocs = createGroupedDocs();
 
 
-export { docStore, groupedDocs, htmlSectionStore, currentSectionStore }
+export { docStore, groupedDocs, htmlSectionStore, currentHtml }

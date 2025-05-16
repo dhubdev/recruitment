@@ -13,6 +13,7 @@
 	const onOpenChange = (value: boolean) => {
 		console.log({ value, $isOpen })
 	}
+
 </script>
 
 <Popover.Root bind:open={$isOpen} {onOpenChange}>
