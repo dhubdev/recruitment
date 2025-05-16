@@ -37,6 +37,10 @@
 		$docStore = result.data as iDoc[]
 		return result.data as iDoc[]
 	};
+
+	const bulkDelete = (selected: any[]) => {
+		console.log({ selected })
+	}
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
@@ -52,7 +56,7 @@
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
 		{@const docs = getDocs(result)}
-		<DataTable {flatten} {columns} data={docs} />
+		<DataTable {flatten} {bulkDelete} {columns} data={docs} />
 	{:catch error}
 		<AlertWidget
 			variant="destructive"
