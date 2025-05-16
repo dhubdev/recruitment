@@ -26,5 +26,4 @@ function createGroupedDocs() {
 const groupedDocs = createGroupedDocs();
 
 
-
 export { docStore, groupedDocs, htmlSectionStore, currentSectionStore }

@@ -71,5 +71,6 @@ const jobStore = writable<iJob[]>([])
 
 const docStore = writable<iDoc[]>([])
 
+const docCategoryStore = writable<iDocumentCategory[]>([])
 
-export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore }
+export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore }
