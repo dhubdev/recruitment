@@ -6,7 +6,8 @@ const modalStore = writable<iModal>({
   open: false,
   type: 'job',
   title: '',
-  description: ''
+  description: '',
+  className: ''
 })
 
 const docModalStore = writable<iDocModal>({

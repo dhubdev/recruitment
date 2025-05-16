@@ -58,7 +58,8 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 					data: [job],
 					title: 'Delete Row',
 					description: `This action cannot be undone. This will permanently delete ${job?.title} and remove it's data from our servers.`,
-					type: 'deleteJob'
+					type: 'deleteJob',
+					className: 'max-w-md'
 				}))
 			},
 			icon: Trash2Icon

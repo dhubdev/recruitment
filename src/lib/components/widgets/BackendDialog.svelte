@@ -9,16 +9,17 @@
 	import DeleteDocForm from '../forms/delete/DeleteDocForm.svelte';
 	import DocCategoryForm from '../forms/DocCategoryForm.svelte';
 	import DeleteDocCategoryForm from '../forms/delete/DeleteDocCategoryForm.svelte';
+	import { cn } from '$lib/utils';
 
 	interface Props {
-		documentCategories?: iDocumentCategory[];
+		documentCategories?: iDocumentCategory[]
 	}
 
-	let { documentCategories }: Props = $props();
+	let { documentCategories }: Props = $props()
 </script>
 
 <Dialog.Root open={$modalStore.open}>
-	<Dialog.Content class="mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-2">
+	<Dialog.Content class={cn("mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-2", $modalStore.className)}>
 		<Dialog.Header class="contents gap-0 space-y-0 text-left">
 			<Dialog.Title class="p-1 text-base">
 				<h2>{$modalStore.title}</h2>
@@ -37,9 +38,7 @@
 		{/if}
 
 		{#if $modalStore.type === 'deleteJob'}
-			<div class="mx-auto w-full max-w-md">
-				<DeleteJobForm jobs={$modalStore.data as Array<iJob>} />
-			</div>
+			<DeleteJobForm jobs={$modalStore.data as Array<iJob>} />
 		{/if}
 
 		{#if $modalStore.type === 'doc'}
@@ -51,9 +50,7 @@
 		{/if}
 
 		{#if $modalStore.type === 'deleteDoc'}
-			<div class="mx-auto w-full max-w-md">
-				<DeleteDocForm docs={$modalStore.data as iDoc[]} />
-			</div>
+			<DeleteDocForm docs={$modalStore.data as iDoc[]} />
 		{/if}
 
 		{#if $modalStore.type === 'docCategory'}
@@ -64,9 +61,7 @@
 			</ScrollArea>
 		{/if}
 		{#if $modalStore.type === 'deleteDocCategory'}
-			<div class="mx-auto w-full max-w-md">
-				<DeleteDocCategoryForm documentCategories={$modalStore.data as Array<iDocumentCategory>} />
-			</div>
+			<DeleteDocCategoryForm documentCategories={$modalStore.data as Array<iDocumentCategory>} />
 		{/if}
 	</Dialog.Content>
 </Dialog.Root>

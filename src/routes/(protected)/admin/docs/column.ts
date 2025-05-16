@@ -70,7 +70,8 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 					data: [doc],
 					title: 'Delete Row',
 					description: `This action cannot be undone. This will permanently delete ${doc?.title} and remove it's data from our servers.`,
-					type: 'deleteDoc'
+					type: 'deleteDoc',
+					className: 'max-w-md'
 				}))
 			},
 			icon: Trash2Icon

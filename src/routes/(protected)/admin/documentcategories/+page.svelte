@@ -39,7 +39,7 @@
 			title: 'Delete Document Categories',
 			description: 'Are you sure you want to delete these categories?',
 			type: 'deleteDocCategory',
-			data: selected
+			data: selected,
 		};
 	};
 </script>

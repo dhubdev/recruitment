@@ -86,6 +86,7 @@ export interface iModal {
 	description: string;
 	open: boolean;
 	data?: any;
+	className?: string;
 }
 
 export interface iDocModal {
