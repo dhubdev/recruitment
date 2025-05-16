@@ -17,20 +17,17 @@
 	let { docs, class: className }: Props = $props();
 
 	const promise = async (doc: iDoc) => {
-		try {
-			const url = `/api/docs/${doc.xata_id}`;
-			const options: RequestInit = {
-				method: 'delete',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(doc)
-			};
-			const response = await fetch(url, options);
-			return (await response.json()) as iResult;
-		} catch (error: any) {
-			return onError(error)
-		}
+		const url = `/api/docs/${doc.xata_id}`;
+		const options: RequestInit = {
+			method: 'delete',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(doc)
+		};
+		const response = await fetch(url, options);
+		const result = (await response.json()) as iResult;
+		return result;
 	};
 	let onclick = async () => {
 		try {
@@ -38,15 +35,13 @@
 			const promises = docs.map((doc) => promise(doc));
 			const results = await Promise.all(promises);
 
-			console.log({ docs });
-
-			results.map((result) => {
-				const { status, message } = result;
-				if (status === 'error') {
-					throw new Error(message);
+			results.forEach((result) => {
+				if (result.status === 'error') {
+					throw new Error(result.message);
 				}
 				return result;
 			});
+
 			toast.success('Successfully deleted Referee');
 			location.reload();
 		} catch (error: any) {
