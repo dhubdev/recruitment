@@ -37,7 +37,7 @@
 		{/if}
 
 		{#if $modalStore.type === 'deleteJob'}
-			<DeleteJobForm job={$modalStore.data as iJob} />
+			<DeleteJobForm jobs={$modalStore.data as Array<iJob>} />
 		{/if}
 
 		{#if $modalStore.type === 'doc'}
@@ -60,7 +60,7 @@
 			</ScrollArea>
 		{/if}
 		{#if $modalStore.type === 'deleteDocCategory'}
-			<DeleteDocCategoryForm documentCategory={$modalStore.data as iDocumentCategory} />
+			<DeleteDocCategoryForm documentCategories={$modalStore.data as Array<iDocumentCategory>} />
 		{/if}
 	</Dialog.Content>
 </Dialog.Root>

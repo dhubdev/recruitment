@@ -33,6 +33,7 @@
 	let onclick = async () => {
 		try {
 			loading = true;
+			console.log({ documentCategories })
 			const promises = documentCategories.map(promise);
 			const results = await Promise.all(promises);
 
@@ -46,6 +47,7 @@
 			location.reload();
 		} catch (error: any) {
 			toast.error(error.message);
+			console.log(error)
 		} finally {
 			loading = false;
 		}
