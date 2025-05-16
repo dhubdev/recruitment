@@ -34,6 +34,8 @@
 			const promises = docs.map((doc) => promise(doc));
 			const results = await Promise.all(promises);
 
+			console.log({ docs })
+
 			results.map((result) => {
 				const { status, message } = result;
 				if (status === 'error') {
