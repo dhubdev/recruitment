@@ -30,9 +30,14 @@
 
 			observer = new IntersectionObserver(observation, options);
 
-			$htmlSectionStore.forEach((section) => {
+			$htmlSectionStore.forEach((section, i) => {
 				const el = document.getElementById(section.id);
 				if (el) observer.observe(el);
+				if (i === 0 && el) {
+					$currentHtml.section = el;
+					$currentHtml.id = el.id;
+					$currentHtml.link = document.getElementById(`${el.id}-link`) as Element;
+				}
 			});
 		};
 
