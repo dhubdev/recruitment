@@ -14,7 +14,7 @@ export const addDoc = async (partialDoc: Partial<iDocument>) => {
   }
 }
 
-export const getDoc = async (docId: string) => {
+export const getDocument = async (docId: string) => {
   const xata = getXataClient()
 
   try {
@@ -73,7 +73,7 @@ export const deleteDoc = async (docId: string) => {
   }
 }
 
-export const getDocs = async () => {
+export const getDocuments = async () => {
   const xata = getXataClient()
 
   try {
@@ -82,7 +82,7 @@ export const getDocs = async () => {
       .getMany({ pagination: { size: 200 } })
     return onSuccess(docs)
   } catch (error: any) {
-    console.log("getDocs()", error.message)
+    console.log("getDocuments()", error.message)
     return onError(error.message)
   }
 }

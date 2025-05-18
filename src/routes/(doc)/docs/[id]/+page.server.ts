@@ -1,4 +1,4 @@
-import { getDoc, getDocs } from '$lib/xata/doc';
+import { getDocument, getDocuments } from '$lib/xata/document';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {
@@ -6,6 +6,6 @@ export const load = (async ({ params }) => {
   const { id } = params
 
   return {
-    getDocs: getDocs()
+    getDocuments: getDocuments()
   };
 }) satisfies PageServerLoad;

@@ -33,7 +33,7 @@
 		file: doc.file ? (doc.file as iFile)?.url : ''
 	});
 
-	const getDocs = (result: iResult) => {
+	const getDocuments = (result: iResult) => {
 		$docStore = result.data as iDocument[];
 		return result.data as iDocument[];
 	};
@@ -60,10 +60,10 @@
 			<span>Add Document</span>
 		</Button>
 	</div>
-	{#await data.getDocs}
+	{#await data.getDocuments}
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
-		{@const docs = getDocs(result)}
+		{@const docs = getDocuments(result)}
 		<DataTable {flatten} {bulkDelete} {columns} data={docs} />
 	{:catch error}
 		<AlertWidget

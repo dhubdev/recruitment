@@ -27,7 +27,7 @@
 
 	const flatten = (docCategory: iDocumentCategory) => docCategory;
 
-	const getDocs = (result: iResult) => {
+	const getDocuments = (result: iResult) => {
 		$docCategoryStore = result.data as iDocumentCategory[];
 		return result.data as iDocumentCategory[];
 	};
@@ -54,10 +54,10 @@
 			<span>Add Document Category</span>
 		</Button>
 	</div>
-	{#await data.getDocs}
+	{#await data.getDocuments}
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
-		{@const docs = getDocs(result)}
+		{@const docs = getDocuments(result)}
 		<DataTable {bulkDelete} {flatten} {columns} data={docs} />
 	{:catch error}
 		<AlertWidget

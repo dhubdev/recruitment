@@ -1,7 +1,7 @@
 import type { iUser } from '$lib/interface';
 import type { LayoutServerLoad } from './$types';
 import { getMe } from '$lib/xata/user'
-import { getDocs } from '$lib/xata/doc';
+import { getDocuments } from '$lib/xata/document';
 
 export const load = (async ({ locals }) => {
 
@@ -9,5 +9,5 @@ export const load = (async ({ locals }) => {
 
   const me = await getMe(user.emailAddresses[0].emailAddress) as iUser
 
-  return { me, getDocs: getDocs() };
+  return { me, getDocuments: getDocuments() };
 }) satisfies LayoutServerLoad;

@@ -23,7 +23,7 @@
 	};
 
 	onMount(() => {
-		data.getDocs.then(setDocuments).catch((error) => console.error(error));
+		data.getDocuments.then(setDocuments).catch((error) => console.error(error));
 	});
 </script>
 

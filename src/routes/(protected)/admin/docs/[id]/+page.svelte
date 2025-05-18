@@ -6,7 +6,7 @@
 </script>
 
 <div class="p-4">
-	{#await data.getDoc}
+	{#await data.getDocument}
 		<p>Loading...</p>
 	{:then result}
 		{@const doc = result.data}

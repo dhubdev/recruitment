@@ -1,8 +1,8 @@
 import type { iJob } from '$lib/interface';
 import type { PageServerLoad } from './$types';
-import { getDocs } from '$lib/xata/doc';
+import { getDocuments } from '$lib/xata/document';
 
 export const load = (async ({ }) => {
-  
-  return { getDocs: getDocs() }
+
+  return { getDocuments: getDocuments() }
 }) satisfies PageServerLoad;

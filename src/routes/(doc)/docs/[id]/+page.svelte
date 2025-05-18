@@ -7,17 +7,16 @@
 	let { data }: { data: PageData } = $props();
 
 	const getDocuments = () => {
-		return { docs: [], doc: {} }
-	}
+		return { docs: [], doc: {} };
+	};
 </script>
 
-{#await data.getDocs}
+{#await data.getDocuments}
 	<div class="flex items-center justify-normal">
 		<Skeleton class="h-16 w-full" />
 	</div>
 {:then result}
 	{@const { docs, doc } = getDocuments()}
-	
 {:catch error}
 	<AlertWidget
 		variant="destructive"
