@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { aiSubmitForm, submitForm } from '$lib/client/actions';
 	import { defaultDoc, docOptions, Role } from '$lib/constants';
-	import type { iFile, iDoc, iUser, iDocumentCategory } from '$lib/interface';
+	import type { iFile, iDocument, iUser, iDocumentCategory } from '$lib/interface';
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
 	import Textarea from '../ui/textarea/textarea.svelte';
@@ -16,8 +16,8 @@
 	import { cn } from '$lib/utils';
 
 	interface Props {
-		doc?: iDoc;
-		documentCategories: iDocumentCategory[]
+		doc?: iDocument;
+		documentCategories: iDocumentCategory[];
 	}
 
 	const me = getContext('me') as iUser;
@@ -28,13 +28,18 @@
 	let aiLoading = $state(false);
 
 	const action = doc ? 'Save changes' : 'Create';
-	const categoryOptions = documentCategories.map((docCat: iDocumentCategory) => ({ label: docCat.category, value: docCat.xata_id }))
+	const categoryOptions = documentCategories.map((docCat: iDocumentCategory) => ({
+		label: docCat.category,
+		value: docCat.xata_id
+	}));
 
 	let placeholder = $state(doc ? doc : defaultDoc);
 
 	let aiContent = $state(placeholder.content);
 	let content = $state(placeholder.content);
-	let documentCategory = $state(placeholder?.category ? (placeholder.category as iDocumentCategory).xata_id : '')
+	let documentCategory = $state(
+		placeholder?.category ? (placeholder.category as iDocumentCategory).xata_id : ''
+	);
 
 	const onsubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
@@ -44,7 +49,7 @@
 		if (me.role !== Role.ADMIN) {
 			toast.error('You are not authorized to perform this action');
 		} else {
-			await submitForm<iDoc>(evt, {
+			await submitForm<iDocument>(evt, {
 				resource: 'docs',
 				data: { content, file: placeholder.file },
 				entity: doc
@@ -61,7 +66,7 @@
 		const result = await aiSubmitForm(evt, 'doc');
 
 		if (result) {
-			console.log({ result  })
+			console.log({ result });
 			placeholder.content = result.qualityMetrics.content;
 			aiContent = result.copy;
 			content = result.copy;
@@ -75,8 +80,8 @@
 <form onsubmit={handleAiSubmit} class="space-y-2">
 	<Textarea
 		name="prompt"
-		placeholder="Enter a short doc listing (e.g., “Remote Content & Social Media Officer, full-time”) and AI will generate a detailed doc description."
-		class={cn(removeRingClasses(), "resize-none")}
+		placeholder="Describe your job listing (e.g., “Remote Content & Social Media Officer, full-time”) and AI will generate a detailed doc description."
+		class={cn(removeRingClasses(), 'resize-none')}
 	></Textarea>
 	{#if aiLoading}
 		<Button size="icon">
@@ -99,10 +104,6 @@
 				bind:value={placeholder.title}
 				class={removeRingClasses()}
 			/>
-		</div>
-		<div>
-			<Label for="nature">Type of Doc</Label>
-			<Select options={docOptions} name="slug" bind:value={placeholder.slug} />
 		</div>
 		<div>
 			<Label for="nature">Document Category</Label>

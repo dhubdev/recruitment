@@ -1,7 +1,7 @@
-import type { iDoc, iDocumentCategory, iHTMLSection } from "$lib/interface";
+import type { iDocument, iDocumentCategory, iHTMLSection } from "$lib/interface";
 import { writable } from "svelte/store";
 
-const docStore = writable<iDoc[]>([])
+const docStore = writable<iDocument[]>([])
 
 const htmlSectionStore = writable<iHTMLSection[]>([])
 
@@ -12,9 +12,9 @@ const currentHtml = writable<{ section: Element | null, link: Element | null, id
 })
 
 function createGroupedDocs() {
-  const { subscribe, set, update } = writable<Map<string, iDoc[] | undefined>>(new Map());
+  const { subscribe, set, update } = writable<Map<string, iDocument[] | undefined>>(new Map());
 
-  function group(docs: iDoc[]) {
+  function group(docs: iDocument[]) {
     // Object.groupBy is supported in modern environments
     const grouped = Object.groupBy(docs, (doc) => (doc.category as iDocumentCategory).category);
     set(new Map(Object.entries(grouped)));

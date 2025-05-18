@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { modalStore } from '$lib/stores';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import type { iDoc, iDocumentCategory, iJob } from '$lib/interface';
+	import type { iDocument, iDocumentCategory, iJob } from '$lib/interface';
 	import JobForm from '../forms/JobForm.svelte';
 	import DeleteJobForm from '../forms/delete/DeleteJobForm.svelte';
 	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
@@ -12,14 +12,16 @@
 	import { cn } from '$lib/utils';
 
 	interface Props {
-		documentCategories?: iDocumentCategory[]
+		documentCategories?: iDocumentCategory[];
 	}
 
-	let { documentCategories }: Props = $props()
+	let { documentCategories }: Props = $props();
 </script>
 
 <Dialog.Root open={$modalStore.open}>
-	<Dialog.Content class={cn("mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-2", $modalStore.className)}>
+	<Dialog.Content
+		class={cn('mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-2', $modalStore.className)}
+	>
 		<Dialog.Header class="contents gap-0 space-y-0 text-left">
 			<Dialog.Title class="p-1 text-base">
 				<h2>{$modalStore.title}</h2>
@@ -45,12 +47,15 @@
 			<ScrollArea
 				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
 			>
-				<DocForm documentCategories={documentCategories ?? []} doc={$modalStore.data as iDoc} />
+				<DocForm
+					documentCategories={documentCategories ?? []}
+					doc={$modalStore.data as iDocument}
+				/>
 			</ScrollArea>
 		{/if}
 
 		{#if $modalStore.type === 'deleteDoc'}
-			<DeleteDocForm docs={$modalStore.data as iDoc[]} />
+			<DeleteDocForm docs={$modalStore.data as iDocument[]} />
 		{/if}
 
 		{#if $modalStore.type === 'docCategory'}

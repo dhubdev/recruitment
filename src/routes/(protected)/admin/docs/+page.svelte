@@ -5,7 +5,7 @@
 	import DataTable from '$lib/components/ui/data-table/data-table.svelte';
 	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
 	import { page } from '$app/state';
-	import type { iFile, iDoc } from '$lib/interface';
+	import type { iFile, iDocument } from '$lib/interface';
 	import { docStore, modalStore } from '$lib/stores';
 	import { getColumns } from './column';
 	import { Button } from '$lib/components/ui/button';
@@ -25,7 +25,7 @@
 		};
 	};
 
-	const flatten = (doc: iDoc) => ({
+	const flatten = (doc: iDocument) => ({
 		id: doc.xata_id,
 		title: doc.title,
 		createdAt: doc.xata_createdat.toLocaleString(),
@@ -34,8 +34,8 @@
 	});
 
 	const getDocs = (result: iResult) => {
-		$docStore = result.data as iDoc[];
-		return result.data as iDoc[];
+		$docStore = result.data as iDocument[];
+		return result.data as iDocument[];
 	};
 
 	const bulkDelete = (selected: any[]) => {

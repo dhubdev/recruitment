@@ -9,7 +9,7 @@ import { defaultOptions } from "./config";
 
 const tables = [
   {
-    name: "doc",
+    name: "document",
     checkConstraints: {
       doc_xata_id_length_xata_id: {
         name: "doc_xata_id_length_xata_id",
@@ -491,8 +491,8 @@ const tables = [
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
-export type Doc = InferredTypes["doc"];
-export type DocRecord = Doc & XataRecord;
+export type Document = InferredTypes["document"];
+export type DocumentRecord = Document & XataRecord;
 
 export type Documentcategory = InferredTypes["documentcategory"];
 export type DocumentcategoryRecord = Documentcategory & XataRecord;
@@ -507,7 +507,7 @@ export type User = InferredTypes["user"];
 export type UserRecord = User & XataRecord;
 
 export type DatabaseSchema = {
-  doc: DocRecord;
+  document: DocumentRecord;
   documentcategory: DocumentcategoryRecord;
   file: FileRecord;
   job: JobRecord;

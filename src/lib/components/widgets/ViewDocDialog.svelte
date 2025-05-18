@@ -1,11 +1,10 @@
 <script lang="ts">
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import type { iDoc } from '$lib/interface';
+	import type { iDocument } from '$lib/interface';
 	import { Button, buttonVariants } from '../ui/button';
-  import { docModalStore } from '$lib/stores';
+	import { docModalStore } from '$lib/stores';
 
-  
-  const { title, content: docContent } = $docModalStore.data as iDoc
+	const { title, content: docContent } = $docModalStore.data as iDocument;
 
 	let content = $state<HTMLDivElement | null>();
 	let hasReadToBottom = $state(false);
@@ -26,8 +25,12 @@
 			<Dialog.Title class="border-b border-border px-6 py-4 text-base">
 				{title}
 			</Dialog.Title>
-			<div bind:this={content} onscroll={handleScroll} class="overflow-y-auto h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]">
-				<Dialog.Description class="px-6 py-4 prose dark:prose-invert">
+			<div
+				bind:this={content}
+				onscroll={handleScroll}
+				class="h-[70vh] overflow-y-auto p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
+			>
+				<Dialog.Description class="prose px-6 py-4 dark:prose-invert">
 					{@html docContent}
 				</Dialog.Description>
 			</div>

@@ -5,7 +5,7 @@ import { addDoc, deleteDoc } from '$lib/xata/doc';
 import { onError } from '@toolsntuts/utils';
 import { authGuard, throwIfError } from '$lib/server';
 import { json } from '@sveltejs/kit';
-import type { iDoc, iFile } from '$lib/interface';
+import type { iDocument, iFile } from '$lib/interface';
 import { updateDoc } from '$lib/xata/doc';
 
 export const GET: RequestHandler = async () => {
@@ -14,12 +14,12 @@ export const GET: RequestHandler = async () => {
 
 
 export const PATCH: RequestHandler = async ({ request, params, locals }) => {
-  
+
   const { id } = params
 
   authGuard(locals)
 
-  const doc = await request.json() as iDoc
+  const doc = await request.json() as iDocument
 
   const result = updateDoc(id, doc)
 
@@ -32,15 +32,15 @@ export const DELETE: RequestHandler = async ({ request, params, locals }) => {
 
   authGuard(locals)
   try {
-    const doc = await request.json() as iDoc
+    const doc = await request.json() as iDocument
     const fileId = doc.file ? (doc.file as iFile)?.fileId : null
-    
+
     if (fileId) {
       const xataDocResult = await deleteXataFile(fileId)
       throwIfError(xataDocResult)
       const docResult = await deleteFile(fileId)
       throwIfError(docResult)
-  
+
     }
     const result = await deleteDoc(id)
 

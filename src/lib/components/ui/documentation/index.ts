@@ -1,4 +1,4 @@
-import type { iDoc } from "$lib/interface"; 
+import type { iDocument } from "$lib/interface";
 
 // utils/convert.ts
 export interface iSection {
@@ -61,4 +61,4 @@ export function extractHeadings(sections: iSection[]): iHeading[] {
   }));
 }
 
-export const extractDocumentations = (docs: iDoc[]) => docs.map(doc => ({ title: doc.title, slug: doc.slug }))
+export const extractDocumentations = (docs: iDocument[]) => docs.map(doc => ({ title: doc.title, slug: doc.slug }))

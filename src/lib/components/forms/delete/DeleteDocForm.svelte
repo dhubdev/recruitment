@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
 	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
-	import type { iDoc } from '$lib/interface';
+	import type { iDocument } from '$lib/interface';
 	import { modalStore } from '$lib/stores';
 	import { cn } from '$lib/utils';
 	import { onError, type iResult } from '@toolsntuts/utils';
 	import { toast } from 'svelte-sonner';
 
 	interface Props {
-		docs: Array<iDoc>;
+		docs: Array<iDocument>;
 		class?: string;
 	}
 
@@ -16,7 +16,7 @@
 
 	let { docs, class: className }: Props = $props();
 
-	const promise = async (doc: iDoc) => {
+	const promise = async (doc: iDocument) => {
 		const url = `/api/docs/${doc.xata_id}`;
 		const options: RequestInit = {
 			method: 'delete',

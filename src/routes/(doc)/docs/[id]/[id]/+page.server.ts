@@ -1,4 +1,4 @@
-import type { iDoc } from '$lib/interface';
+import type { iDocument } from '$lib/interface';
 import { getDoc } from '$lib/xata/doc';
 import type { PageServerLoad } from './$types';
 
@@ -7,6 +7,6 @@ export const load = (async ({ params }) => {
   const { id } = params
 
   const result = await getDoc(id)
-  const doc = result.data as iDoc
+  const doc = result.data as iDocument
   return { doc };
 }) satisfies PageServerLoad;

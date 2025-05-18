@@ -46,7 +46,7 @@
 </script>
 
 <div class="flex h-full w-full flex-col gap-4 p-4">
-	<Heading title="Doc Listings" description="Add and manage doc listings" />
+	<Heading title="Documents" description="Add and manage documents" />
 	<Separator />
 	<div class="flex items-center justify-center gap-2 md:justify-start">
 		<Button onclick={addDocCategory}>

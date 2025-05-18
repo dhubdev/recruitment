@@ -10,7 +10,7 @@ import Checkbox from '$lib/components/ui/checkbox/checkbox.svelte';
 import { CopyIcon, EyeIcon, PencilLineIcon, Trash2Icon } from "lucide-svelte";
 import { onCopy } from '@toolsntuts/utils';
 import { get, type Writable } from 'svelte/store';
-import type { iDoc, iModal } from '$lib/interface';
+import type { iDocument, iModal } from '$lib/interface';
 import { docModalStore, docStore } from '$lib/stores';
 
 export type Payment = {
@@ -52,7 +52,7 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 					open: true,
 					data: doc,
 					title: 'Update Doc',
-					description: 'Fill the form below to update doc listing',
+					description: 'Fill the form below to update document',
 					type: 'doc'
 				}))
 			},
@@ -78,7 +78,7 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 		}
 	]
 
-	const columns: ColumnDef<iDoc>[] = [
+	const columns: ColumnDef<iDocument>[] = [
 		{
 			id: 'select',
 			header: ({ table }) =>

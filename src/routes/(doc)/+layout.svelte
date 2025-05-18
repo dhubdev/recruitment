@@ -1,5 +1,4 @@
 <script lang="ts">
-	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import { onMount, type Snippet } from 'svelte';
@@ -8,27 +7,24 @@
 	import NavTop from './components/sidebar/nav-top.svelte';
 	import type { LayoutServerData } from './$types';
 	import type { iResult } from '@toolsntuts/utils';
-	import type { iDoc } from '$lib/interface';
+	import type { iDocument } from '$lib/interface';
 	import CrumbPath from '$lib/components/ui/crumb-path/crumb-path.svelte';
 	import { groupedDocs } from './lib/stores';
 
 	interface Props {
-		data: LayoutServerData,
-		children: Snippet
+		data: LayoutServerData;
+		children: Snippet;
 	}
 
-	let { children, data }: Props = $props()
+	let { children, data }: Props = $props();
 
 	const setDocuments = (result: iResult) => {
-		groupedDocs.group(result.data as iDoc[])
-	}
-
-	
+		groupedDocs.group(result.data as iDocument[]);
+	};
 
 	onMount(() => {
-		data.getDocs.then(setDocuments)
-		.catch(error => console.error(error))
-	})
+		data.getDocs.then(setDocuments).catch((error) => console.error(error));
+	});
 </script>
 
 <Sidebar.Provider>
@@ -36,7 +32,8 @@
 	<Sidebar.Inset>
 		<NavTop />
 		<header
-			class="sticky top-9 z-[10] flex h-16 shrink-0 items-center gap-2 bg-background lg:top-0">
+			class="sticky top-9 z-[10] flex h-16 shrink-0 items-center gap-2 bg-background lg:top-0"
+		>
 			<div class="flex items-center gap-2 px-4">
 				<Sidebar.Trigger class="-ml-1" />
 				<Separator orientation="vertical" class="mr-2 h-4" />

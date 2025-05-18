@@ -21,7 +21,7 @@ export type iResult = {
 	data?: any;
 };
 
-type ModalType = 'job' | 'deleteJob' | 'doc' | 'deleteDoc' | 'docCategory' | 'deleteDocCategory'
+type ModalType = 'chat';
 
 export type MessageRoleType = 'user' | 'assistant';
 
@@ -76,20 +76,8 @@ export interface iLegalRoute extends iRoute {
 	name: 'terms of use' | 'cookie policy' | 'privacy policy';
 }
 
-export type TField = 'job'
-
-export type TActionType = 'create' | 'edit'
-
 export interface iModal {
 	type: ModalType;
-	title: string;
-	description: string;
-	open: boolean;
-	data?: any;
-	className?: string;
-}
-
-export interface iDocModal {
 	open: boolean;
 	data?: any;
 }
@@ -108,11 +96,18 @@ export interface iFile extends iXata {
 	size: string;
 }
 
-// export interface iImage extends iXata {
-//   url: string;
-//   fileId: string;
-//   size: string;
-// }
+export interface iDocumentCategory extends iXata {
+	category: string;
+	file?: string | iFile;
+	content?: string;
+}
+
+export interface iDocument extends iXata {
+	title: string;
+	content: string;
+	category: string | iDocumentCategory;
+	file?: string | iFile;
+}
 
 export interface iFaq extends iXata {
 	category: string;
@@ -137,41 +132,8 @@ export interface iSection {
 	content: string;
 }
 
-export interface iFormModal {
-	type: TField,
-	open: boolean;
-	data?: any,
-	title: string;
-	action: TActionType
-}
-
-export interface iJob extends iXata {
-	source: string;
-	title: string
-	content: string;
-	location: string;
-	nature: string;
-	closingDate: string;
-	file: string | iFile;
-}
-
-export interface iDocument extends iXata {
+export interface iHTMLSection {
+	id: string;
 	title: string;
 	content: string;
-	category: string | iDocumentCategory;
-	file?: string | iFile
 }
-
-export interface iDocumentCategory extends iXata {
-	category: string;
-	file?: string | iFile;
-	content?: string
-}
-
-export interface iHTMLSection { id: string, title: string, content: string }
-
-// Content & Social Media Officer
-// We’re looking for a creative and passionate Content & Social Media Officer to join our team!
-// Location: Remote
-// Full time 
-// To apply, send your CV to: dhubeducation@gmail.com 

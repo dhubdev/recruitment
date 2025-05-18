@@ -64,8 +64,7 @@
 					{#snippet child({ props })}
 						<a href="/" {...props}>
 							<div
-								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary"
-							>
+								class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary">
 								<Logo class="size-5" />
 							</div>
 							<div class="grid flex-1 text-left text-sm leading-[1]">
