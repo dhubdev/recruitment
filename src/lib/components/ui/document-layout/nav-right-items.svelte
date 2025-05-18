@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import { stripHtmlTags } from '../../fxns/index';
+	import { stripHtmlTags } from '../../../fxns/index';
 	import { cn } from '../../utils/index';
 	import { writable } from 'svelte/store';
 	import { currentHtml, htmlSectionStore } from './stores';
