@@ -32,7 +32,7 @@
 				<CrumbPath />
 				<div class="ml-auto flex items-center gap-2">
 					<ModeToggle />
-					<User class="size-10" />
+					<User />
 				</div>
 			</div>
 		</header>

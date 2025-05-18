@@ -137,7 +137,7 @@
 <script lang="ts">
 	import NavMain from './nav-main.svelte';
 	import * as Sidebar from '../sidebar/index.js';
-	import type { ComponentProps, Component } from 'svelte';
+	import type { ComponentProps } from 'svelte';
 	import NavLinks from './nav-links.svelte';
 
 	interface Props extends ComponentProps<typeof Sidebar.Root> {
@@ -164,7 +164,7 @@
 		</Sidebar.Menu>
 	</Sidebar.Header>
 	<Sidebar.Content>
-		<NavMain items={data.navMain} />
+		<NavMain />
 	</Sidebar.Content>
 	<Sidebar.Footer>
 		<NavLinks>

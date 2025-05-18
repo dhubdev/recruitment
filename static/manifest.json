@@ -5,9 +5,9 @@
   "display_override": ["window-controls-overlay", "standalone"],
   "scope": "/",
   "start_url": "/",
-  "name": "Dhub Education",
-  "short_name": "Dhub",
-  "description": "Style, Beauty, and Innovation Delivered!",
+  "name": "Jordan Recruitments",
+  "short_name": "Recruitments",
+  "description": "Unlock your dream job",
   "icons": [
     {
       "src": "/icons/windows11/SmallTile.scale-100.png",
