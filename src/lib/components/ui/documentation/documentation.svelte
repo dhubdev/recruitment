@@ -19,11 +19,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
-	import { Drawer, DrawerContent, DrawerTrigger } from '../drawer';
-	import { Button, buttonVariants } from '../button';
+	import { Drawer, DrawerContent, DrawerTrigger } from '$lib/components/ui/drawer';
+	import { Button, buttonVariants } from '$lib/components/ui/button';
 	import { cn } from '$lib/utils';
 	import { MenuIcon } from 'lucide-svelte';
-	import { ScrollArea } from '../scroll-area';
+	import { ScrollArea } from '$lib/components/ui/scroll-area';
 
 	interface Props {
 		documentations: iDocumentation[];

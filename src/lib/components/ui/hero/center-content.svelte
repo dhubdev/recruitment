@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from '../button';
+	import { Button } from '$lib/components/ui/button';
 	import { ChevronRightIcon } from 'lucide-svelte';
 
 	interface Props {

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import ModeToggle from '../mode-toggle/mode-toggle.svelte';
-	import Navigation from '../navigation/navigation.svelte';
-	import User from '../user/user.svelte';
-	import Wrap from '../wrap/wrap.svelte';
+	import ModeToggle from '$lib/components/ui/mode-toggle/mode-toggle.svelte';
+	import Navigation from '$lib/components/ui/navigation/navigation.svelte';
+	import User from '$lib/components/ui/user/user.svelte';
+	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 
 	interface Props {
 		logo: any;

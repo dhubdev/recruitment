@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Alert, AlertDescription, AlertTitle } from '../alert';
+	import { Alert, AlertDescription, AlertTitle } from '$lib/components/ui/alert';
 	import { ServerIcon, CopyIcon } from 'lucide-svelte';
-	import { Badge, type BadgeVariant } from '../badge';
-	import { Button } from '../button';
+	import { Badge, type BadgeVariant } from '$lib/components/ui/badge';
+	import { Button } from '$lib/components/ui/button';
 	import { onCopy } from '@toolsntuts/utils';
 
 	interface Props {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as Breadcrumb from '../breadcrumb';
+	import * as Breadcrumb from '$lib/components/ui/breadcrumb';
 	import { page } from '$app/state';
 
 	const getBreadcrumbs = (url: URL) => {
