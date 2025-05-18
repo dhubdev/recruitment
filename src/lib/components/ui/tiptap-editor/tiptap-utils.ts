@@ -21,7 +21,7 @@ import {
 	onParagraph,
 	onSplitCell,
 	onTextAlign
-} from '../../../utils/tiptap-functions';
+} from '$lib/utils/tiptap-functions';
 
 import ListIcon from 'lucide-svelte/icons/list';
 import AlignCenterVerticalIcon from 'lucide-svelte/icons/align-center-vertical';
@@ -53,12 +53,12 @@ import AddRowAfter from '$lib/components/ui/tiptap-editor/AddRowAfter.svelte';
 import MergeCells from '$lib/components/ui/tiptap-editor/MergeCells.svelte';
 import SplitCell from '$lib/components/ui/tiptap-editor/SplitCell.svelte';
 import Text from '$lib/components/ui/tiptap-editor/Text.svelte';
-import type { iGroup, iMenu } from '../../../utils/tiptap-types.js';
+import type { iGroup, iMenu } from '$lib/utils/tiptap-types.js';
 
 export let headings: iMenu = {
 	name: 'Headings',
 	icon: H1,
-	onclick: (editor: Editor) => {},
+	onclick: (editor: Editor) => { },
 	submenus: {
 		trigger: {
 			name: 'Headings',
@@ -108,7 +108,7 @@ export let headings: iMenu = {
 export let lists: iMenu = {
 	name: 'Lists',
 	icon: ListIcon,
-	onclick: () => {},
+	onclick: () => { },
 	submenus: {
 		trigger: {
 			name: 'Lists',
@@ -132,7 +132,7 @@ export let lists: iMenu = {
 export const alignment: iMenu = {
 	name: 'Alignment',
 	icon: AlignCenterVerticalIcon,
-	onclick: () => {},
+	onclick: () => { },
 	submenus: {
 		trigger: {
 			name: 'Alignment',
@@ -175,7 +175,7 @@ export let groups: iGroup[] = [
 			{
 				name: 'Headings',
 				icon: H1,
-				onclick: (editor: Editor) => {},
+				onclick: (editor: Editor) => { },
 				submenus: {
 					trigger: {
 						name: 'Headings',
@@ -224,7 +224,7 @@ export let groups: iGroup[] = [
 			{
 				name: 'Lists',
 				icon: ListIcon,
-				onclick: () => {},
+				onclick: () => { },
 				submenus: {
 					trigger: {
 						name: 'Lists',
@@ -247,7 +247,7 @@ export let groups: iGroup[] = [
 			{
 				name: 'Align Text',
 				icon: AlignCenterVerticalIcon,
-				onclick: () => {},
+				onclick: () => { },
 				submenus: {
 					trigger: {
 						name: 'Align Text',
@@ -300,7 +300,7 @@ export let groups: iGroup[] = [
 			{
 				name: 'Table',
 				icon: TableIcon,
-				onclick: (editor: Editor) => {},
+				onclick: (editor: Editor) => { },
 				submenus: {
 					trigger: {
 						name: 'Table',

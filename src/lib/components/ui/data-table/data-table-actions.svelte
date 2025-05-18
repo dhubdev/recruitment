@@ -9,8 +9,8 @@
 
 <script lang="ts">
 	import { EllipsisIcon } from 'lucide-svelte';
-	import { Button } from '../button';
-	import * as DropdownMenu from '../dropdown-menu';
+	import { Button } from '$lib/components/ui/button';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 
 	interface Props {
 		id: string;

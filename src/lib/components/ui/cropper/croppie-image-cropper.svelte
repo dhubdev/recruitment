@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { Upload, XIcon } from 'lucide-svelte';
-	import { Button } from '../button';
-	import SpinLoader from '../spin-loader/spin-loader.svelte';
-	import type { iFile } from '../../../interface/index';
+	import { Button } from '$lib/components/ui/button';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
+	import type { iFile } from '$lib/interface/index';
 	import { toast } from 'svelte-sonner';
 	import type { iResult } from '@toolsntuts/utils';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 	import { useImageUpload } from './use-image-upload.svelte';
 	import CroppieCropper from './croppie-cropper.svelte';
-	import { fileSize } from '../../../utils/file';
+	import { fileSize } from '$lib/utils/file';
 
 	interface Props {
 		file?: iFile;

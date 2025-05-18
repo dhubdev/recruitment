@@ -1,13 +1,13 @@
 <script lang="ts">
-	import * as Sidebar from '../sidebar/index.js';
+	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import type { Snippet } from 'svelte';
-	import { Separator } from '../separator';
-	import CrumbPath from '../crumb-path/crumb-path.svelte';
+	import { Separator } from '$lib/components/ui/separator';
+	import CrumbPath from '$lib/components/ui/crumb-path/crumb-path.svelte';
 	import AppSidebar from './app-sidebar.svelte';
 	import NavTop from './nav-top.svelte';
 	import NavRight from './nav-right.svelte';
-	import ModeToggle from '../mode-toggle/mode-toggle.svelte';
-	import User from '../user/user.svelte';
+	import ModeToggle from '$lib/components/ui/mode-toggle/mode-toggle.svelte';
+	import User from '$lib/components/ui/user/user.svelte';
 
 	interface Props {
 		children: Snippet;

@@ -136,7 +136,7 @@
 
 <script lang="ts">
 	import NavMain from './nav-main.svelte';
-	import * as Sidebar from '../sidebar/index.js';
+	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import type { ComponentProps } from 'svelte';
 	import NavLinks from './nav-links.svelte';
 

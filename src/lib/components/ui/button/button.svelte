@@ -38,7 +38,7 @@
 </script>
 
 <script lang="ts">
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 
 	let {
 		class: className,

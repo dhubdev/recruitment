@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { cn } from '../../../utils/index';
-	import { Label } from '../label';
+	import { cn } from '$lib/utils/index';
+	import { Label } from '$lib/components/ui/label';
 	import Switch from './switch.svelte';
 
 	interface Props {

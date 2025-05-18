@@ -3,7 +3,7 @@ import { createRawSnippet } from 'svelte';
 import { renderComponent, renderSnippet } from '$lib/components/ui/data-table';
 import DataTableActions from '$lib/components/ui/data-table/data-table-actions.svelte';
 import DataTableSortButton from '$lib/components/ui/data-table/data-table-sort-button.svelte';
-import { Checkbox } from '../checkbox';
+import { Checkbox } from '$lib/components/ui/checkbox';
 
 export type Payment = {
 	id: string;

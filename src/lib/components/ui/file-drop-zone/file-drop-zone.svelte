@@ -53,7 +53,7 @@
 	import { Upload } from '@lucide/svelte';
 	import { displaySize } from '.';
 	import { useId } from 'bits-ui';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 
 	let {
 		id = useId(),

@@ -10,8 +10,8 @@
 		DropdownMenuSubContent,
 		DropdownMenuItem,
 		DropdownMenuSeparator
-	} from '../dropdown-menu/index.js';
-	import { buttonVariants } from '../button/index.js';
+	} from '$lib/components/ui/dropdown-menu/index.js';
+	import { buttonVariants } from '$lib/components/ui/button/index.js';
 	import type { Snippet } from 'svelte';
 	import type { Editor } from '@tiptap/core';
 	import type { Writable } from 'svelte/store';

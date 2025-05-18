@@ -107,16 +107,16 @@
 </script>
 
 <script lang="ts">
-	import { Button } from '../button';
+	import { Button } from '$lib/components/ui/button';
 	import {
 		displaySize,
 		FileDropZone,
 		MEGABYTE,
 		type FileDropZoneProps
 	} from '$lib/components/ui/file-drop-zone';
-	import { Progress } from '../progress';
-	import type { iFile } from '../../../interface/index';
-	import { cn } from '../../../utils/index';
+	import { Progress } from '$lib/components/ui/progress';
+	import type { iFile } from '$lib/interface/index';
+	import { cn } from '$lib/utils/index';
 	import { XIcon } from '@lucide/svelte';
 	import Video from './Video.svelte';
 	import Audio from './Audio.svelte';
@@ -125,8 +125,8 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { toast, Toaster } from 'svelte-sonner';
 	import { SvelteDate } from 'svelte/reactivity';
-	import { Skeleton } from '../skeleton';
-	import SpinLoader from '../spin-loader/spin-loader.svelte';
+	import { Skeleton } from '$lib/components/ui/skeleton';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
 
 	interface Props {
 		class?: string;

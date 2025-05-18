@@ -6,7 +6,7 @@
 	import type { TagsInputProps } from './types';
 	import TagsInputTag from './tags-input-tag.svelte';
 	import { untrack } from 'svelte';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 
 	const defaultValidate: TagsInputProps['validate'] = (val, tags) => {
 		const transformed = val.trim();

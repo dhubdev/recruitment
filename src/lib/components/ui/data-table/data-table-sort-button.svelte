@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ComponentProps } from 'svelte';
 	import { ChevronsUpDownIcon } from 'lucide-svelte';
-	import { Button } from '../button';
+	import { Button } from '$lib/components/ui/button';
 
 	interface Props extends ComponentProps<typeof Button> {
 		title: string;

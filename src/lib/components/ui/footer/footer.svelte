@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { iContactRoute, iLegalRoute, iRoute, iSoMeRoute } from '../../../interface/index';
+	import type { iContactRoute, iLegalRoute, iRoute, iSoMeRoute } from '$lib/interface/index';
 	let someRoutes: iSoMeRoute[] = [
 		{
 			name: 'facebook',
@@ -98,21 +98,21 @@
 
 <script lang="ts">
 	import { page } from '$app/state';
-	import { isExcludedFromFooter } from '../../../constants/index';
-	import { cn } from '../../../utils/index';
-	import { Button } from '../button';
-	import Wrap from '../wrap/wrap.svelte';
-	import Facebook from '../../icons/facebook.svelte';
-	import Instagram from '../../icons/instagram.svelte';
-	import Twitter from '../../icons/twitter.svelte';
-	import Tiktok from '../../icons/tiktok.svelte';
-	import Telegram from '../../icons/telegram.svelte';
-	import Whatsapp from '../../icons/whatsapp.svelte';
-	import Youtube from '../../icons/youtube.svelte';
-	import Email from '../../icons/email.svelte';
-	import Call from '../../icons/call.svelte';
-	import Locate from '../../icons/locate.svelte';
-	import { createWhatsAppUrl } from '../../../fxns/index';
+	import { isExcludedFromFooter } from '$lib/constants/index';
+	import { cn } from '$lib/utils/index';
+	import { Button } from '$lib/components/ui/button';
+	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
+	import Facebook from '$lib/icons/facebook.svelte';
+	import Instagram from '$lib/icons/instagram.svelte';
+	import Twitter from '$lib/icons/twitter.svelte';
+	import Tiktok from '$lib/icons/tiktok.svelte';
+	import Telegram from '$lib/icons/telegram.svelte';
+	import Whatsapp from '$lib/icons/whatsapp.svelte';
+	import Youtube from '$lib/icons/youtube.svelte';
+	import Email from '$lib/icons/email.svelte';
+	import Call from '$lib/icons/call.svelte';
+	import Locate from '$lib/icons/locate.svelte';
+	import { createWhatsAppUrl } from '$lib/fxns/index';
 
 	interface Props {
 		logo: any;

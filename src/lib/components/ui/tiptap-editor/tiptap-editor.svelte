@@ -15,8 +15,8 @@
 
 	import Menu from './Menu.svelte';
 	import Display from './Display.svelte';
-	import { Iframe } from '../../../utils/tiptap-iframe';
-	import { CustomTableCell } from '../../../utils/tiptap-custom-tablecell';
+	import { Iframe } from '$lib/utils/tiptap-iframe';
+	import { CustomTableCell } from '$lib/utils/tiptap-custom-tablecell';
 
 	interface Props {
 		title?: string;

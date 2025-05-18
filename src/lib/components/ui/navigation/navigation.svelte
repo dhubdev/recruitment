@@ -1,14 +1,13 @@
 <script module>
 	import { getContext } from 'svelte';
-	import { Role } from '../../../constants/index';
-
+	import { Role } from '$lib/constants/index';
 </script>
 
 <script lang="ts">
 	import { page } from '$app/state';
-	import { cn } from '../../../utils/index';
-	import type { iRoute, iUser } from '../../../interface/index';
-	import { Button } from '../button';
+	import { cn } from '$lib/utils/index';
+	import type { iRoute, iUser } from '$lib/interface/index';
+	import { Button } from '$lib/components/ui/button';
 
 	interface Props {
 		class?: string;
@@ -31,7 +30,7 @@
 			name: 'about',
 			href: '/about',
 			isAuthorized: true
-		},
+		}
 	];
 	let { class: className, links = defaultLinks }: Props = $props();
 

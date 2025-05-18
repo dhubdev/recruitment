@@ -1,9 +1,9 @@
 <script lang="ts">
 	import * as AlertDialog from '$lib/components/ui/alert-dialog/index.js';
-	import { buttonVariants } from '../button/index.js';
-	import { cn } from '../../../utils/index';
+	import { buttonVariants } from '$lib/components/ui/button/index.js';
+	import { cn } from '$lib/utils/index';
 	import type { Snippet } from 'svelte';
-	import SpinLoader from '../spin-loader/spin-loader.svelte';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
 
 	interface Props {
 		onconfirm: () => void;

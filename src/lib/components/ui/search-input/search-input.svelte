@@ -5,11 +5,11 @@
 	import Search from 'lucide-svelte/icons/search';
 	import { getContext, onDestroy } from 'svelte';
 	import { removeRingClasses } from '@toolsntuts/utils';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 	import { ArrowRightIcon } from 'lucide-svelte';
 	import { page } from '$app/state';
-	import { Input } from '../input';
-	import { Button } from '../button';
+	import { Input } from '$lib/components/ui/input';
+	import { Button } from '$lib/components/ui/button';
 
 	interface Props {
 		inputValue: string;

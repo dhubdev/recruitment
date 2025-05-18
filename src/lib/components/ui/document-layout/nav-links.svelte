@@ -25,12 +25,12 @@
 
 <script lang="ts">
 	import ChevronsUpDown from '@lucide/svelte/icons/chevrons-up-down';
-	import * as DropdownMenu from '../dropdown-menu/index.js';
-	import * as Sidebar from '../sidebar/index.js';
-	import { useSidebar } from '../sidebar/index.js';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
+	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
+	import { useSidebar } from '$lib/components/ui/sidebar/index.js';
 	import type { Snippet } from 'svelte';
 	import { HomeIcon, RssIcon, BriefcaseIcon, PhoneIcon } from 'lucide-svelte';
-	import type { iRoute } from '../../interface/index';
+	import type { iRoute } from '$lib/interface/index';
 
 	interface Props {
 		children: Snippet;

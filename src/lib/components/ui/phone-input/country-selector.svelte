@@ -3,12 +3,12 @@
 -->
 
 <script lang="ts">
-	import * as Popover from '../popover';
-	import { Button } from '../button';
-	import * as Command from '../command';
-	import { ScrollArea } from '../scroll-area';
+	import * as Popover from '$lib/components/ui/popover';
+	import { Button } from '$lib/components/ui/button';
+	import * as Command from '$lib/components/ui/command';
+	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { Check, ChevronsUpDown } from '@lucide/svelte';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 	import Flag from './flag.svelte';
 	import type { Country, CountryCode } from 'svelte-tel-input/types';
 

@@ -3,8 +3,8 @@
 -->
 
 <script lang="ts">
-	import { cn } from '../../../utils/index';
-	import * as Dialog from '../dialog';
+	import { cn } from '$lib/utils/index';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import { useImageCropperDialog } from './image-cropper.svelte.js';
 	import type { ImageCropperDialogProps } from './types';
 

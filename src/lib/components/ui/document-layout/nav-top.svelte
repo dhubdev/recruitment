@@ -3,9 +3,9 @@
 </script>
 
 <script lang="ts">
-	import { buttonVariants } from '../button';
-	import * as Popover from '../popover/index.js';
-	import { cn } from '../../utils/index';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import * as Popover from '$lib/components/ui/popover/index.js';
+	import { cn } from '$lib/utils/index';
 	import { ChevronDownIcon, TextIcon } from 'lucide-svelte';
 	import NavRightItems from './nav-right-items.svelte';
 	import { writable } from 'svelte/store';

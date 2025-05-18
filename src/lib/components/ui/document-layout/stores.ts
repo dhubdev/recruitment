@@ -1,4 +1,4 @@
-import type { iDocument, iDocumentCategory, iHTMLSection } from '../../../interface/index';
+import type { iDocument, iDocumentCategory, iHTMLSection } from '$lib/interface/index';
 import { writable } from 'svelte/store';
 
 const docStore = writable<iDocument[]>([]);

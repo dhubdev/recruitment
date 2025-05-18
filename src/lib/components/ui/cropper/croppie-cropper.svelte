@@ -2,12 +2,12 @@
 	import { onMount } from 'svelte';
 	import Croppie from 'croppie';
 	import 'croppie/croppie.css';
-	import { Button } from '../button';
+	import { Button } from '$lib/components/ui/button';
 	import type { ImageUpload } from './use-image-upload.svelte';
 	import './cropper.css';
 	import { CropIcon, TrashIcon } from 'lucide-svelte';
-	import { cn } from '../../../utils/index';
-	import SpinLoader from '../spin-loader/spin-loader.svelte';
+	import { cn } from '$lib/utils/index';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
 
 	interface Props {
 		imageUpload: ImageUpload;

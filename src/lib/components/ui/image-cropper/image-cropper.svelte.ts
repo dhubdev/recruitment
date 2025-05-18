@@ -2,7 +2,7 @@
 	Installed from github/ieedan/shadcn-svelte-extras
 */
 
-import type { ReadableBoxedValues, WritableBoxedValues } from '../../../utils/box';
+import type { ReadableBoxedValues, WritableBoxedValues } from '$lib/utils/box';
 import { Context } from 'runed';
 import type { CropArea, DispatchEvents } from 'svelte-easy-crop';
 import { getCroppedImg } from './utils';
@@ -71,15 +71,15 @@ export type ImageCropperTriggerProps = ReadableBoxedValues<{
 }>;
 
 class ImageCropperTriggerState {
-	constructor(readonly rootState: ImageCropperRootState) {}
+	constructor(readonly rootState: ImageCropperRootState) { }
 }
 
 class ImageCropperPreviewState {
-	constructor(readonly rootState: ImageCropperRootState) {}
+	constructor(readonly rootState: ImageCropperRootState) { }
 }
 
 class ImageCropperDialogState {
-	constructor(readonly rootState: ImageCropperRootState) {}
+	constructor(readonly rootState: ImageCropperRootState) { }
 }
 
 class ImageCropperCropperState {

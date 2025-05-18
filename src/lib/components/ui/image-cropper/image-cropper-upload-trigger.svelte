@@ -5,7 +5,7 @@
 <script lang="ts">
 	import { type WithChildren } from 'bits-ui';
 	import { useImageCropperTrigger } from './image-cropper.svelte.js';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 
 	interface Props {
 		class?: string;

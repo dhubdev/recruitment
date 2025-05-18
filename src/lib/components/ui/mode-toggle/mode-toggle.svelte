@@ -2,8 +2,8 @@
 	import { Sun, Moon } from 'lucide-svelte';
 
 	import { toggleMode } from 'mode-watcher';
-	import { Button } from '../button/index.js';
-	import { cn } from '../../../utils/index';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import { cn } from '$lib/utils/index';
 
 	interface Props {
 		class?: string;

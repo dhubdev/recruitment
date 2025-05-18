@@ -5,7 +5,7 @@
 		type EmblaContext,
 		setEmblaContext
 	} from './context.js';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 
 	let {
 		opts = {},

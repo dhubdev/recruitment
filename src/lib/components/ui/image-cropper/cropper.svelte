@@ -2,14 +2,14 @@
 	import * as ImageCropper from '$lib/components/ui/image-cropper';
 	import { getFileFromUrl } from '$lib/components/ui/image-cropper';
 	import { Upload } from 'lucide-svelte';
-	import { Button } from '../button';
+	import { Button } from '$lib/components/ui/button';
 	import { XIcon } from 'lucide-svelte';
 	import type { iResult } from '@toolsntuts/utils';
 	import { toast, Toaster } from 'svelte-sonner';
-	import type { iFile } from '../../../interface/index';
-	import { fileSize } from '../../../utils/file';
-	import { cn } from '../../../utils/index';
-	import SpinLoader from '../spin-loader/spin-loader.svelte';
+	import type { iFile } from '$lib/interface/index';
+	import { fileSize } from '$lib/utils/file';
+	import { cn } from '$lib/utils/index';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
 
 	interface Props {
 		file?: iFile;

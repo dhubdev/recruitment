@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { generateSectionsFromHtmlString } from '../../../fxns/index';
-	import type { iDocument, iDocumentCategory } from '../../../interface/index';
-	import { onMount, tick, type Snippet } from 'svelte';
+	import { generateSectionsFromHtmlString } from '$lib/fxns/index';
+	import type { iDocument, iDocumentCategory } from '$lib/interface/index';
+	import { onMount, tick } from 'svelte';
 	import { currentHtml, htmlSectionStore } from './stores';
 	import { groupedDocs } from './stores';
 	import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-svelte';
-	import { Button } from '../button';
+	import { Button } from '$lib/components/ui/button';
 
 	interface Props {
 		document: iDocument;

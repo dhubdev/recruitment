@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, UserButton } from 'svelte-clerk';
-	import Skeleton from '../skeleton/skeleton.svelte';
-	import { Button } from '../button';
+	import Skeleton from '$lib/components/ui/skeleton/skeleton.svelte';
+	import { Button } from '$lib/components/ui/button';
 	import { UserIcon } from 'lucide-svelte';
-	import { cn } from '../../../utils/index';
+	import { cn } from '$lib/utils/index';
 
 	interface Props {
 		class?: string;
