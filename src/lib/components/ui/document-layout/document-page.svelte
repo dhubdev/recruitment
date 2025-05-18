@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { generateSectionsFromHtmlString } from '../../fxns/index';
+	import { generateSectionsFromHtmlString } from '../../../fxns/index';
 	import type { iDocument } from '../../interface/index';
 	import { onMount, tick, type Snippet } from 'svelte';
 	import { currentHtml, htmlSectionStore } from './stores';
