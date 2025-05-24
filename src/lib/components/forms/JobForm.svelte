@@ -58,7 +58,7 @@
 		const result = await aiSubmitForm(evt, 'job');
 
 		if (result) {
-			console.log({ result  })
+			console.log({ result });
 			placeholder.content = result.qualityMetrics.content;
 			aiContent = result.copy;
 			content = result.copy;
@@ -73,7 +73,7 @@
 	<Textarea
 		name="prompt"
 		placeholder="Enter a short job listing (e.g., “Remote Content & Social Media Officer, full-time”) and AI will generate a detailed job description."
-		class={cn(removeRingClasses(), "resize-none")}
+		class={cn(removeRingClasses(), 'resize-none')}
 	></Textarea>
 	{#if aiLoading}
 		<Button size="icon">
@@ -103,7 +103,7 @@
 				id="source"
 				disabled={loading}
 				required
-				placeholder="Job source (e.g. Dhub Education)"
+				placeholder="Job source (e.g. Jordan Recruitments)"
 				name="source"
 				bind:value={placeholder.source}
 				class={removeRingClasses()}
