@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { iUser } from '$lib/interface';
+	import type { iDocument, iDocumentCategory, iRoute, iUser } from '$lib/interface';
 	import type { LayoutData } from './$types';
 	import { setContext, type Snippet } from 'svelte';
 	import { metaStore } from '$lib/stores';
@@ -7,12 +7,27 @@
 	import Footer from '$lib/components/ui/footer/footer.svelte';
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import Brand from '$lib/components/sections/Brand.svelte';
+	import type { iResult } from '@toolsntuts/utils';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
 	let me = data.me as iUser;
 
 	setContext('me', me);
+
+	const getLegals = (result: iResult) => {
+		const documents = result.data as iDocument[];
+		let legal: iRoute[] = []
+		for (let i = 0; i < documents.length; i++) {
+			const document = documents[i];
+			const category = (document.category as iDocumentCategory).category
+
+			if (category === 'legals') {
+				legal.push({ name: document.title, href: `/legals/${document.xata_id}` })
+			}
+		}
+		return { legal }
+	};
 </script>
 
 <svelte:head>
@@ -41,6 +56,15 @@
 	<Wrap>
 		{@render children()}
 	</Wrap>
-	<Footer slogan="Unlock Your Dream Job" logo={Brand} organizationName="Jordan Recruitments" />
+	{#await data.getDocuments}
+		<Footer slogan="Unlock Your Dream Job" logo={Brand} organizationName="Jordan Recruitments" />
+	{:then result}
+		{@const { legal } = getLegals(result)}
+		<Footer
+			{legal}
+			slogan="Unlock Your Dream Job"
+			logo={Brand}
+			organizationName="Jordan Recruitments"
+		/>
+	{/await}
 </div>
-<!-- <BottomNav /> -->

@@ -46,7 +46,7 @@
 		}
 	];
 
-	let legalRoutes: iLegalRoute[] = [
+	let legalRoutes: iRoute[] = [
 		{
 			name: 'terms of use',
 			href: '/terms-of-use'
