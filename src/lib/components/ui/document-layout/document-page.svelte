@@ -18,9 +18,9 @@
 	const observation = (entries: IntersectionObserverEntry[]) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				$currentHtml.section = entry.target;
-				$currentHtml.id = entry.target.id;
-				$currentHtml.link = document.getElementById(`${entry.target.id}-link`) as Element;
+				// $currentHtml.section = entry.target;
+				// $currentHtml.id = entry.target.id;
+				// $currentHtml.link = document.getElementById(`${entry.target.id}-link`) as Element;
 			}
 		});
 	};
