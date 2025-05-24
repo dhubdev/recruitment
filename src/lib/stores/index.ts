@@ -17,8 +17,8 @@ const docModalStore = writable<iDocModal>({
 const metaStore = writable<iMeta>({
   title: 'Jordan Recruitments',
   description: 'Jobs at your finger tips',
-  ogimage: 'https://www.dhubeducation.com/screenshot-wide.webp',
-  link: 'https://www.dhubeducation.com/',
+  ogimage: 'https://recruitments.dhubgroup.com/screenshot-wide.webp',
+  link: 'https://recruitments.dhubgroup.com/',
   keywords: [
     "IT jobs",
     "tech careers",

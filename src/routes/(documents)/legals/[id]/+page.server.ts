@@ -4,5 +4,6 @@ import type { PageServerLoad } from './$types';
 export const load = (async ({ params }) => {
   const { id } = params
 
-  return { getDocument: getDocument(id) };
+  const result = await getDocument(id)
+  return { result };
 }) satisfies PageServerLoad;
