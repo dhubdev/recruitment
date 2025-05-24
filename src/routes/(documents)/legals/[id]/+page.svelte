@@ -11,7 +11,7 @@
 
 	$metaStore = {
 		...$metaStore,
-		title: `${data} | Jordan Recruitments`
+		title: `${(data.result.data as iDocument).title} | Jordan Recruitments`
 	};
 </script>
 
