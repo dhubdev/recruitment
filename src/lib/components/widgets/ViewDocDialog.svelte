@@ -42,11 +42,6 @@
 				</span>
 			{/if}
 			<Dialog.Close class={buttonVariants({ variant: 'outline' })}>Close</Dialog.Close>
-			<!-- <Dialog.Close>
-				{#snippet child({ props })}
-					<Button {...props} disabled={!hasReadToBottom}>I agree</Button>
-				{/snippet}
-			</Dialog.Close> -->
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>
