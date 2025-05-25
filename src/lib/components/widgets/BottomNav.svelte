@@ -11,7 +11,7 @@
 </script>
 
 <nav
-	class="fixed bottom-0 left-0 right-0 grid w-full grid-cols-4 border-t bg-white dark:bg-secondary lg:hidden z-[2]"
+	class="fixed bottom-0 left-0 right-0 grid w-full grid-cols-4 border-t bg-white dark:bg-secondary lg:hidden z-[50]"
 >
 	<Button
 		href="/"
