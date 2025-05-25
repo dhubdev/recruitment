@@ -18,16 +18,16 @@
 
 	const getLegals = (result: iResult) => {
 		const documents = result.data as iDocument[];
-		let legal: iRoute[] = []
+		let legal: iRoute[] = [];
 		for (let i = 0; i < documents.length; i++) {
 			const document = documents[i];
-			const category = (document.category as iDocumentCategory).category
+			const category = (document.category as iDocumentCategory).category;
 
 			if (category === 'legals') {
-				legal.push({ name: document.title, href: `/legals/${document.xata_id}` })
+				legal.push({ name: document.title, href: `/legals/${document.xata_id}` });
 			}
 		}
-		return { legal }
+		return { legal };
 	};
 </script>
 
@@ -54,9 +54,7 @@
 </svelte:head>
 <div class="bg-body dark:bg-background">
 	<Header logo={Brand} />
-	<Wrap>
-		{@render children()}
-	</Wrap>
+	{@render children()}
 	{#await data.getDocuments}
 		<Footer slogan="Unlock Your Dream Job" logo={Brand} organizationName="Jordan Recruitments" />
 	{:then result}

@@ -1,16 +1,11 @@
 <script>
-	import Care from "$lib/components/icons/care.svelte";
-  import Cpu from "@lucide/svelte/icons/cpu";
-  import Fingerprint from "@lucide/svelte/icons/fingerprint";
-  import Pencil from "@lucide/svelte/icons/pencil";
-  import Settings2 from "@lucide/svelte/icons/settings-2";
-  import Sparkles from "@lucide/svelte/icons/sparkles";
-  import Zap from "@lucide/svelte/icons/zap";
-	import { ConstructionIcon, BrushIcon, GraduationCapIcon, CodeXmlIcon } from "lucide-svelte";
+	import Care from "$lib/components/icons/care.svelte"; 
+  import Sparkles from "@lucide/svelte/icons/sparkles"; 
+	import { ConstructionIcon, BrushIcon, GraduationCapIcon, CodeXmlIcon, WifiIcon } from "lucide-svelte";
 </script>
 
 <section class="py-12 md:py-20">
-  <div class="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
+  <div class="mx-auto max-w-8xl space-y-8 md:space-y-16">
     <div
       class="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12"
     >
@@ -23,9 +18,9 @@
     </div>
 
     <div
-      class="relative mx-auto grid max-w-4xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3"
+      class="relative mx-auto grid max-w-4xl divide-x divide-y border *:p-12 sm:grid-cols-2 lg:grid-cols-3 bg-white dark:bg-background"
     >
-      <div class="space-y-3">
+      <div class="space-y-2">
         <div class="flex items-center gap-2">
           <ConstructionIcon class="size-4" />
           <h3 class="text-sm font-medium">Construction</h3>
@@ -73,12 +68,12 @@
       </div>
       <div class="space-y-2">
         <div class="flex items-center gap-2">
-          <Sparkles class="size-4" />
+          <WifiIcon class="size-4" />
 
-          <h3 class="text-sm font-medium">Built for AI</h3>
+          <h3 class="text-sm font-medium">Remote</h3>
         </div>
         <p class="text-sm">
-          It supports helping developers and businesses innovate.
+          Work from anywhere, thrive everywhere.
         </p>
       </div>
     </div>

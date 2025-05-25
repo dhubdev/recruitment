@@ -10,11 +10,10 @@
 
 <svg
    version="1.0"
-  class={cn("size-4", className)}
+  class={cn("size-4 fill-current", className)}
    viewBox="0 0 512.000000 512.000000">
   <g
      transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-     fill="#000000"
      stroke="none"
      id="g8">
     <path
