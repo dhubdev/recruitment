@@ -2,6 +2,7 @@
 	import type { PageServerData } from './$types';
 	import { page } from '$app/state';
 	import Hero from '$lib/components/ui/hero/hero.svelte';
+	import Services from './components/Services.svelte';
 
 	interface Props {
 		data: PageServerData;
@@ -33,3 +34,4 @@
 		}
 	}}
 />
+<Services />
