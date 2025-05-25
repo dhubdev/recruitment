@@ -8,6 +8,7 @@
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import Brand from '$lib/components/sections/Brand.svelte';
 	import type { iResult } from '@toolsntuts/utils';
+	import BottomNav from '$lib/components/widgets/BottomNav.svelte';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
@@ -68,3 +69,4 @@
 		/>
 	{/await}
 </div>
+<BottomNav />

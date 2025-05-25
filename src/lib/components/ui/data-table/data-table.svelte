@@ -157,7 +157,7 @@
 		const total = columns.length;
 
 		// Always show first, second, and last columns
-		const baseVisibleIndices = [0, 1, total - 3, total - 2, total - 1];
+		const baseVisibleIndices = [0, 1, total - 1];
 
 		// Breakpoint-based progressive reveals (up to total - 2 to avoid last column duplication)
 		const progressiveReveals = {
