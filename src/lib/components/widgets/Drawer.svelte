@@ -25,7 +25,7 @@
 	</Drawer.Trigger>
 	<Drawer.Content>
 		<Drawer.Header>
-			<Drawer.Title>DHUB Education</Drawer.Title>
+			<Drawer.Title>Jordan Recruitments</Drawer.Title>
 			<Drawer.Description>Navigate our space</Drawer.Description>
 		</Drawer.Header>
 		<div class="max-h-56 overflow-y-auto">

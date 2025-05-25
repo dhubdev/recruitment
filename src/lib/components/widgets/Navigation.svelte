@@ -53,44 +53,16 @@
 	</Button>
 	<Button
 		class="rounded-full"
-		href="/courses"
-		variant={isActiveRoute('/courses') ? 'default' : 'outline'}
-	>
-		Courses
-	</Button>
-	<Button
-		class="rounded-full"
-		href="/affiliate-program"
-		variant={isActiveRoute('/affiliate-program') ? 'default' : 'outline'}
-	>
-		Affiliate Program
-	</Button>
-	<Button
-		class="rounded-full"
-		href="/affiliate"
-		variant={isActiveRoute('/affiliate') ? 'default' : 'outline'}
-	>
-		Refer Someone
-	</Button>
-	<Button
-		class="rounded-full"
-		href="/finance"
-		variant={isActiveRoute('/finance') ? 'default' : 'outline'}
-	>
-		Finance
-	</Button>
-	<Button
-		class="rounded-full"
 		href="/blogs"
 		variant={isActiveRoute('/blog') ? 'default' : 'outline'}
 	>
 		Blogs
 	</Button>
-	<!-- <Button
+	<Button
 		class="rounded-full"
 		href="/contact"
 		variant={isActiveRoute('/contact') ? 'default' : 'outline'}
 	>
 		Contact Us
-	</Button> -->
+	</Button>
 </div>
