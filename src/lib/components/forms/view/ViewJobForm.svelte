@@ -12,11 +12,11 @@
 
 <div class="flex flex-col gap-4">
 	<div class="flex flex-col gap-1">
-		<div class="grid grid-cols-[40px_1fr] gap-4">
-			<img src={file.url} alt={job.source} />
+		<div class="grid grid-cols-[40px_1fr] gap-1">
+			<img src={file.url} class="size-6" alt={job.source} />
 			<span class="text-sm font-medium">{job.source}</span>
 		</div>
-
+    <h2 class="prose dark:prose-invert">{job.title}</h2>
 		<div>
 			Location: {job.nature}
 		</div>
