@@ -7,7 +7,7 @@ import { renderComponent } from '$lib/components/ui/data-table';
 import DataTableActions, { type iDataTableActions } from '$lib/components/ui/data-table/data-table-actions.svelte';
 import DataTableSortButton from '$lib/components/ui/data-table/data-table-sort-button.svelte';
 import Checkbox from '$lib/components/ui/checkbox/checkbox.svelte';
-import { CopyIcon, PencilLineIcon, Trash2Icon } from "lucide-svelte";
+import { CopyIcon, EyeIcon, PencilLineIcon, Trash2Icon } from "lucide-svelte";
 import { onCopy } from '@toolsntuts/utils';
 import { get, type Writable } from 'svelte/store';
 import type { iJob, iModal } from '$lib/interface';
@@ -43,7 +43,7 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 					type: 'viewJob'
 				}))
 			},
-			icon: PencilLineIcon
+			icon: EyeIcon
 		},
 		{
 			name: "Edit Row",
