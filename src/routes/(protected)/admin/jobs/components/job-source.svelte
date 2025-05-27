@@ -10,7 +10,7 @@
 </script>
 
 <div class="flex items-center gap-2">
-	<Avatar class="dark:bg-white p-4">
+	<Avatar class="dark:bg-white size-10 items-center justify-center p-0.5">
 		<AvatarImage src={(job.file as iFile)?.url} alt={job.title} />
 		<AvatarFallback class="uppercase">{job.title[0]}{job.title[1]}</AvatarFallback>
 	</Avatar>
