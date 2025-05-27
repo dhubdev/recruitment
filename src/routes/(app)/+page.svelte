@@ -4,6 +4,7 @@
 	import Hero from '$lib/components/ui/hero/hero.svelte';
 	import Services from './components/Services.svelte';
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
+	import HowCanWeHelp from './components/HowCanWeHelp.svelte';
 
 	interface Props {
 		data: PageServerData;
@@ -39,4 +40,8 @@
 </Wrap>
 <Wrap class="bg-[#f5f5f5] dark:bg-secondary/20">
 	<Services />
+</Wrap>
+
+<Wrap>
+	<HowCanWeHelp />
 </Wrap>
