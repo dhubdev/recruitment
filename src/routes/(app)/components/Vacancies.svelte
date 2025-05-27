@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { getStyle } from '@toolsntuts/utils'; 
-
+	import { getStyle } from '@toolsntuts/utils';
+	
 	interface iHowCanWeHelp {
 		src: string;
 		title: string;

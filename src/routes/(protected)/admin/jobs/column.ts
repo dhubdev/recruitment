@@ -30,6 +30,22 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			icon: CopyIcon
 		},
 		{
+			name: "View Row",
+			action: (id: string) => {
+				const jobs = get(jobStore)
+				const job = jobs.find(ref => ref.xata_id === id)
+				modalStore.update(existing => ({
+					...existing,
+					open: true,
+					data: job,
+					title: 'View Job',
+					description: '',
+					type: 'viewJob'
+				}))
+			},
+			icon: PencilLineIcon
+		},
+		{
 			name: "Edit Row",
 			className: "text-blue-500",
 			action: (id: string) => {

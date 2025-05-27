@@ -21,7 +21,7 @@ export type iResult = {
 	data?: any;
 };
 
-type ModalType = 'job' | 'deleteJob' | 'doc' | 'deleteDoc' | 'docCategory' | 'deleteDocCategory'
+type ModalType = 'job' | 'deleteJob' | 'viewJob' | 'doc' | 'deleteDoc' | 'docCategory' | 'deleteDocCategory'
 
 export type MessageRoleType = 'user' | 'assistant';
 

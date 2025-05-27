@@ -3,6 +3,7 @@
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import type { iDocument, iDocumentCategory, iJob } from '$lib/interface';
 	import JobForm from '../forms/JobForm.svelte';
+	import ViewJobForm from '../forms/view/ViewJobForm.svelte';
 	import DeleteJobForm from '../forms/delete/DeleteJobForm.svelte';
 	import ScrollArea from '../ui/scroll-area/scroll-area.svelte';
 	import DocForm from '../forms/DocForm.svelte';
@@ -36,6 +37,13 @@
 				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
 			>
 				<JobForm job={$modalStore.data as iJob} />
+			</ScrollArea>
+		{/if}
+		{#if $modalStore.type === 'viewJob'}
+			<ScrollArea
+				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
+			>
+				<ViewJobForm job={$modalStore.data as iJob} />
 			</ScrollArea>
 		{/if}
 
