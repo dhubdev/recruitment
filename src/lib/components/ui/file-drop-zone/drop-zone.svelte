@@ -134,7 +134,7 @@
 		maxFiles?: number;
 		maxFileMB: number;
 		accept?: AcceptFileType;
-		imagekitEndpoint: string;
+		endpoint: string;
 		initialFiles?: iFile[];
 	}
 
@@ -143,7 +143,7 @@
 		maxFiles = 4,
 		onUploaded,
 		accept = 'image/*',
-		imagekitEndpoint,
+		endpoint,
 		maxFileMB = 2,
 		initialFiles = []
 	}: Props = $props();
@@ -174,7 +174,7 @@
 				method: 'post',
 				body: formData
 			};
-			const response = await fetch(imagekitEndpoint, options);
+			const response = await fetch(endpoint, options);
 			const { status, message, data } = (await response.json()) as iResult;
 
 			if (status === 'error') {
@@ -222,7 +222,7 @@
 				body: formData
 			};
 
-			const response = await fetch(imagekitEndpoint, options);
+			const response = await fetch(endpoint, options);
 			const result = (await response.json()) as iResult;
 			return result;
 		};
