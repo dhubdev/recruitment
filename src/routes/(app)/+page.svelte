@@ -5,12 +5,27 @@
 	import Services from './components/Services.svelte';
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import HowCanWeHelp from './components/HowCanWeHelp.svelte';
+	import DataTable from '$lib/components/ui/data-table/data-table.svelte';
+	import { flatten } from '$lib/components/job';
+	import { getColumns } from './column';
+	import { jobStore, modalStore } from '$lib/stores';
+	import type { iJob } from '$lib/interface';
+	import type { iResult } from '@toolsntuts/utils';
+	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
 
+	const columns = getColumns(modalStore);
 	interface Props {
 		data: PageServerData;
 	}
 
 	let { data }: Props = $props();
+
+	const getJobs = (result: iResult) => {
+		$jobStore = result.data as iJob[];
+		return result.data as iJob[];
+	};
+
+	const ondelete = () => {}
 </script>
 
 <Wrap>
@@ -44,4 +59,21 @@
 
 <Wrap>
 	<HowCanWeHelp />
+</Wrap>
+
+<Wrap>
+	{#await data.getJobs}
+		<DataTable {flatten} {columns} data={[]} />
+	{:then result}
+		{@const jobs = getJobs(result)}
+		<DataTable {ondelete} {flatten} {columns} data={jobs} />
+	{:catch error}
+		<AlertWidget
+			variant="destructive"
+			message={error.message}
+			title="Error loading jobs"
+			href={page.url.pathname}
+			linkText="Reload"
+		/>
+	{/await}
 </Wrap>

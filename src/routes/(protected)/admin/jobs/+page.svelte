@@ -5,13 +5,13 @@
 	import DataTable from '$lib/components/ui/data-table/data-table.svelte';
 	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
 	import { page } from '$app/state';
-	import type { iFile, iJob } from '$lib/interface';
+	import type { iJob } from '$lib/interface';
 	import { jobStore, modalStore } from '$lib/stores';
 	import { getColumns } from './column';
 	import { Button } from '$lib/components/ui/button';
 	import { PlusIcon } from 'lucide-svelte';
-	import { toDatetimeLocal } from '$lib/fxns';
 	import type { iResult } from '@toolsntuts/utils';
+	import { flatten } from '$lib/components/job';
 
 	let { data }: { data: PageServerData } = $props();
 
@@ -26,24 +26,12 @@
 		};
 	};
 
-	const flatten = (job: iJob) => ({
-		id: job.xata_id,
-		title: job.title,
-		location: job.location,
-		nature: job.nature,
-		source: job.source,
-		closingDate: job.closingDate ? job.closingDate : '',
-		createdAt: job.xata_createdat.toLocaleString(),
-		updatedAt: job.xata_updatedat.toLocaleString(),
-		file: job.file ? (job.file as iFile)?.url : ''
-	});
-
 	const getJobs = (result: iResult) => {
 		$jobStore = result.data as iJob[];
 		return result.data as iJob[];
 	};
 
-	const bulkDelete = (selected: any[]) => {
+	const ondelete = (selected: any[]) => {
 		$modalStore = {
 			...$modalStore,
 			open: true,
@@ -69,7 +57,7 @@
 		<DataTable {flatten} {columns} data={[]} />
 	{:then result}
 		{@const jobs = getJobs(result)}
-		<DataTable {bulkDelete} {flatten} {columns} data={jobs} />
+		<DataTable {ondelete} {flatten} {columns} data={jobs} />
 	{:catch error}
 		<AlertWidget
 			variant="destructive"

@@ -207,10 +207,6 @@
 	<div>
 		<div class="grid grid-cols-1 items-center gap-4 py-4 md:grid-cols-2">
 			<div class="flex items-center gap-2">
-				<Button variant="outline" class="rounded-full">
-					<PlusIcon class="size-4" />
-					<span>Add</span>
-				</Button>
 				{#if selectedRows.length}
 					<Button variant="outline" class="rounded-full" onclick={handleDeleteProducts}>
 						<Trash2Icon class="size-4" />

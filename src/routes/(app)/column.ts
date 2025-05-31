@@ -13,6 +13,7 @@ import { get, type Writable } from 'svelte/store';
 import type { iJob, iModal } from '$lib/interface';
 import { jobStore } from '$lib/stores';
 import JobSource from '$lib/components/job/job-source.svelte';
+import JobApply from '$lib/components/job/job-apply.svelte';
 
 export type Payment = {
 	id: string;
@@ -44,60 +45,26 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 				}))
 			},
 			icon: EyeIcon
-		},
-		{
-			name: "Edit Row",
-			className: "text-blue-500",
-			action: (id: string) => {
-				const jobs = get(jobStore)
-				const job = jobs.find(ref => ref.xata_id === id)
-				modalStore.update(existing => ({
-					...existing,
-					open: true,
-					data: job,
-					title: 'Update Job',
-					description: 'Fill the form below to update job listing',
-					type: 'job'
-				}))
-			},
-			icon: PencilLineIcon
-		},
-		{
-			name: "Delete Row",
-			className: "text-red-500",
-			action: async (id: string) => {
-				const jobs = get(jobStore)
-				const job = jobs.find(ref => ref.xata_id === id)
-				modalStore.update(existing => ({
-					...existing,
-					open: true,
-					data: [job],
-					title: 'Delete Row',
-					description: `This action cannot be undone. This will permanently delete ${job?.title} and remove it's data from our servers.`,
-					type: 'deleteJob',
-					className: 'max-w-md'
-				}))
-			},
-			icon: Trash2Icon
 		}
 	]
 
 	const columns: ColumnDef<iJob>[] = [
 		{
 			id: 'select',
-			header: ({ table }) =>
-				renderComponent(Checkbox, {
-					checked: table.getIsAllPageRowsSelected(),
-					indeterminate: table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected(),
-					onCheckedChange: (value) => table.toggleAllPageRowsSelected(!!value),
-					'aria-label': 'Select all'
-				}),
-			cell: ({ row }) =>
-				renderComponent(Checkbox, {
-					checked: row.getIsSelected(),
-					onCheckedChange: (value) => row.toggleSelected(!!value),
-					'aria-label': 'Select row'
-				}),
+			// header: ({ table }) =>
+			// 	renderComponent(Checkbox, {
+			// 		checked: table.getIsAllPageRowsSelected(),
+			// 		indeterminate: table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected(),
+			// 		onCheckedChange: (value) => table.toggleAllPageRowsSelected(!!value),
+			// 		'aria-label': 'Select all'
+			// 	}),
+			header: "Expand",
+			// cell: ({ row }) =>
+			// 	renderComponent(Checkbox, {
+			// 		checked: row.getIsSelected(),
+			// 		onCheckedChange: (value) => row.toggleSelected(!!value),
+			// 		'aria-label': 'Select row'
+			// 	}),
 			enableSorting: false,
 			enableHiding: false
 		},
@@ -130,9 +97,9 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 		},
 		{
 			id: 'actions',
-			header: 'Actions',
+			header: 'Action',
 			cell: ({ row }) => {
-				return renderComponent(DataTableActions, { id: row.original.xata_id, actions, row: row.original });
+				return renderComponent(JobApply, { job: row.original });
 			}
 		}
 	];

@@ -9,6 +9,7 @@
 	import Brand from '$lib/components/sections/Brand.svelte';
 	import type { iResult } from '@toolsntuts/utils';
 	import BottomNav from '$lib/components/widgets/BottomNav.svelte';
+	import FrontendDialog from '$lib/components/widgets/FrontendDialog.svelte';
 
 	let { data, children }: { data: LayoutData; children: Snippet } = $props();
 
@@ -68,3 +69,4 @@
 	{/await}
 </div>
 <BottomNav />
+<FrontendDialog />
