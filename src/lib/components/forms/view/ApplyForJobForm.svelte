@@ -17,20 +17,20 @@
 	let { class: className, job }: Props = $props();
 
 	let loading = $state(false);
-	let content = $state('')
-	let files = $state<iFile[]>()
+	let content = $state('');
+	let files = $state<iFile[]>();
 	const file = job.file as iFile;
 
 	const onsubmit = async (evt: SubmitEvent) => {
-		evt.preventDefault()
+		evt.preventDefault();
 
-		const form = evt.target as HTMLFormElement
-		const formData = new FormData(form)
-		const entries = Object.fromEntries(formData.entries())
-	}
+		const form = evt.target as HTMLFormElement;
+		const formData = new FormData(form);
+		const entries = Object.fromEntries(formData.entries());
+	};
 
-	const getcontent = (_content: string) => content = _content
-	const onUploaded = (_file: iFile[]) => files = _file
+	const getcontent = (_content: string) => (content = _content);
+	const onUploaded = (_file: iFile[]) => (files = _file);
 </script>
 
 <div class="grid aspect-square max-h-[70vh] w-full grid-cols-1 lg:aspect-video lg:grid-cols-2">
@@ -69,9 +69,15 @@
 				class={removeRingClasses()}
 			/>
 		</div>
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-			<DropZone maxFileMB={10} maxFiles={1} accept="application/pdf" endpoint="/api/files" {onUploaded} />
-			<TiptapEditor title="Application Letter" {getcontent} />
+		<div>
+			<Label for="email">Upload your CV & Application Letter Below</Label>
+			<DropZone
+				maxFileMB={10}
+				maxFiles={1}
+				accept="application/pdf"
+				endpoint="/api/files"
+				{onUploaded}
+			/>
 		</div>
 	</form>
 	<ScrollArea class="h-[calc(100%-56px)]">
