@@ -1,14 +1,15 @@
 <script lang="ts">
 	import Input from '$lib/components/ui/input/input.svelte';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
-	import type { iFile, iJob } from '$lib/interface';
-	import { removeRingClasses } from '@toolsntuts/utils';
+	import type { iApplication, iFile, iJob } from '$lib/interface';
+	import { removeRingClasses, type iResult } from '@toolsntuts/utils';
 	import { Label } from '$lib/components/ui/label';
 	import ImageDropZone from '$lib/components/ui/file-drop-zone/image-drop-zone.svelte';
 	import TiptapEditor from '$lib/components/ui/tiptap-editor/tiptap-editor.svelte';
 	import { FileDropZone } from '$lib/components/ui/file-drop-zone';
 	import DropZone from '$lib/components/ui/file-drop-zone/drop-zone.svelte';
 	import { cn } from '$lib/utils';
+	import { toast } from 'svelte-sonner';
 
 	interface Props {
 		class?: string;
@@ -30,9 +31,33 @@
 		const formData = new FormData(form);
 		const entries = Object.fromEntries(formData.entries());
 
+		const partialApply: Partial<iApplication> = {
+			...entries,
+			job: job.xata_id,
+			cv: cv?.xata_id,
+			applicationLetter: applicationLetter?.xata_id
+		};
+
 		try {
-			const body = {};
-		} catch (error: any) {}
+			const url = '/api/apply';
+			const options: RequestInit = {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(partialApply)
+			};
+			const response = await fetch(url, options);
+			const { message, status } = (await response.json()) as iResult;
+
+			if (status === 'error') {
+				toast.error(message);
+			} else {
+				toast.success(message);
+			}
+		} catch (error: any) {
+			toast.error(error.message);
+		}
 	};
 
 	const getcontent = (_content: string) => (content = _content);

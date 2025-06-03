@@ -58,10 +58,11 @@ export interface iUser extends iXata {
 }
 
 
-export interface iApply extends iXata {
+export interface iApplication extends iXata {
 	email: string;
 	name: string;
 	cv: iFile | string;
+	job: iJob | string;
 	applicationLetter: iFile | string
 }
 

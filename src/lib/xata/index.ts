@@ -5,9 +5,125 @@ import type {
   SchemaInference,
   XataRecord,
 } from "@xata.io/client";
-import { defaultOptions } from "./config";
 
 const tables = [
+  {
+    name: "application",
+    checkConstraints: {
+      application_xata_id_length_xata_id: {
+        name: "application_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {
+      applicationLetter_link: {
+        name: "applicationLetter_link",
+        columns: ["applicationLetter"],
+        referencedTable: "file",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+      cv_link: {
+        name: "cv_link",
+        columns: ["cv"],
+        referencedTable: "file",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+      job_link: {
+        name: "job_link",
+        columns: ["job"],
+        referencedTable: "job",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+    },
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_application_xata_id_key: {
+        name: "_pgroll_new_application_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "applicationLetter",
+        type: "link",
+        link: { table: "file" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "cv",
+        type: "link",
+        link: { table: "file" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "email",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "job",
+        type: "link",
+        link: { table: "job" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"job"}',
+      },
+      {
+        name: "name",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
   {
     name: "document",
     checkConstraints: {
@@ -491,6 +607,9 @@ const tables = [
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
+export type Application = InferredTypes["application"];
+export type ApplicationRecord = Application & XataRecord;
+
 export type Document = InferredTypes["document"];
 export type DocumentRecord = Document & XataRecord;
 
@@ -507,6 +626,7 @@ export type User = InferredTypes["user"];
 export type UserRecord = User & XataRecord;
 
 export type DatabaseSchema = {
+  application: ApplicationRecord;
   document: DocumentRecord;
   documentcategory: DocumentcategoryRecord;
   file: FileRecord;
@@ -515,6 +635,11 @@ export type DatabaseSchema = {
 };
 
 const DatabaseClient = buildClient();
+
+const defaultOptions = {
+  databaseURL:
+    "https://Dhub-Dev-s-workspace-rgovaa.us-east-1.xata.sh/db/recruitment",
+};
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
   constructor(options?: BaseClientOptions) {
