@@ -9,7 +9,10 @@
 
 <Dialog.Root open={$modalStore.open}>
 	<Dialog.Content
-		class={cn('mx-auto w-[calc(100%-32px)] max-w-4xl rounded-lg p-2', $modalStore.className)}
+		class={cn(
+			'mx-auto h-[calc(100vh-32px)] w-[calc(100%-32px)] max-w-4xl rounded-lg p-4',
+			$modalStore.className
+		)}
 	>
 		<Dialog.Header class="contents gap-0 space-y-0 text-left">
 			<Dialog.Title class="p-1 text-base">
@@ -22,7 +25,11 @@
 		</Dialog.Description>
 
 		{#if $modalStore.type === 'applyForJob'}
-			<ApplyForJobForm job={$modalStore.data as iJob} />
+			<ScrollArea
+				class="h-full"
+			>
+				<ApplyForJobForm job={$modalStore.data as iJob} />
+			</ScrollArea>
 		{/if}
 	</Dialog.Content>
 </Dialog.Root>

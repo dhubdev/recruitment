@@ -8,6 +8,7 @@
 	import TiptapEditor from '$lib/components/ui/tiptap-editor/tiptap-editor.svelte';
 	import { FileDropZone } from '$lib/components/ui/file-drop-zone';
 	import DropZone from '$lib/components/ui/file-drop-zone/drop-zone.svelte';
+	import { cn } from '$lib/utils';
 
 	interface Props {
 		class?: string;
@@ -18,7 +19,8 @@
 
 	let loading = $state(false);
 	let content = $state('');
-	let files = $state<iFile[]>();
+	let cv = $state<iFile>();
+	let applicationLetter = $state<iFile>();
 	const file = job.file as iFile;
 
 	const onsubmit = async (evt: SubmitEvent) => {
@@ -27,67 +29,26 @@
 		const form = evt.target as HTMLFormElement;
 		const formData = new FormData(form);
 		const entries = Object.fromEntries(formData.entries());
+
+		try {
+			const body = {};
+		} catch (error: any) {}
 	};
 
 	const getcontent = (_content: string) => (content = _content);
-	const onUploaded = (_file: iFile[]) => (files = _file);
+
+	const onCVUploaded = (cvs: iFile[]) => (cv = cvs[0]);
+	const onApplicationLetterUploaded = (aLetter: iFile[]) => (applicationLetter = aLetter[0]);
 </script>
 
-<div class="grid aspect-square max-h-[70vh] w-full grid-cols-1 lg:aspect-video lg:grid-cols-2">
-	<form class="w-full">
-		<div>
-			<Label for="title">Title</Label>
-			<Input
-				id="title"
-				disabled={loading}
-				required
-				placeholder="Job title"
-				name="title"
-				class={removeRingClasses()}
-			/>
-		</div>
-		<div>
-			<Label for="source">Source</Label>
-			<Input
-				id="source"
-				disabled={loading}
-				required
-				placeholder="Job source (e.g. Jordan Recruitments)"
-				name="source"
-				class={removeRingClasses()}
-			/>
-		</div>
-		<div>
-			<Label for="email">Closing Date</Label>
-			<Input
-				id="email"
-				type="email"
-				disabled={loading}
-				required
-				placeholder="Job closing date"
-				name="closingDate"
-				class={removeRingClasses()}
-			/>
-		</div>
-		<div>
-			<Label for="email">Upload your CV & Application Letter Below</Label>
-			<DropZone
-				maxFileMB={10}
-				maxFiles={1}
-				accept="application/pdf"
-				endpoint="/api/files"
-				{onUploaded}
-			/>
-		</div>
-	</form>
-	<ScrollArea class="h-[calc(100%-56px)]">
-		<div class="flex flex-col gap-4 p-2">
-			<div class="flex flex-col gap-1">
+<div class="">
+	<div class="flex flex-col gap-4 p-2">
+		<div class="grid grid-cols-1 md:grid-cols-2">
+			<div class="flex flex-col gap-4">
 				<div class="flex items-center gap-1">
 					<img src={file.url} class="size-10" alt={job.source} />
 					<h2 class="prose font-medium dark:prose-invert">{job.source}</h2>
 				</div>
-				<h2 class="prose dark:prose-invert">{job.title}</h2>
 				<div class="capitalize">
 					Location: {job.location}
 				</div>
@@ -95,10 +56,48 @@
 					Nature: {job.nature}
 				</div>
 			</div>
-			<div class="prose dark:prose-invert">
-				<h2>About the Job</h2>
-				{@html job.content}
-			</div>
+			<form class="grid grid-cols-1 gap-2" {onsubmit}>
+				<div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+					<Input
+						id="name"
+						disabled={loading}
+						required
+						placeholder="Your name"
+						name="name"
+						class={cn(removeRingClasses(), 'w-full')}
+					/>
+					<Input
+						id="email"
+						disabled={loading}
+						required
+						placeholder="Your email"
+						name="email"
+						class={cn(removeRingClasses(), 'w-full')}
+					/>
+				</div>
+				<div>
+					<DropZone
+						title="Click to upload CV"
+						maxFileMB={10}
+						maxFiles={2}
+						accept="application/pdf"
+						endpoint="/api/files"
+						onUploaded={onCVUploaded}
+					/>
+					<DropZone
+						title="Click to upload application letter"
+						maxFileMB={10}
+						maxFiles={2}
+						accept="application/pdf"
+						endpoint="/api/files"
+						onUploaded={onApplicationLetterUploaded}
+					/>
+				</div>
+			</form>
 		</div>
-	</ScrollArea>
+		<div class="prose dark:prose-invert">
+			<h2>About the Job</h2>
+			{@html job.content}
+		</div>
+	</div>
 </div>

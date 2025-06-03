@@ -136,6 +136,7 @@
 		accept?: AcceptFileType;
 		endpoint: string;
 		initialFiles?: iFile[];
+		title?: string;
 	}
 
 	let {
@@ -144,6 +145,7 @@
 		onUploaded,
 		accept = 'image/*',
 		endpoint,
+		title,
 		maxFileMB = 2,
 		initialFiles = []
 	}: Props = $props();
@@ -245,6 +247,7 @@
 <div class={cn('flex w-full flex-col gap-2', className)}>
 	<FileDropZone
 		{onUpload}
+		{title}
 		{onFileRejected}
 		maxFileSize={maxFileMB * MEGABYTE}
 		{accept}
@@ -270,7 +273,6 @@
 				</div>
 			{:then image}
 				<div class="grid w-full grid-cols-[40px_1fr_40px] gap-2 overflow-hidden">
-					<!-- Left: Image Preview -->
 					{#if getFileType(file.name) === 'image'}
 						<div class="relative size-10 overflow-clip">
 							<img
@@ -288,11 +290,9 @@
 					{/if}
 
 					{#if getFileType(file.name) === 'document'}
-						<Document class="size-10" />
-						<!-- content here -->
+						<Document class="size-10" /> 
 					{/if}
-
-					<!-- Middle: File Info -->
+ 
 					<div class="overflow-hidden">
 						<div class="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm font-medium">
 							{file.name}
@@ -305,8 +305,6 @@
 							<div class="w-fit text-xs text-muted-foreground">{displaySize(file.size)}</div>
 						{/if}
 					</div>
-
-					<!-- Right: Delete Button -->
 					<div class="flex items-center justify-end">
 						{#if deletingId === image.xata_id}
 							<Button variant="outline" size="icon">

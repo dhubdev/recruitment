@@ -57,6 +57,14 @@ export interface iUser extends iXata {
 	role: Role;
 }
 
+
+export interface iApply extends iXata {
+	email: string;
+	name: string;
+	cv: iFile | string;
+	applicationLetter: iFile | string
+}
+
 export interface iRoute {
 	name: string;
 	href: string;

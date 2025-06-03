@@ -20,6 +20,7 @@
 		/** The maximum amount files allowed to be uploaded */
 		maxFiles?: number;
 		fileCount?: number;
+		title?: string;
 		/** The maximum size of a file in bytes */
 		maxFileSize?: number;
 		children?: Snippet<[]>;
@@ -54,6 +55,8 @@
 	import { displaySize } from '.';
 	import { useId } from 'bits-ui';
 	import { cn } from '$lib/utils/index';
+	import { PaperclipIcon } from 'lucide-svelte';
+	import { buttonVariants } from '../button';
 
 	let {
 		id = useId(),
@@ -65,6 +68,7 @@
 		onUpload,
 		onFileRejected,
 		accept,
+		title,
 		class: className,
 		...rest
 	}: FileDropZoneProps = $props();
@@ -176,38 +180,30 @@
 	for={id}
 	aria-disabled={!canUploadFiles}
 	class={cn(
-		'flex h-48 w-full place-items-center justify-center rounded-lg border-2 border-dashed border-border p-6 transition-all hover:cursor-pointer hover:bg-accent/25 aria-disabled:opacity-50 aria-disabled:hover:cursor-not-allowed',
-		className
+		'border-1 flex w-fit gap-2 rounded-lg border-dashed border-border p-2 text-xs text-muted-foreground transition-all hover:cursor-pointer hover:bg-accent/25 aria-disabled:opacity-50 aria-disabled:hover:cursor-not-allowed',
+		className,
+		buttonVariants({ variant: 'ghost',  size: "sm" })
 	)}
 >
 	{#if children}
 		{@render children()}
 	{:else}
-		<div class="flex flex-col place-items-center justify-center gap-2">
-			<div
-				class="flex size-14 place-items-center justify-center rounded-full border border-dashed border-border text-muted-foreground"
-			>
-				<Upload class="size-7" />
-			</div>
-			<div class="flex flex-col gap-0.5 text-center">
-				<span class="font-medium text-muted-foreground">
-					Drag 'n' drop files here, or click to select files
-				</span>
-				{#if maxFiles || maxFileSize}
-					<span class="text-sm text-muted-foreground/75">
-						{#if maxFiles}
-							<span>You can upload {maxFiles} files</span>
-						{/if}
-						{#if maxFiles && maxFileSize}
-							<span>(up to {displaySize(maxFileSize)} each)</span>
-						{/if}
-						{#if maxFileSize && !maxFiles}
-							<span>Maximum size {displaySize(maxFileSize)}</span>
-						{/if}
-					</span>
+		<PaperclipIcon class="size-4" />
+		{title ?? 'Click to add files'}
+		<!-- <span class="font-medium text-muted-foreground"> Click to select files </span>
+		{#if maxFiles || maxFileSize}
+			<span class="text-sm text-muted-foreground/75">
+				{#if maxFiles}
+					<span>You can upload {maxFiles} files</span>
 				{/if}
-			</div>
-		</div>
+				{#if maxFiles && maxFileSize}
+					<span>(up to {displaySize(maxFileSize)} each)</span>
+				{/if}
+				{#if maxFileSize && !maxFiles}
+					<span>Maximum size {displaySize(maxFileSize)}</span>
+				{/if}
+			</span>
+		{/if} -->
 	{/if}
 	<input
 		{...rest}

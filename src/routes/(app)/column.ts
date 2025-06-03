@@ -34,13 +34,13 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			name: "View Row",
 			action: (id: string) => {
 				const jobs = get(jobStore)
-				const job = jobs.find(ref => ref.xata_id === id)
+				const job = jobs.find(ref => ref.xata_id === id) as iJob
 				modalStore.update(existing => ({
 					...existing,
 					open: true,
 					data: job,
-					title: 'View Job',
-					description: '',
+					title: job.title,
+					description: 'Apply for the position',
 					type: 'viewJob'
 				}))
 			},

@@ -14,8 +14,8 @@
 			...existing,
 			open: true,
 			data: job,
-			title: 'View and Apply',
-			description: '',
+			title: job.title,
+			description: 'Apply for the position',
 			type: 'applyForJob'
 		}));
 	};
