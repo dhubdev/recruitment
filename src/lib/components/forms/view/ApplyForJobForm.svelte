@@ -54,11 +54,13 @@
 				body: JSON.stringify(partialApply)
 			};
 			const response = await fetch(url, options);
-			const { message, status } = (await response.json()) as iResult;
+			const { message, status, data } = (await response.json()) as iResult;
 
 			if (status === 'error') {
 				toast.error(message);
 			} else {
+				const application = data as iApplication
+				location.href = `/applications/${application.xata_id}`
 				toast.success(message);
 			}
 		} catch (error: any) {
