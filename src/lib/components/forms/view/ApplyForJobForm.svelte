@@ -41,9 +41,11 @@
 			applicationLetter: applicationLetter?.xata_id
 		};
 
+		console.log({ partialApply });
+
 		try {
-			loading = true
-			const url = '/api/apply';
+			loading = true;
+			const url = '/api/application';
 			const options: RequestInit = {
 				method: 'POST',
 				headers: {
@@ -62,7 +64,7 @@
 		} catch (error: any) {
 			toast.error(error.message);
 		} finally {
-			loading = false
+			loading = false;
 		}
 	};
 
