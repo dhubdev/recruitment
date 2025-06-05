@@ -10,6 +10,9 @@
 	import DropZone from '$lib/components/ui/file-drop-zone/drop-zone.svelte';
 	import { cn } from '$lib/utils';
 	import { toast } from 'svelte-sonner';
+	import { Button } from '$lib/components/ui/button';
+	import { FileCheckIcon } from 'lucide-svelte';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
 
 	interface Props {
 		class?: string;
@@ -39,6 +42,7 @@
 		};
 
 		try {
+			loading = true
 			const url = '/api/apply';
 			const options: RequestInit = {
 				method: 'POST',
@@ -57,6 +61,8 @@
 			}
 		} catch (error: any) {
 			toast.error(error.message);
+		} finally {
+			loading = false
 		}
 	};
 
@@ -118,6 +124,17 @@
 						onUploaded={onApplicationLetterUploaded}
 					/>
 				</div>
+				{#if loading}
+					<Button>
+						<SpinLoader class="size-4" />
+						<span>Loading...</span>
+					</Button>
+				{:else}
+					<Button type="submit">
+						<FileCheckIcon class="size-4" />
+						<span>Apply</span>
+					</Button>
+				{/if}
 			</form>
 		</div>
 		<div class="prose dark:prose-invert">
