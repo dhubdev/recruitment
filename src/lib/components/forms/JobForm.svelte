@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { aiSubmitForm, deleteResourceApi, submitForm } from '$lib/client/actions';
 	import { defaultJob, locationOptions, natureOptions, Role } from '$lib/constants';
-	import type { iFile, iJob, iUser } from '$lib/interface';
+	import type { iDocumentCategory, iFile, iJob, iUser } from '$lib/interface';
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
 	import Textarea from '../ui/textarea/textarea.svelte';
@@ -17,21 +17,29 @@
 
 	interface Props {
 		job?: iJob;
+		documentCategories: iDocumentCategory[]
 	}
 
 	const me = getContext('me') as iUser;
 
-	let { job }: Props = $props();
+	let { job, documentCategories }: Props = $props();
 
 	let loading = $state(false);
 	let aiLoading = $state(false);
 
 	const action = job ? 'Save changes' : 'Create';
+	const categoryOptions = documentCategories.map((docCat: iDocumentCategory) => ({
+		label: docCat.category,
+		value: docCat.xata_id
+	}));
 
 	let placeholder = $state(job ? job : defaultJob);
 
 	let aiContent = $state(placeholder.content);
 	let content = $state(placeholder.content);
+	let documentCategory = $state(
+		placeholder?.category ? (placeholder.category as iDocumentCategory).xata_id : ''
+	);
 
 	const onsubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
@@ -125,6 +133,10 @@
 		<div>
 			<Label for="nature">Nature of the job</Label>
 			<Select options={natureOptions} name="nature" bind:value={placeholder.nature} />
+		</div>
+		<div>
+			<Label for="category">Document Category</Label>
+			<Select options={categoryOptions} name="category" bind:value={documentCategory} />
 		</div>
 		<div>
 			<Label for="location">Location</Label>

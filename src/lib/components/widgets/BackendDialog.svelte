@@ -36,7 +36,7 @@
 			<ScrollArea
 				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
 			>
-				<JobForm job={$modalStore.data as iJob} />
+				<JobForm documentCategories={documentCategories as iDocumentCategory[]} job={$modalStore.data as iJob} />
 			</ScrollArea>
 		{/if}
 		{#if $modalStore.type === 'viewJob'}

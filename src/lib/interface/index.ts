@@ -162,6 +162,7 @@ export interface iJob extends iXata {
 	nature: string;
 	closingDate: string;
 	file: string | iFile;
+	category: string | iDocumentCategory
 }
 
 export interface iDocument extends iXata {

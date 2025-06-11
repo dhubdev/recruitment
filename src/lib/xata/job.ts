@@ -7,7 +7,7 @@ export const getJob = async (id: string) => {
   try {
     const job = await xata.db.job
       .filter({ xata_id: id })
-      .select(["*", "file.*"])
+      .select(["*", "file.*", "category.*"])
       .getFirst()
 
     return onSuccess(job)
@@ -60,7 +60,7 @@ export const getJobs = async () => {
 
   try {
     const jobs = await xata.db.job
-      .select(["*", "file.*"])
+      .select(["*", "file.*", "category.*"])
       .sort("xata_updatedat", "desc")
       .getMany({ pagination: { size: 200 } })
 

@@ -380,6 +380,13 @@ const tables = [
       },
     },
     foreignKeys: {
+      category_link: {
+        name: "category_link",
+        columns: ["category"],
+        referencedTable: "documentcategory",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
       file_link: {
         name: "file_link",
         columns: ["file"],
@@ -396,6 +403,15 @@ const tables = [
       },
     },
     columns: [
+      {
+        name: "category",
+        type: "link",
+        link: { table: "documentcategory" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"documentcategory"}',
+      },
       {
         name: "closingDate",
         type: "text",

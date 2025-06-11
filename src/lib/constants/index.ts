@@ -42,7 +42,8 @@ export const defaultJob = {
 	source: '',
 	closingDate: '',
 	nature: '',
-	file: undefined
+	file: undefined,
+	category: undefined
 }
 
 export const defaultDoc = {
