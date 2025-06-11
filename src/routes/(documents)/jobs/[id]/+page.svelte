@@ -6,6 +6,7 @@
 	import { metaStore } from '$lib/stores';
 	import BinocularsIcon from '$lib/components/icons/binoculars-icon.svelte';
 	import { Button } from '$lib/components/ui/button';
+	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
 
 	let { data }: { data: PageData } = $props();
 
@@ -35,7 +36,7 @@
 	};
 
 	const job = data.result.data as iJob;
-	let document = $state<iDocument>({
+	let document =$state<iDocument | null>(job ? {
 		xata_id: job.xata_id,
 		xata_createdat: job.xata_createdat,
 		xata_updatedat: job.xata_updatedat,
@@ -52,11 +53,11 @@
 		},
 		file: job.file,
 		content: contentHtml(job)
-	});
+	} : null)
 
 	$metaStore = {
 		...$metaStore,
-		title: `${(data.result.data as iJob).title} | Jordan Recruitments`
+		title: `${job ? job.title : 'Not Found'} | Jordan Recruitments`
 	};
 </script>
 
@@ -81,14 +82,14 @@
 	<meta property="twitter:description" content={$metaStore.description} />
 	<meta property="twitter:image" content={$metaStore.ogimage} />
 </svelte:head>
-{#if data.result.status === 'error'}
-	<div class="flex h-screen w-full items-center justify-center">
-		<div class="flex flex-col items-center gap-2">
-			<BinocularsIcon />
-			<h1 class="text-2xl font-semibold">{page.status}: {page.error?.message}</h1>
-			<Button href="/">Go Home 👉</Button>
-		</div>
-	</div>
+{#if !document}
+	<AlertWidget
+		variant="destructive"
+		message="Page Not Found"
+		title="Error loading application"
+		href={page.url.pathname}
+		linkText="Reload"
+	/>
 {:else}
 	<DocumentPage {document} />
 {/if}
