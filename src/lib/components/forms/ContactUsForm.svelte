@@ -7,17 +7,14 @@
 	import { PhoneCallIcon } from 'lucide-svelte';
 	import Whatsapp from '../icons/whatsapp.svelte';
 
-  const onsubmit = async (evt: SubmitEvent) => {
-    const form = evt.target as HTMLFormElement
-    const formData = new FormData(form)
-    const entries = Object.fromEntries(formData.entries())
+	const onsubmit = async (evt: SubmitEvent) => {
+		const form = evt.target as HTMLFormElement;
+		const formData = new FormData(form);
+		const entries = Object.fromEntries(formData.entries());
 
-    try {
-      
-    } catch (error: any) {
-      
-    }
-  }
+		try {
+		} catch (error: any) {}
+	};
 </script>
 
 <section class="py-32">
@@ -25,25 +22,18 @@
 		<h1 class="mb-12 text-center text-4xl font-semibold lg:text-5xl">Help us route your inquiry</h1>
 
 		<div class="grid divide-y border md:grid-cols-2 md:gap-4 md:divide-x md:divide-y-0">
-			<div class="flex flex-col justify-between space-y-8 p-6 sm:p-12">
-				<div>
-					<Button href="tel:+447930739927" variant="ghost">
-						<PhoneCallIcon class="size-4" />
-						<span>Collaborate</span>
-					</Button>
-				</div>
-			</div>
-			<div class="flex flex-col justify-between space-y-8 p-6 sm:p-12">
-				<div>
-					<Button
-						href="https://api.whatsapp.com/send/?phone=%2B447930739927&text=Hello"
-						variant="ghost"
-					>
-						<Whatsapp class="size-4" />
-						<span>Inquire</span>
-					</Button>
-				</div>
-			</div>
+			<Button href="tel:+447930739927" variant="ghost" class="size-full h-auto rounded-none">
+				<PhoneCallIcon class="size-4" />
+				<span>Collaborate</span>
+			</Button>
+			<Button
+				href="https://api.whatsapp.com/send/?phone=%2B447930739927&text=Hello"
+				variant="ghost"
+				class="size-full h-auto rounded-none"
+			>
+				<Whatsapp class="size-4" />
+				<span>Inquire</span>
+			</Button>
 		</div>
 
 		<div
