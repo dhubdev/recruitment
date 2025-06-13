@@ -1,26 +1,26 @@
 <script lang="ts" module>
 	import type { iContactRoute, iLegalRoute, iRoute, iSoMeRoute } from '$lib/interface/index';
 	let someRoutes: iSoMeRoute[] = [
-		{
-			name: 'facebook',
-			href: 'https://www.facebook.com/mydhubeducation/'
-		},
-		{
-			name: 'instagram',
-			href: 'https://www.instagram.com/mydhubeducation/'
-		},
-		{
-			name: 'twitter',
-			href: 'https://twitter.com/DhubEducation'
-		},
-		{
-			name: 'tiktok',
-			href: 'https://www.tiktok.com/@mydhubeducation?_t=8jGuYP4VdSK&amp;_r=1'
-		},
-		{
-			name: 'youtube',
-			href: 'https://www.youtube.com/@dhubeducation2325'
-		},
+		// {
+		// 	name: 'facebook',
+		// 	href: 'https://www.facebook.com/mydhubeducation/'
+		// },
+		// {
+		// 	name: 'instagram',
+		// 	href: 'https://www.instagram.com/mydhubeducation/'
+		// },
+		// {
+		// 	name: 'twitter',
+		// 	href: 'https://twitter.com/DhubEducation'
+		// },
+		// {
+		// 	name: 'tiktok',
+		// 	href: 'https://www.tiktok.com/@mydhubeducation?_t=8jGuYP4VdSK&amp;_r=1'
+		// },
+		// {
+		// 	name: 'youtube',
+		// 	href: 'https://www.youtube.com/@dhubeducation2325'
+		// },
 		// {
 		// 	name: "telegram",
 		// 	href: "https://t.me/+EFfR1U0_BakwNjlk"
@@ -185,7 +185,7 @@
 					<div class="mt-8 flex items-center justify-center gap-2 sm:justify-start">
 						{#each some as route, i}
 							{@const Icon = getSomeIcon(route)}
-							<Button size="icon" variant="outline" class="p-0">
+							<Button href={route.href} size="icon" variant="outline" class="p-0">
 								<span class="sr-only">{route.name}</span>
 								<Icon class="size-6" />
 							</Button>
