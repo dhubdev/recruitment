@@ -7,6 +7,7 @@
 	import { getColumns } from '../column';
 	import type { PageData } from './$types';
 	import type { iJob } from '$lib/interface';
+	import { flatten } from '$lib/components/job';
 
 	let { data }: { data: PageData } = $props();
 	
