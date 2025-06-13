@@ -120,13 +120,13 @@
 	import { XIcon } from '@lucide/svelte';
 	import Video from './Video.svelte';
 	import Audio from './Audio.svelte';
-	import Document from './Document.svelte';
 	import type { iResult } from '@toolsntuts/utils';
 	import { onDestroy, onMount } from 'svelte';
 	import { toast, Toaster } from 'svelte-sonner';
 	import { SvelteDate } from 'svelte/reactivity';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
+	import { PaperclipIcon } from 'lucide-svelte';
 
 	interface Props {
 		class?: string;
@@ -290,7 +290,7 @@
 					{/if}
 
 					{#if getFileType(file.name) === 'document'}
-						<Document class="size-10" /> 
+						<PaperclipIcon class="size-10" /> 
 					{/if}
  
 					<div class="overflow-hidden">
