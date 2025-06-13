@@ -16,12 +16,12 @@ export type FormatToken =
 export type StatusType = 'error' | 'success';
 
 export type iResult = {
-	status: StatusType;
+	status: StatusType; 
 	message: string;
 	data?: any;
 };
 
-type ModalType = 'job' | 'deleteJob' | 'viewJob' | 'doc' | 'deleteDoc' | 'docCategory' | 'deleteDocCategory' | 'applyForJob'
+type ModalType = 'job' | 'deleteJob' | 'viewJob' | 'doc' | 'deleteDoc' | 'docCategory' | 'deleteDocCategory' | 'applyForJob' | 'viewApplication' | 'application' | 'deleteApplication'
 
 export type MessageRoleType = 'user' | 'assistant';
 
