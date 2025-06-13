@@ -117,26 +117,6 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			}
 		},
 		{
-			accessorKey: 'title',
-			header: ({ column }) =>
-				renderComponent(DataTableSortButton, {
-					onclick: column.getToggleSortingHandler(),
-					title: 'Title'
-				}),
-		},
-		{
-			accessorKey: 'location',
-			header: ({ column }) =>
-				renderComponent(DataTableSortButton, {
-					onclick: column.getToggleSortingHandler(),
-					title: 'Location'
-				}),
-		},
-		{
-			accessorKey: 'nature',
-			header: 'Nature'
-		},
-		{
 			id: 'actions',
 			header: 'Actions',
 			cell: ({ row }) => {
