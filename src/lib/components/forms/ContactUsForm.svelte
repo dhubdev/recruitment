@@ -1,12 +1,23 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Card } from '$lib/components/ui/card';
 	import Input from '$lib/components/ui/input/input.svelte';
 	import Label from '$lib/components/ui/label/label.svelte';
-	import * as Select from '$lib/components/ui/select/index.js';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { PhoneCallIcon } from 'lucide-svelte';
 	import Whatsapp from '../icons/whatsapp.svelte';
+
+  const onsubmit = async (evt: SubmitEvent) => {
+    const form = evt.target as HTMLFormElement
+    const formData = new FormData(form)
+    const entries = Object.fromEntries(formData.entries())
+
+    try {
+      
+    } catch (error: any) {
+      
+    }
+  }
 </script>
 
 <section class="py-32">
@@ -38,7 +49,7 @@
 		<div
 			class="h-3 border-x bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)]"
 		></div>
-		<form action="" class="border px-4 py-12 lg:px-0 lg:py-24">
+		<form {onsubmit} class="border px-4 py-12 lg:px-0 lg:py-24">
 			<Card class="mx-auto max-w-lg p-8 sm:p-16">
 				<h3 class="text-xl font-semibold">Let's get you to the right place</h3>
 				<p class="mt-4 text-sm">
@@ -52,41 +63,18 @@
 						<Input type="text" id="name" required />
 					</div>
 					<div>
-						<Label for="email" class="space-y-2">Work Email</Label>
+						<Label for="email" class="space-y-2">Email</Label>
 						<Input type="email" id="email" required />
 					</div>
 					<div>
-						<Label for="country" class="space-y-2">Country/Region</Label>
-						<Select.Root type="single">
-							<Select.Trigger>Select a country</Select.Trigger>
-							<Select.Content>
-								<Select.Item value="1">DR Congo</Select.Item>
-								<Select.Item value="2">United States</Select.Item>
-								<Select.Item value="3">France</Select.Item>
-							</Select.Content>
-						</Select.Root>
-					</div>
-					<div>
-						<Label for="website" class="space-y-2">Company Website</Label>
-						<Input type="url" id="website" />
-					</div>
-					<div>
-						<Label for="job" class="space-y-2">Job function</Label>
-						<Select.Root type="single">
-							<Select.Trigger>Select job function</Select.Trigger>
-							<Select.Content>
-								<Select.Item value="1">Finance</Select.Item>
-								<Select.Item value="2">Education</Select.Item>
-								<Select.Item value="3">Legal</Select.Item>
-								<Select.Item value="4">More</Select.Item>
-							</Select.Content>
-						</Select.Root>
+						<Label for="subject" class="space-y-2">Subject</Label>
+						<Input type="subject" id="subject" required />
 					</div>
 					<div>
 						<Label for="msg" class="space-y-2">Message</Label>
 						<Textarea id="msg" rows={3} />
 					</div>
-					<Button>Submit</Button>
+					<Button type="submit">Submit</Button>
 				</div>
 			</Card>
 		</form>
