@@ -8,6 +8,7 @@
 	import type { PageData } from './$types';
 	import type { iJob } from '$lib/interface';
 	import { flatten } from '$lib/components/job';
+	import { page } from '$app/state';
 
 	let { data }: { data: PageData } = $props();
 	
