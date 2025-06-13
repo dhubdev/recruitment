@@ -47,11 +47,6 @@
 			name: 'Document Categories',
 			href: `/admin/documentcategories`,
 			icon: FileTextIcon
-		},
-		{
-			name: 'Settings',
-			href: `/admin/settings`,
-			icon: SettingsIcon
 		}
 	];
 
