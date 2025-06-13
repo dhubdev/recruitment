@@ -24,11 +24,6 @@
 			icon: StoreIcon
 		},
 		{
-			name: 'Homepage',
-			href: `/admin/homepage`,
-			icon: HouseIcon
-		},
-		{
 			name: 'Jobs',
 			href: `/admin/jobs`,
 			icon: BriefcaseIcon
