@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AlertWidget from '$lib/components/ui/alert-widget/alert-widget.svelte';
-	import DataTable from '$lib/components/ui/data-table/data-table.svelte';
+	import DataTable from '$lib/components/ui/data-table/data-table-client.svelte';
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import { jobStore, modalStore } from '$lib/stores';
 	import type { iResult } from '@toolsntuts/utils';

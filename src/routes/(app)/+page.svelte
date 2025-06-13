@@ -5,7 +5,7 @@
 	import Services from './components/Services.svelte';
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import HowCanWeHelp from './components/HowCanWeHelp.svelte';
-	import DataTable from '$lib/components/ui/data-table/data-table.svelte';
+	import DataTable from '$lib/components/ui/data-table/data-table-client.svelte';
 	import { flatten } from '$lib/components/job';
 	import { getColumns } from './column';
 	import { jobStore, modalStore } from '$lib/stores';
