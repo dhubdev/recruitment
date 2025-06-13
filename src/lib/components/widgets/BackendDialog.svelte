@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { modalStore } from '$lib/stores';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
-	import type { iDocument, iDocumentCategory, iJob } from '$lib/interface';
+	import type { iApplication, iDocument, iDocumentCategory, iJob } from '$lib/interface';
 	import JobForm from '../forms/JobForm.svelte';
 	import ViewJobForm from '../forms/view/ViewJobForm.svelte';
 	import DeleteJobForm from '../forms/delete/DeleteJobForm.svelte';
@@ -85,7 +85,7 @@
 			<ScrollArea
 				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
 			>
-				<ViewApplicationCard job={$modalStore.data as iApplication} />
+				<ViewApplicationCard application={$modalStore.data as iApplication} />
 			</ScrollArea>
 		{/if}
 	</Dialog.Content>

@@ -11,7 +11,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { PlusIcon } from 'lucide-svelte';
 	import type { iResult } from '@toolsntuts/utils';
-	import { flatten } from '$lib/components/job';
+	import { flatten } from '$lib/components/applications';
 
 	let { data }: { data: PageServerData } = $props();
 
