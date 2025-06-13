@@ -7,6 +7,8 @@
 	}
 
 	let { job }: Props = $props();
+
+	$effect(() => console.log({ job }))
 </script>
 
 <div class="flex items-center gap-2">

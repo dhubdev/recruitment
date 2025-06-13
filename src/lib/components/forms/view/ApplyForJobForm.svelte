@@ -60,8 +60,12 @@
 				toast.error(message);
 			} else {
 				const application = data as iApplication
-				location.href = `/applications/${application.xata_id}`
-				toast.success(message);
+				// location.href = `/applications/${application.xata_id}`
+				toast.success("You have successfully submitted your application, we will send you an email regarding your application shortly");
+				
+				setTimeout(() => {
+					location.reload()
+				}, 2000);
 			}
 		} catch (error: any) {
 			toast.error(error.message);
