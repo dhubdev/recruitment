@@ -45,41 +45,41 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			},
 			icon: EyeIcon
 		},
-		{
-			name: "Edit Row",
-			className: "text-blue-500",
-			action: (id: string) => {
-				const applications = get(applicationStore)
-				const application = applications.find(ref => ref.xata_id === id)
-				modalStore.update(existing => ({
-					...existing,
-					open: true,
-					data: application,
-					title: 'Update Application',
-					description: 'Fill the form below to update job application',
-					type: 'application'
-				}))
-			},
-			icon: PencilLineIcon
-		},
-		{
-			name: "Delete Row",
-			className: "text-red-500",
-			action: async (id: string) => {
-				const applications = get(applicationStore)
-				const application = applications.find(ref => ref.xata_id === id)
-				modalStore.update(existing => ({
-					...existing,
-					open: true,
-					data: [application],
-					title: 'Delete Row',
-					description: `This action cannot be undone. This will permanently delete ${application?.name}'s application and remove it's data from our servers.`,
-					type: 'deleteApplication',
-					className: 'max-w-md'
-				}))
-			},
-			icon: Trash2Icon
-		}
+		// {
+		// 	name: "Edit Row",
+		// 	className: "text-blue-500",
+		// 	action: (id: string) => {
+		// 		const applications = get(applicationStore)
+		// 		const application = applications.find(ref => ref.xata_id === id)
+		// 		modalStore.update(existing => ({
+		// 			...existing,
+		// 			open: true,
+		// 			data: application,
+		// 			title: 'Update Application',
+		// 			description: 'Fill the form below to update job application',
+		// 			type: 'application'
+		// 		}))
+		// 	},
+		// 	icon: PencilLineIcon
+		// },
+		// {
+		// 	name: "Delete Row",
+		// 	className: "text-red-500",
+		// 	action: async (id: string) => {
+		// 		const applications = get(applicationStore)
+		// 		const application = applications.find(ref => ref.xata_id === id)
+		// 		modalStore.update(existing => ({
+		// 			...existing,
+		// 			open: true,
+		// 			data: [application],
+		// 			title: 'Delete Row',
+		// 			description: `This action cannot be undone. This will permanently delete ${application?.name}'s application and remove it's data from our servers.`,
+		// 			type: 'deleteApplication',
+		// 			className: 'max-w-md'
+		// 		}))
+		// 	},
+		// 	icon: Trash2Icon
+		// }
 	]
 
 	const columns: ColumnDef<iApplication>[] = [
