@@ -14,7 +14,7 @@
 </script>
 
 <div class="grid grid-cols-1 gap-4">
-  <iframe class="size-full" src={coverLetter.url} frameborder="0" title="Cover Letter"></iframe>
+  <iframe class="size-full aspect-square" src={coverLetter.url} frameborder="0" title="Cover Letter"></iframe>
   <hr/>
-  <iframe class="size-full" src={applicationLetter.url} frameborder="0" title="Resume"></iframe>
+  <iframe class="size-full aspect-square" src={applicationLetter.url} frameborder="0" title="Resume"></iframe>
 </div>
