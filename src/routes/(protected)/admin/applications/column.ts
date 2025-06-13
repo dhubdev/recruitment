@@ -30,7 +30,7 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 			icon: CopyIcon
 		},
 		{
-			name: "View Row",
+			name: "View Application",
 			action: (id: string) => {
 				const applications = get(applicationStore)
 				const application = applications.find(ref => ref.xata_id === id)
@@ -100,6 +100,14 @@ export const getColumns = (modalStore: Writable<iModal>) => {
 				}),
 			enableSorting: false,
 			enableHiding: false
+		},
+		{
+			accessorKey: 'name',
+			header: 'Name',
+		},
+		{
+			accessorKey: 'email',
+			header: 'Email',
 		},
 		{
 			accessorKey: 'source',
