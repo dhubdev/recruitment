@@ -11,6 +11,7 @@
 	import DocCategoryForm from '../forms/DocCategoryForm.svelte';
 	import DeleteDocCategoryForm from '../forms/delete/DeleteDocCategoryForm.svelte';
 	import { cn } from '$lib/utils';
+	import ViewApplicationCard from '../applications/ViewApplicationCard.svelte';
 
 	interface Props {
 		documentCategories?: iDocumentCategory[];
@@ -36,7 +37,10 @@
 			<ScrollArea
 				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
 			>
-				<JobForm documentCategories={documentCategories as iDocumentCategory[]} job={$modalStore.data as iJob} />
+				<JobForm
+					documentCategories={documentCategories as iDocumentCategory[]}
+					job={$modalStore.data as iJob}
+				/>
 			</ScrollArea>
 		{/if}
 		{#if $modalStore.type === 'viewJob'}
@@ -75,6 +79,14 @@
 		{/if}
 		{#if $modalStore.type === 'deleteDocCategory'}
 			<DeleteDocCategoryForm documentCategories={$modalStore.data as Array<iDocumentCategory>} />
+		{/if}
+
+		{#if $modalStore.type === 'viewApplication'}
+			<ScrollArea
+				class="h-[70vh] p-2 md:h-fit portrait:h-[70vh] landscape:h-[50vh] md:landscape:max-h-[70vh]"
+			>
+				<ViewApplicationCard job={$modalStore.data as iApplication} />
+			</ScrollArea>
 		{/if}
 	</Dialog.Content>
 </Dialog.Root>
