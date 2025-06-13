@@ -7,7 +7,7 @@ export const getApplication = async (id: string) => {
   try {
     const application = await xata.db.application
       .filter({ xata_id: id })
-      .select(["*", "applicationLetter.*", "cv.*", "job.*"])
+      .select(["*", "applicationLetter.*", "cv.*", "job.*", "job.file.*"])
       .getFirst()
 
     return onSuccess(application)
@@ -60,7 +60,7 @@ export const getApplications = async () => {
 
   try {
     const applications = await xata.db.application
-      .select(["*", "applicationLetter.*", "cv.*", "job.*"])
+      .select(["*", "applicationLetter.*", "cv.*", "job.*", "job.file.*"])
       .sort("xata_updatedat", "desc")
       .getMany({ pagination: { size: 200 } })
 
