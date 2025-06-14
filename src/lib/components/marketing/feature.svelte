@@ -2,22 +2,65 @@
 	import { getStyle } from '@toolsntuts/utils';
 	import Card from './card.svelte';
 	import FeatureTable from './feature-table.svelte';
+	import Badge from '../ui/badge/badge.svelte';
 
-  const careJobs = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fcare.jpg&w=3840&q=75'
+	interface iAbout {
+		title: string;
+		description: string;
+		src: string;
+		type: 'for employers' | 'job seekers';
+	}
 
-  const cleaningJobs = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75'
-
-  const securityJobs = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75'
-
-  const efficientRecruitment = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fstrm.jpg&w=3840&q=75'
-
-  const careerResourceGuidance = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fresos.jpg&w=3840&q=75'
-
-  const styleCareJobs = getStyle(careJobs)
-  const styleCleaningJobs = getStyle(cleaningJobs)
-  const styleSecurityJobs = getStyle(securityJobs)
-  const styleEfficientRecruitment = getStyle(efficientRecruitment)
-  const styleCareerResourceGuidance = getStyle(careerResourceGuidance)
+	const abouts: iAbout[] = [
+		{
+			title: 'Care Jobs',
+			description: `Find compassionate and qualified professionals to enhance your caregiving team. From nurses to support staff, we connect you with individuals committed to providing exceptional care.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fcare.jpg&w=3840&q=75',
+			type: 'for employers'
+		},
+		{
+			title: 'Cleaning Jobs',
+			description: `Ensure your spaces shine with our top-notch cleaning professionals. Whether it's commercial or residential, we match you with skilled individuals dedicated to maintaining a clean and healthy environment.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75',
+			type: 'for employers'
+		},
+		{
+			title: 'Security Jobs',
+			description: `Safety is paramount. Discover skilled security personnel to protect your premises. Our pool of candidates includes trained security officers and personnel to meet your specific security requirements.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75',
+			type: 'for employers'
+		},
+		{
+			title: 'Efficient Recruitment Process',
+			description: `We streamline the hiring process, making it easy for you to find the right candidates. Our platform allows you to post jobs, review applications, and connect with potential hires seamlessly.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fstrm.jpg&w=3840&q=75',
+			type: 'for employers'
+		},
+		{
+			title: 'Care Jobs',
+			description: `Make a difference in people's lives. Explore opportunities in caregiving, nursing, and support roles.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fcare.jpg&w=3840&q=75',
+			type: 'job seekers'
+		},
+		{
+			title: 'Cleaning Jobs',
+			description: `Join our network of cleaning professionals dedicated to maintaining pristine environments.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75',
+			type: 'job seekers'
+		},
+		{
+			title: 'Security Jobs',
+			description: `Protect and serve. Find fulfilling roles in the security industry.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75',
+			type: 'job seekers'
+		},
+		{
+			title: 'Career and Resource Guidance',
+			description: `Access valuable resources, tips, and guidance to enhance your job search and career growth. We're here to support you every step of the way.`,
+			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fresos.jpg&w=3840&q=75',
+			type: 'job seekers'
+		}
+	];
 </script>
 
 <!-- Card Variant : soft  -->
@@ -38,111 +81,27 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col items-center mt-12">
-				<h2 class="text-xl md:text-2xl">For Employers</h2>
-				<p class="text-muted-foreground text-lg">Tailored solutions towards your business</p>
-			</div>
 			<div
 				class="relative mt-16 grid gap-12 border-b border-foreground/10 pb-12 [--radius:1rem] md:grid-cols-2"
 			>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Care Jobs</h3>
-					<p class="my-4 text-muted-foreground">
-						Find compassionate and qualified professionals to enhance your caregiving team. From
-						nurses to support staff, we connect you with individuals committed to providing
-						exceptional care.
-					</p>
-					<Card variant="soft" class="aspect-video overflow-hidden px-6">
-            <div class="size-full" style={styleCareJobs}></div>
-					</Card>
-				</div>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Cleaning Jobs</h3>
-					<p class="my-4 text-muted-foreground">
-						Ensure your spaces shine with our top-notch cleaning professionals. Whether it's
-						commercial or residential, we match you with skilled individuals dedicated to
-						maintaining a clean and healthy environment.
-					</p>
+				{#each abouts as { title, description, src, type }, i}
+					{@const style = getStyle(src)}
+					<div class="flex flex-col gap-2">
+						<h3 class="text-lg font-semibold text-foreground">{title}</h3>
+						<p class="my-4 text-muted-foreground">
+							{description}
+						</p>
 
-					<Card variant="soft" class="aspect-video overflow-hidden">
-            <div class="size-full" style={cleaningJobs}></div>
-					</Card>
-				</div>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Security Jobs</h3>
-					<p class="my-4 text-muted-foreground">
-						Safety is paramount. Discover skilled security personnel to protect your premises. Our
-						pool of candidates includes trained security officers and personnel to meet your
-						specific security requirements.
-					</p>
-
-					<Card variant="soft" class="aspect-video overflow-hidden">
-            <div class="size-full" style={securityJobs}></div>
-					</Card>
-				</div>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Efficient Recruitment Process</h3>
-					<p class="my-4 text-muted-foreground">
-						We streamline the hiring process, making it easy for you to find the right candidates.
-						Our platform allows you to post jobs, review applications, and connect with potential
-						hires seamlessly.
-					</p>
-
-					<Card variant="soft" class="aspect-video overflow-hidden">
-            <div class="size-full" style={styleEfficientRecruitment}></div>
-					</Card>
-				</div>
-			</div>
-
-			<div class="flex flex-col items-center mt-12">
-				<h2 class="text-xl md:text-2xl">For Job Seekers</h2>
-				<p class="text-muted-foreground text-lg">Explore rewarding opportunities</p>
-			</div>
-			<div
-				class="relative mt-16 grid gap-12 border-b border-foreground/10 pb-12 [--radius:1rem] md:grid-cols-2"
-			>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Care Jobs</h3>
-					<p class="my-4 text-muted-foreground">
-						Make a difference in people's lives. Explore opportunities in caregiving, nursing, and
-						support roles.
-					</p>
-					<Card variant="soft" class="aspect-video overflow-hidden px-6">
-            <div class="size-full" style={styleCareJobs}></div>
-					</Card>
-				</div>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Cleaning Jobs</h3>
-					<p class="my-4 text-muted-foreground">
-						Join our network of cleaning professionals dedicated to maintaining pristine
-						environments.
-					</p>
-
-					<Card variant="soft" class="aspect-video overflow-hidden">
-            <div class="size-full" style={styleCleaningJobs}></div>
-					</Card>
-				</div>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Security Jobs</h3>
-					<p class="my-4 text-muted-foreground">
-						Protect and serve. Find fulfilling roles in the security industry.
-					</p>
-
-					<Card variant="soft" class="aspect-video overflow-hidden">
-            <div class="size-full" style={styleSecurityJobs}></div>
-					</Card>
-				</div>
-				<div>
-					<h3 class="text-lg font-semibold text-foreground">Career and Resource Guidance</h3>
-					<p class="my-4 text-muted-foreground">
-						Access valuable resources, tips, and guidance to enhance your job search and career
-						growth. We're here to support you every step of the way.
-					</p>
-
-					<Card variant="soft" class="aspect-video overflow-hidden">
-            <div class="size-full" style={styleCareerResourceGuidance}></div>
-					</Card>
-				</div>
+						<Card variant="soft" class="relative mt-auto aspect-video overflow-hidden capitalize">
+							{#if type === 'for employers'}
+								<Badge variant="destructive" class="absolute right-2 top-2">{type}</Badge>
+							{:else}
+								<Badge class="absolute right-2 top-2">{type}</Badge>
+							{/if}
+							<div class="size-full" {style}></div>
+						</Card>
+					</div>
+				{/each}
 			</div>
 			<blockquote
 				class="relative mt-12 max-w-xl pl-6 before:absolute before:inset-y-0 before:left-0 before:w-1 before:rounded-full before:bg-primary"
@@ -152,9 +111,9 @@
 					you see it. It's like an AI-native CRM.
 				</p>
 				<footer class="mt-4 flex items-center gap-2">
-					<cite>Méschac Irung</cite>
+					<cite>Mrs. Dami Ewetuga</cite>
 					<span aria-hidden="true" class="size-1 rounded-full bg-foreground/15"></span>
-					<span class="text-muted-foreground">Creator</span>
+					<span class="text-muted-foreground">CEO</span>
 				</footer>
 			</blockquote>
 		</div>
