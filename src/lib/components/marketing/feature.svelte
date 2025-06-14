@@ -62,7 +62,9 @@
 		}
 	];
 
-  const aboutStyle = getStyle('https://jordan-recruitments.vercel.app/_next/image?url=%2Fempower.jpg&w=3840&q=75')
+	const aboutStyle = getStyle(
+		'https://jordan-recruitments.vercel.app/_next/image?url=%2Fempower.jpg&w=3840&q=75'
+	);
 </script>
 
 <!-- Card Variant : soft  -->
@@ -78,8 +80,8 @@
 					care, cleaning, and security needs. Whether you're an employer seeking dedicated
 					professionals or a job seeker looking for meaningful opportunities, we've got you covered.
 				</p>
-				<div class="rounded-3xl bg-foreground/5">
-          <div class="aspect-video size-full" style={aboutStyle}></div>
+				<div class="overflow-hidden rounded-3xl bg-foreground/5">
+					<div class="aspect-video size-full" style={aboutStyle}></div>
 					<!-- <FeatureTable /> -->
 				</div>
 			</div>
