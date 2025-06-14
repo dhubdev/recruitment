@@ -87,16 +87,14 @@
 				{#each abouts as { title, description, src, type }, i}
 					{@const style = getStyle(src)}
 					<div class="relative flex flex-col gap-1 py-4">
-						<h3 class="text-lg font-semibold text-foreground">{title}</h3>
-						<p class="my-4 text-muted-foreground">
-							{description}
-						</p>
+						<div>
+							<h3 class="text-lg font-semibold text-foreground">{title}</h3>
+							<Badge
+								variant={type === 'for employers' ? 'destructive' : 'default'}
+								class="w-fit capitalize">{type}</Badge
+							>
+						</div>
 
-						{#if type === 'for employers'}
-							<Badge variant="destructive" class="absolute right-2 top-2 capitalize">{type}</Badge>
-						{:else}
-							<Badge class="absolute right-2 top-2 capitalize">{type}</Badge>
-						{/if}
 						<Card variant="soft" class="mt-auto aspect-video overflow-hidden">
 							<div class="size-full" {style}></div>
 						</Card>
