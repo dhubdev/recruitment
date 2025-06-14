@@ -290,7 +290,7 @@
 					{/if}
 
 					{#if getFileType(file.name) === 'document'}
-						<PaperclipIcon class="size-10" /> 
+						<PaperclipIcon class="size-4" /> 
 					{/if}
  
 					<div class="overflow-hidden">
