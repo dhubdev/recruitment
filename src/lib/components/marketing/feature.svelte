@@ -93,11 +93,11 @@
 						</p>
 
 						{#if type === 'for employers'}
-							<Badge variant="destructive" class="absolute right-2 top-2">{type}</Badge>
+							<Badge variant="destructive" class="absolute right-2 top-2 capitalize">{type}</Badge>
 						{:else}
-							<Badge class="absolute right-2 top-2">{type}</Badge>
+							<Badge class="absolute right-2 top-2 capitalize">{type}</Badge>
 						{/if}
-						<Card variant="soft" class="mt-auto aspect-video overflow-hidden capitalize">
+						<Card variant="soft" class="mt-auto aspect-video overflow-hidden">
 							<div class="size-full" {style}></div>
 						</Card>
 					</div>
