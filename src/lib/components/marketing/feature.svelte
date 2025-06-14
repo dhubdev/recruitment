@@ -9,12 +9,10 @@
     <div class="mx-auto w-full max-w-5xl px-6">
       <div>
         <h2 class="text-foreground text-4xl font-semibold">
-          Effortless Task Management
+          Your Partner in Care, Cleaning, and Security Jobs
         </h2>
         <p class="text-muted-foreground mb-12 mt-4 text-balance text-lg">
-          Automate your tasks and workflows by connecting your favorite tools
-          like Notion, Todoist, and more. AI-powered scheduling helps you stay
-          on track and adapt to changing priorities.
+          At Jordan recruitments, we understand the importance of finding the right talent for your care, cleaning, and security needs. Whether you're an employer seeking dedicated professionals or a job seeker looking for meaningful opportunities, we've got you covered.
         </p>
         <div class="bg-foreground/5 rounded-3xl p-6">
           <FeatureTable />
