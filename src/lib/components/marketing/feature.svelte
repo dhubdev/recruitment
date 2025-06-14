@@ -61,6 +61,8 @@
 			type: 'job seekers'
 		}
 	];
+
+  const aboutStyle = getStyle('https://jordan-recruitments.vercel.app/_next/image?url=%2Fempower.jpg&w=3840&q=75')
 </script>
 
 <!-- Card Variant : soft  -->
@@ -76,8 +78,9 @@
 					care, cleaning, and security needs. Whether you're an employer seeking dedicated
 					professionals or a job seeker looking for meaningful opportunities, we've got you covered.
 				</p>
-				<div class="rounded-3xl bg-foreground/5 p-6">
-					<FeatureTable />
+				<div class="rounded-3xl bg-foreground/5">
+          <div class="aspect-video size-full" style={aboutStyle}></div>
+					<!-- <FeatureTable /> -->
 				</div>
 			</div>
 
@@ -91,9 +94,12 @@
 							<h3 class="text-lg font-semibold text-foreground">{title}</h3>
 							<Badge
 								variant={type === 'for employers' ? 'destructive' : 'default'}
-								class="w-fit capitalize">{type}</Badge
+								class="capitalize">{type}</Badge
 							>
 						</div>
+						<p class="my-4 text-muted-foreground">
+							{description}
+						</p>
 
 						<Card variant="soft" class="mt-auto aspect-video overflow-hidden">
 							<div class="size-full" {style}></div>
@@ -105,13 +111,10 @@
 				class="relative mt-12 max-w-xl pl-6 before:absolute before:inset-y-0 before:left-0 before:w-1 before:rounded-full before:bg-primary"
 			>
 				<p class="text-lg text-foreground">
-					Wow, auto-generated pages are the kind of thing that you don't even know you need until
-					you see it. It's like an AI-native CRM.
+					The future belongs to those who believe in the beauty of their dreams.
 				</p>
 				<footer class="mt-4 flex items-center gap-2">
-					<cite>Mrs. Dami Ewetuga</cite>
-					<span aria-hidden="true" class="size-1 rounded-full bg-foreground/15"></span>
-					<span class="text-muted-foreground">CEO</span>
+					<cite>Eleanor Roosevelt</cite>
 				</footer>
 			</blockquote>
 		</div>
