@@ -82,22 +82,22 @@
 			</div>
 
 			<div
-				class="relative mt-16 grid gap-12 border-b border-foreground/10 pb-12 [--radius:1rem] md:grid-cols-2"
+				class="relative mt-16 grid gap-4 border-b border-foreground/10 pb-12 [--radius:1rem] md:grid-cols-2"
 			>
 				{#each abouts as { title, description, src, type }, i}
 					{@const style = getStyle(src)}
-					<div class="flex flex-col gap-2">
+					<div class="relative flex flex-col gap-1 border p-4">
 						<h3 class="text-lg font-semibold text-foreground">{title}</h3>
 						<p class="my-4 text-muted-foreground">
 							{description}
 						</p>
 
-						<Card variant="soft" class="relative mt-auto aspect-video overflow-hidden capitalize">
-							{#if type === 'for employers'}
-								<Badge variant="destructive" class="absolute right-2 top-2">{type}</Badge>
-							{:else}
-								<Badge class="absolute right-2 top-2">{type}</Badge>
-							{/if}
+						{#if type === 'for employers'}
+							<Badge variant="destructive" class="absolute right-2 top-2">{type}</Badge>
+						{:else}
+							<Badge class="absolute right-2 top-2">{type}</Badge>
+						{/if}
+						<Card variant="soft" class="mt-auto aspect-video overflow-hidden capitalize">
 							<div class="size-full" {style}></div>
 						</Card>
 					</div>
