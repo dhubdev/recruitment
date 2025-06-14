@@ -10,6 +10,6 @@
 		<p>Loading...</p>
 	{:then result}
 		{@const job = result.data}
-		<JobForm {job} />
+		<JobForm {job} documentCategories={data.documentCategories} />
 	{/await}
 </div>

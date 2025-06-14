@@ -1,9 +1,13 @@
 import { getJob } from '$lib/xata/job';
+import type { iResult } from '@toolsntuts/utils';
 import type { PageServerLoad } from './$types';
 
-export const load = (async ({ params }) => {
+export const load = (async ({ params, parent }) => {
 
+  const { getDocumentCategories } = await parent()
   const { id } = params
 
-  return { getJob: getJob(id) };
+  const documentCategories = await getDocumentCategories as iResult
+
+  return { getJob: getJob(id), documentCategories };
 }) satisfies PageServerLoad;
