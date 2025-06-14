@@ -15,7 +15,7 @@
 		<Brand />
 		<div class="flex items-center gap-2">
 			<Navigation class="hidden md:flex" />
-			<div class="flex items-center gap-2 space-x-1">
+			<div class="flex items-center gap-1 space-x-1">
 				<ModeToggle />
 				<User class="size-10" />
 			</div>

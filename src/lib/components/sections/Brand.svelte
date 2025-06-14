@@ -9,7 +9,7 @@
 	let { class: className, ...rest }: Props = $props();
 </script>
 
-<a href="/" {...rest} class={cn('flex items-center gap-1', className)}>
+<a href="/" {...rest} class={cn('flex items-center gap-2', className)}>
 	<div
 		class="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary"
 	>
