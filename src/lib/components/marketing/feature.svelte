@@ -86,7 +86,7 @@
 			>
 				{#each abouts as { title, description, src, type }, i}
 					{@const style = getStyle(src)}
-					<div class="relative flex flex-col gap-1 border p-4">
+					<div class="relative flex flex-col gap-1 p-4">
 						<h3 class="text-lg font-semibold text-foreground">{title}</h3>
 						<p class="my-4 text-muted-foreground">
 							{description}
