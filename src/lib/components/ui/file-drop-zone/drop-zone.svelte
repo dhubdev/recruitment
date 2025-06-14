@@ -272,7 +272,7 @@
 					/>
 				</div>
 			{:then image}
-				<div class="grid w-full grid-cols-[40px_1fr_40px] gap-2 overflow-hidden">
+				<div class="grid w-full grid-cols-[16px_1fr_40px] gap-2 overflow-hidden items-center">
 					{#if getFileType(file.name) === 'image'}
 						<div class="relative size-10 overflow-clip">
 							<img
