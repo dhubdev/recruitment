@@ -1,6 +1,23 @@
 <script lang="ts">
+	import { getStyle } from '@toolsntuts/utils';
 	import Card from './card.svelte';
 	import FeatureTable from './feature-table.svelte';
+
+  const careJobs = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fcare.jpg&w=3840&q=75'
+
+  const cleaningJobs = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75'
+
+  const securityJobs = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75'
+
+  const efficientRecruitment = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fstrm.jpg&w=3840&q=75'
+
+  const careerResourceGuidance = 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fresos.jpg&w=3840&q=75'
+
+  const styleCareJobs = getStyle(careJobs)
+  const styleCleaningJobs = getStyle(cleaningJobs)
+  const styleSecurityJobs = getStyle(securityJobs)
+  const styleEfficientRecruitment = getStyle(efficientRecruitment)
+  const styleCareerResourceGuidance = getStyle(careerResourceGuidance)
 </script>
 
 <!-- Card Variant : soft  -->
@@ -36,7 +53,7 @@
 						exceptional care.
 					</p>
 					<Card variant="soft" class="aspect-video overflow-hidden px-6">
-						<Card class="h-full translate-y-6" />
+            <div class="size-full" style={styleCareJobs}></div>
 					</Card>
 				</div>
 				<div>
@@ -48,7 +65,7 @@
 					</p>
 
 					<Card variant="soft" class="aspect-video overflow-hidden">
-						<Card class="translate-6 h-full" />
+            <div class="size-full" style={cleaningJobs}></div>
 					</Card>
 				</div>
 				<div>
@@ -60,7 +77,7 @@
 					</p>
 
 					<Card variant="soft" class="aspect-video overflow-hidden">
-						<Card class="translate-6 h-full" />
+            <div class="size-full" style={securityJobs}></div>
 					</Card>
 				</div>
 				<div>
@@ -72,7 +89,7 @@
 					</p>
 
 					<Card variant="soft" class="aspect-video overflow-hidden">
-						<Card class="translate-6 h-full" />
+            <div class="size-full" style={styleEfficientRecruitment}></div>
 					</Card>
 				</div>
 			</div>
@@ -91,7 +108,7 @@
 						support roles.
 					</p>
 					<Card variant="soft" class="aspect-video overflow-hidden px-6">
-						<Card class="h-full translate-y-6" />
+            <div class="size-full" style={styleCareJobs}></div>
 					</Card>
 				</div>
 				<div>
@@ -102,7 +119,7 @@
 					</p>
 
 					<Card variant="soft" class="aspect-video overflow-hidden">
-						<Card class="translate-6 h-full" />
+            <div class="size-full" style={styleCleaningJobs}></div>
 					</Card>
 				</div>
 				<div>
@@ -112,7 +129,7 @@
 					</p>
 
 					<Card variant="soft" class="aspect-video overflow-hidden">
-						<Card class="translate-6 h-full" />
+            <div class="size-full" style={styleSecurityJobs}></div>
 					</Card>
 				</div>
 				<div>
@@ -123,7 +140,7 @@
 					</p>
 
 					<Card variant="soft" class="aspect-video overflow-hidden">
-						<Card class="translate-6 h-full" />
+            <div class="size-full" style={styleCareerResourceGuidance}></div>
 					</Card>
 				</div>
 			</div>
