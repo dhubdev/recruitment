@@ -245,15 +245,17 @@
 </script>
 
 <div class={cn('flex w-full flex-col gap-2', className)}>
-	<FileDropZone
-		{onUpload}
-		{title}
-		{onFileRejected}
-		maxFileSize={maxFileMB * MEGABYTE}
-		{accept}
-		{maxFiles}
-		fileCount={files.length}
-	/>
+	{#if !images.length}
+		<FileDropZone
+			{onUpload}
+			{title}
+			{onFileRejected}
+			maxFileSize={maxFileMB * MEGABYTE}
+			{accept}
+			{maxFiles}
+			fileCount={files.length}
+		/>
+	{/if}
 	<div class="flex flex-col gap-2">
 		{#each files as file, i (file.name)}
 			{#await file.image()}
@@ -272,7 +274,7 @@
 					/>
 				</div>
 			{:then image}
-				<div class="grid w-full grid-cols-[16px_1fr_40px] gap-2 overflow-hidden items-center">
+				<div class="grid w-full grid-cols-[16px_1fr_40px] items-center gap-2 overflow-hidden">
 					{#if getFileType(file.name) === 'image'}
 						<div class="relative size-10 overflow-clip">
 							<img
@@ -290,9 +292,9 @@
 					{/if}
 
 					{#if getFileType(file.name) === 'document'}
-						<PaperclipIcon class="size-4" /> 
+						<PaperclipIcon class="size-4" />
 					{/if}
- 
+
 					<div class="overflow-hidden">
 						<div class="overflow-hidden overflow-ellipsis whitespace-nowrap text-sm font-medium">
 							{file.name}
