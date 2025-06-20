@@ -5,10 +5,10 @@
 		// 	name: 'facebook',
 		// 	href: 'https://www.facebook.com/mydhubeducation/'
 		// },
-		// {
-		// 	name: 'instagram',
-		// 	href: 'https://www.instagram.com/mydhubeducation/'
-		// },
+		{
+			name: 'instagram',
+			href: 'https://www.instagram.com/jcr_manchester?igsh=c3M0MW92NGlldTBo&utm_source=qr'
+		},
 		// {
 		// 	name: 'twitter',
 		// 	href: 'https://twitter.com/DhubEducation'
@@ -83,7 +83,7 @@
 	let helpfulRoutes: iRoute[] = [
 		{
 			name: 'Services',
-			href: '/services'
+			href: '/#services'
 		},
 		{
 			name: 'Courses',

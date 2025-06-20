@@ -3,4 +3,7 @@
 
 	let { data }: { data: PageData } = $props();
 </script>
-<h2>Blogs</h2>
+<div class="prose dark:prose-invert">
+	<h2>Blogs</h2>
+	<p>Coming Soon...</p>
+</div>

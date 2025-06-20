@@ -285,10 +285,10 @@
 						</div>
 					{/if}
 					{#if getFileType(file.name) === 'video'}
-						<Video class="size-10" />
+						<Video class="size-4" />
 					{/if}
 					{#if getFileType(file.name) === 'audio'}
-						<Audio class="size-10" />
+						<Audio class="size-4" />
 					{/if}
 
 					{#if getFileType(file.name) === 'document'}
