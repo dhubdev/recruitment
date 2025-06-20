@@ -85,14 +85,14 @@
 			name: 'Services',
 			href: '/#services'
 		},
-		{
-			name: 'Courses',
-			href: '/courses'
-		},
-		{
-			name: 'Partners',
-			href: '/partners'
-		}
+		// {
+		// 	name: 'Courses',
+		// 	href: '/courses'
+		// },
+		// {
+		// 	name: 'Partners',
+		// 	href: '/partners'
+		// }
 	];
 </script>
 
