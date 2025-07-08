@@ -1,4 +1,4 @@
-import type { iFormModal, iJob } from "$lib/interface";
+import type { iBlog, iFormModal, iJob } from "$lib/interface";
 
 export enum Role {
 	ADMIN = 'admin',
@@ -98,3 +98,11 @@ export const locationOptions: { label: string, value: string }[] = [
 		value: 'hybrid'
 	}
 ]
+
+export const defaultBlog: Partial<iBlog> = {
+  title: '',
+  description: '',
+  content: '',
+  file: '',
+	category: undefined
+}

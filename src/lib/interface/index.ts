@@ -185,3 +185,7 @@ export interface iHTMLSection { id: string, title: string, content: string }
 // Location: Remote
 // Full time 
 // To apply, send your CV to: dhubeducation@gmail.com 
+
+export interface iBlog extends iDocument {
+  description: string;
+}

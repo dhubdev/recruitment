@@ -2,7 +2,7 @@
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import type { ComponentProps } from 'svelte';
 	import { getContext } from 'svelte';
-	import { SettingsIcon, StoreIcon, HouseIcon, BriefcaseIcon, FileTextIcon, FilePenIcon } from 'lucide-svelte';
+	import { SettingsIcon, StoreIcon, HouseIcon, BriefcaseIcon, FileTextIcon, FilePenIcon, RssIcon } from 'lucide-svelte';
 	import type { iRoute, iUser } from '$lib/interface';
 	import { page } from '$app/state';
 	import Brand from './Brand.svelte';
@@ -27,6 +27,11 @@
 			name: 'Jobs',
 			href: `/admin/jobs`,
 			icon: BriefcaseIcon
+		},
+		{
+			name: 'Blogs',
+			href: `/admin/blogs`,
+			icon: RssIcon
 		},
 		{
 			name: 'Applications',

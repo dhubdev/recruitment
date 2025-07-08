@@ -126,6 +126,115 @@ const tables = [
     ],
   },
   {
+    name: "blog",
+    checkConstraints: {
+      blog_xata_id_length_xata_id: {
+        name: "blog_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {
+      category_link: {
+        name: "category_link",
+        columns: ["category"],
+        referencedTable: "documentcategory",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+      file_link: {
+        name: "file_link",
+        columns: ["file"],
+        referencedTable: "file",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+    },
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_blog_xata_id_key: {
+        name: "_pgroll_new_blog_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "category",
+        type: "link",
+        link: { table: "documentcategory" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"documentcategory"}',
+      },
+      {
+        name: "content",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "description",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "file",
+        type: "link",
+        link: { table: "file" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "title",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
     name: "document",
     checkConstraints: {
       doc_xata_id_length_xata_id: {
@@ -627,6 +736,9 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type Application = InferredTypes["application"];
 export type ApplicationRecord = Application & XataRecord;
 
+export type Blog = InferredTypes["blog"];
+export type BlogRecord = Blog & XataRecord;
+
 export type Document = InferredTypes["document"];
 export type DocumentRecord = Document & XataRecord;
 
@@ -644,6 +756,7 @@ export type UserRecord = User & XataRecord;
 
 export type DatabaseSchema = {
   application: ApplicationRecord;
+  blog: BlogRecord;
   document: DocumentRecord;
   documentcategory: DocumentcategoryRecord;
   file: FileRecord;
