@@ -27,11 +27,11 @@ export function isExcludedFromFooter(path: string): boolean {
 }
 
 export const initialForm = {
-  type: 'job',
-  open: false,
-  data: null,
-  title: '',
-  action: 'create'
+	type: 'job',
+	open: false,
+	data: null,
+	title: '',
+	action: 'create'
 } satisfies iFormModal
 
 
@@ -100,9 +100,13 @@ export const locationOptions: { label: string, value: string }[] = [
 ]
 
 export const defaultBlog: Partial<iBlog> = {
-  title: '',
-  description: '',
-  content: '',
-  file: '',
+	title: '',
+	description: '',
+	content: '',
+	file: '',
 	category: undefined
+}
+
+export enum SocialMediaLinks {
+	WHATSAPP = 'https://api.whatsapp.com/send/?phone=%2B447930739927&text=Hello'
 }
