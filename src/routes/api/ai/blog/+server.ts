@@ -20,27 +20,29 @@ export const POST: RequestHandler = async ({ request }) => {
       slug: z.string()
     }),
     generatePrompt: (input) =>
-      `Write a world class blog for: ${input}.
-      
-      - Include a contact us for more information section with an anchor "<a></a>" tag that opens whatsapp "https://api.whatsapp.com/send/?phone=%2B447930739927&text=Hello" when clicked
-      - Make it SEO optimized. Include a follow us section with our social media links as anchor element "<a></a>" beneath the campaign:
-        - Facebook (${SocialMediaLinks.WHATSAPP})
-      - Also include study abroad SEO keywords or hashtags that can index the campaign on google search
+      ` - Write a one page blog for the following: ${input}.
+        - Include a contact us for more information section with an anchor "<a></a>" tag that opens whatsapp "https://api.whatsapp.com/send/?phone=%2B447930739927&text=Hello" when clicked
+        - Make it SEO optimized. Include a follow us section with our social media links as anchor element "<a></a>" beneath the blog:
+          - WhatsApp (${SocialMediaLinks.WHATSAPP})
+        - Also include study abroad SEO keywords or hashtags that can index the blog on google search
     `,
     evaluatePrompt: (copy) =>
       `
-      Requirements:
-      1. Every **section must begin** with a heading tag ('<h2>', '<h3>', or '<h4>' depending on context).
-      2. The **heading tag must have an id** that is a URL-friendly slug of its text content (e.g., "Privacy Policy" becomes 'id="privacy-policy"').
-      3. Do **not** use '<strong>' or other inline tags to simulate section headings — **only use real heading tags** ('<h2>'–'<h4>') for titles or subtitles.
-      4. Use appropriate HTML tags for content like '<p>', '<ul>', '<ol>', '<table>', and '<code>' as needed.
-      5. The output must be wrapped in a single '<section>' or a set of semantic '<section>' tags.
-      6. The output must be pure HTML. Do not include any Markdown or commentary.
+          Evaluate this copy for:
+          1. Presence social media links
+          2. Hash Tags or SEO links
+          3. Clarity (1-10)
 
-      Copy to evaluate: ${copy}`,
+          From the copy generate:
+          1. Title of the blog
+          3. Brief description of the blog
+          4. URL slug / pathname for the blog
+          5. Return response in html format
+
+          Copy to evaluate: ${copy}`,
     improvePrompt: (copy, qm) =>
       `Rewrite this marketing copy with:
-      ${qm.clarity < 0.5 ? "- Improved clarity and directness" : ""}
+      ${qm.clarity < 5 ? "- Improved clarity and directness" : ""}
 
       Original copy: ${copy}`
   });
