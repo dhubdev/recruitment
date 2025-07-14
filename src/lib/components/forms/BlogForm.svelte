@@ -66,7 +66,7 @@
 
 		try {
 			aiLoading = true;
-			const url = '/api/ai/agents/blog';
+			const url = '/api/ai/blog';
 			const options: RequestInit = {
 				method: 'post',
 				headers: {
