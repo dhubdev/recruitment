@@ -12,7 +12,12 @@ export const POST: RequestHandler = async ({ request }) => {
     input: prompt,
     schema: z.object({
       hasCallToAction: z.boolean(),
-      clarity: z.number().min(0).max(10)
+      benefit: z.number().min(1).max(10),
+      clarity: z.number().min(1).max(10),
+      name: z.string(),
+      title: z.string(),
+      description: z.string(),
+      slug: z.string()
     }),
     generatePrompt: (input) =>
       `Write a world class blog for: ${input}.
