@@ -9,7 +9,7 @@
 	import { Label } from '$lib/components/ui/label';
 	import { toast } from 'svelte-sonner';
 	import AlertDialog from '$lib/components/widgets/AlertDialog.svelte';
-	import { deleteBlogApi } from '$lib/fxns/api'; 
+	import { deleteBlogApi } from '$lib/fxns/api';
 	import { Textarea } from '../ui/textarea';
 	import { getContext } from 'svelte';
 	import { defaultBlog, Role } from '$lib/constants';
@@ -62,7 +62,7 @@
 		const form = evt.target as HTMLFormElement;
 		const formData = new FormData(form);
 		const entries = Object.fromEntries(formData.entries());
-		const blogcontent = entries.blogcontent as string;
+		const prompt = entries.prompt as string;
 
 		try {
 			aiLoading = true;
@@ -72,7 +72,7 @@
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ blogcontent })
+				body: JSON.stringify({ prompt })
 			};
 			const response = await fetch(url, options);
 			const result = await response.json();
@@ -108,7 +108,7 @@
 
 <form onsubmit={handleAiSubmit} class="space-y-2">
 	<Textarea
-		name="blogcontent"
+		name="prompt"
 		placeholder="Paste blog name to generate AI content for blog"
 		class={removeRingClasses()}
 	></Textarea>
