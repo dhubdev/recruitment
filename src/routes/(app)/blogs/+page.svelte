@@ -1,8 +1,11 @@
 <script lang="ts">
-    import type { PageData } from './$types';
+	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
+	import type { PageData } from './$types';
 
-    export let data: PageData;
+	export let data: PageData;
 </script>
 
-<h2>Blogs</h2>
-<p>Coming soon...</p>
+<Wrap>
+	<h2>Blogs</h2>
+	<p>Coming soon...</p>
+</Wrap>
