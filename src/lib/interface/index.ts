@@ -198,4 +198,5 @@ export interface iPost {
 	imageHint: string;
 	date: string;
 	excerpt: string;
+	content: string
 }

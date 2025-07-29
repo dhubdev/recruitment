@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 active: true
-slug: how-to-register-evisa-uk-student
+slug: evisa
 author: Dhub
 imageUrl: /blogs/evisa.webp
 title: How to Secure Your UK eVisa and Access It via UKVI Account

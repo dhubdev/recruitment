@@ -16,7 +16,9 @@ export const load: PageLoad = async () => {
       title: metadata.title,
       imageHint: metadata.imageHint,
       date: metadata.date,
-      excerpt: metadata.excerpt
+      excerpt: metadata.excerpt,
+      // content: (mod as any).default as string
+      content: ''
     };
   });
 
