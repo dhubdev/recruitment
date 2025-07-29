@@ -3,6 +3,7 @@
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import type { iPost } from '$lib/interface';
 	import type { PageServerData } from './$types';
+	import { metaStore } from '$lib/stores';
 
 	interface Props {
 		data: PageServerData;
@@ -12,7 +13,7 @@
 
 	const post: iPost = $state(data.post as iPost);
 
-  $effect(() => console.log({ post }))
+	$metaStore = { ...$metaStore, title: post.title, description: post.excerpt, ogimage: postImageUrl }
 </script>
 
 <Wrap centerClass="px-0 pb-4">
