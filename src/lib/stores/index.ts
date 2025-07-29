@@ -76,4 +76,6 @@ const docStore = writable<iDocument[]>([])
 
 const docCategoryStore = writable<iDocumentCategory[]>([])
 
-export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, applicationStore }
+const stepStore = writable<'landing' | 'registration' | 'payment'>('landing')
+
+export { modalStore, metaStore, formsModalStore, jobStore, docStore, docModalStore, docCategoryStore, applicationStore, stepStore }
