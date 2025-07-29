@@ -13,7 +13,7 @@
 
 	const post: iPost = $state(data.post as iPost);
 
-	$metaStore = { ...$metaStore, title: post.title, description: post.excerpt, ogimage: postImageUrl }
+	$metaStore = { ...$metaStore, title: post.title, description: post.excerpt, ogimage: post.imageUrl }
 </script>
 
 <Wrap centerClass="px-0 pb-4">
