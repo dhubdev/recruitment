@@ -49,6 +49,13 @@
       $stepStore = 'payment'
 		} catch (error: any) {}
 	};
+
+
+  $effect(() => {
+    if (registrationData) {
+      console.log({ registrationData, from: "registration" })
+    }
+  })
 </script>
 
 <div class="min-h-screen bg-background px-4 py-12">

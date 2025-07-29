@@ -39,13 +39,13 @@
 		'Prestwich',
 		'Urmston',
 		'Denton',
-		'Ashton‑under‑Lyne',
+		'Ashton-under-Lyne',
 		'Bolton'
 	].map((label) => ({ label, value: label.toLowerCase() }));
 
-	const handleSubmit = (evt: SubmitEvent) => {
+	const handleSubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
-		onsubmit(formData);
+		await onsubmit(formData);
 	};
 
 	const handleFileChange = (field: 'cv' | 'coverLetter', evt: Event) => {
@@ -165,8 +165,8 @@
 							accept=".pdf,.doc,.docx"
 							onchange={(e) => handleFileChange('cv', e)}
 							class="hidden"
-							id="cv-upload"
-							required
+              name="cv"
+							id="cv-upload" 
 						/>
 						<label for="cv-upload" class="cursor-pointer">
 							<Upload class="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
@@ -187,9 +187,9 @@
 							type="file"
 							accept=".pdf,.doc,.docx"
 							onchange={(e) => handleFileChange('coverLetter', e)}
+              name="coverLetter"
 							class="hidden"
-							id="cover-letter-upload"
-							required
+							id="cover-letter-upload" 
 						/>
 						<label for="cover-letter-upload" class="cursor-pointer">
 							<Upload class="mx-auto mb-2 h-8 w-8 text-muted-foreground" />

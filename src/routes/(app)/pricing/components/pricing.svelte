@@ -5,12 +5,22 @@
 	import Registration, { type RegistrationData } from "./registration.svelte";
 
   let registrationData = $state<RegistrationData | null>(null)
+
+  $effect(() => {
+    if (registrationData) {
+      console.log({ registrationData, from: "pricing", stepStore: $stepStore })
+    }
+  })
 </script>
 
 {#if $stepStore === 'registration'}
 <Registration bind:registrationData />
-{:else if $stepStore === 'payment' && registrationData}
+{/if}
+
+{#if $stepStore === 'payment' && registrationData}
 <Payment {registrationData} />
-{:else}
+{/if}
+
+{#if $stepStore === 'landing'}
 <Landing />
 {/if}
