@@ -15,16 +15,16 @@
   $effect(() => console.log({ post }))
 </script>
 
-<Wrap>
+<Wrap centerClass="px-0">
 	<div class="relative h-64 w-full md:h-96">
 		<img src={post.imageUrl} alt={post.title} class="aspect-video" data-ai-hint={post.imageHint} />
-		<div class="absolute inset-0 bg-black/50"></div>
+		<!-- <div class="absolute inset-0 bg-black/50"></div> -->
 	</div>
-	<div class="container relative z-10 mx-auto -mt-24 px-6 md:-mt-32">
-		<div class="mx-auto max-w-4xl rounded-lg bg-card p-8 shadow-xl md:p-12">
+	<div class="container relative z-10 mx-auto -mt-24 px-4 md:px-6 md:-mt-32">
+		<div class="mx-auto max-w-4xl rounded-lg bg-card p-4 md:p-8 shadow-xl md:p-12">
 			<article>
 				<header class="mb-8 text-center">
-					<h1 class="font-headline text-3xl font-bold text-foreground md:text-5xl">
+					<h1 class="font-headline text-3xl font-medium text-foreground md:text-5xl">
 						{post.title}
 					</h1>
 					<div class="mt-4 flex items-center justify-center gap-6 text-sm text-muted-foreground">
@@ -45,7 +45,7 @@
 					</div>
 				</header>
 				<div
-					class="font-body prose-h2:font-headline prose prose-lg mx-auto max-w-none text-foreground/90 dark:prose-invert prose-h2:text-foreground"
+					class="font-body prose prose-lg mx-auto max-w-none text-foreground/90 dark:prose-invert"
 				>
 					{@html post.content}
 				</div>
