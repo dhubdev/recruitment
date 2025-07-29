@@ -17,8 +17,7 @@
 
 <Wrap centerClass="px-0 pb-4">
 	<div class="relative h-64 w-full md:h-96">
-		<img src={post.imageUrl} alt={post.title} class="aspect-video" data-ai-hint={post.imageHint} />
-		<!-- <div class="absolute inset-0 bg-black/50"></div> -->
+		<img src={post.imageUrl} alt={post.title} class="aspect-video" data-ai-hint={post.imageHint} /> 
 	</div>
 	<div class="container relative z-10 mx-auto -mt-24 px-4 md:px-6 md:-mt-32">
 		<div class="mx-auto max-w-4xl rounded-lg bg-card p-4 md:p-8 shadow-xl md:p-12">
