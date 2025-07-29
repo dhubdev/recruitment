@@ -6,12 +6,9 @@
 
   let registrationData = $state<RegistrationData | null>(null)
 
-  $effect(() => {
-    if (registrationData) {
-      console.log({ registrationData, from: "pricing", stepStore: $stepStore })
-    }
-  })
 </script>
+
+<div id="top"></div>
 
 {#if $stepStore === 'registration'}
 <Registration bind:registrationData />

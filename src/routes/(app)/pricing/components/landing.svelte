@@ -2,6 +2,11 @@
 	import { Button } from '$lib/components/ui/button';
 	import { stepStore } from '$lib/stores';
 	import { Award, Globe, Star, Users } from 'lucide-svelte';
+
+  const onclick = () => {
+    $stepStore = 'registration'
+    location.href = `${location.href}#top`
+  }
 </script>
 
 <div class="min-h-screen bg-background">
@@ -13,7 +18,7 @@
 				jobs with visa sponsorship and a path to citizenship.
 			</p>
 			<Button
-				onclick={() => ($stepStore = 'registration')}
+        {onclick}
 				size="lg"
 				class="shadow-elegant bg-white px-8 py-6 text-lg text-primary hover:bg-white/90"
 			>
@@ -123,7 +128,7 @@
 						</li>
 					</ul>
 
-					<Button variant="outline" class="w-full" onclick={() => ($stepStore = 'registration')}>
+					<Button variant="outline" class="w-full" {onclick}>
 						Get Started
 					</Button>
 				</div>
@@ -174,7 +179,7 @@
 
 					<Button
 						class="bg-gradient-primary shadow-elegant w-full hover:opacity-90"
-						onclick={() => ($stepStore = 'registration')}
+            {onclick}
 					>
 						Get Started
 					</Button>
@@ -310,7 +315,7 @@
 				Join hundreds of professionals who have successfully secured sponsored employment in Jordan
 			</p>
 			<Button
-				onclick={() => ($stepStore = 'registration')}
+        {onclick}
 				size="lg"
 				class="bg-gradient-primary shadow-elegant px-8 py-6 text-lg hover:opacity-90"
 			>

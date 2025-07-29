@@ -16,11 +16,15 @@
     console.log('Selected package:', packageType, 'Price:', price)
     alert(`Payment for ${packageType} package (£${price}) would be processed here`)
   }
+    const onclick = () => {
+    $stepStore = 'registration'
+    location.href = `${location.href}#top`
+  }
 </script>
 
 <div class="min-h-screen bg-background py-12 px-4">
 	<div class="max-w-6xl mx-auto">
-		<Button variant="ghost" onclick={() => $stepStore = 'registration'}  class="mb-6">
+		<Button variant="ghost" {onclick} class="mb-6">
 			<ArrowLeft class="w-4 h-4 mr-2" />
 			Back to Registration
 		</Button>
