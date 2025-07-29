@@ -15,7 +15,7 @@
   $effect(() => console.log({ post }))
 </script>
 
-<Wrap centerClass="px-0">
+<Wrap centerClass="px-0 pb-4">
 	<div class="relative h-64 w-full md:h-96">
 		<img src={post.imageUrl} alt={post.title} class="aspect-video" data-ai-hint={post.imageHint} />
 		<!-- <div class="absolute inset-0 bg-black/50"></div> -->

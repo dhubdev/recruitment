@@ -15,7 +15,7 @@
 	$effect(() => console.log({ posts: data.posts }))
 </script>
 
-<Wrap>
+<Wrap class="pb-4">
 	<section class="bg-primary/20 py-20 md:py-28">
 		<div class="container mx-auto px-6 text-center">
 			<h1 class="text-4xl md:text-6xl font-headline font-bold">Our Blog</h1>
