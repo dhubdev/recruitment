@@ -27,8 +27,8 @@
 			isAuthorized: true
 		},
 		{
-			name: 'about',
-			href: '/about',
+			name: 'blogs',
+			href: '/blogs',
 			isAuthorized: true
 		},
 		{
