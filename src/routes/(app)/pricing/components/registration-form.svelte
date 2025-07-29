@@ -186,7 +186,7 @@
 						<input
 							type="file"
 							accept=".pdf,.doc,.docx"
-							onchange={(e) => handleFileChange('cv', e)}
+							onchange={(e) => handleFileChange('coverLetter', e)}
 							class="hidden"
 							id="cover-letter-upload"
 							required
