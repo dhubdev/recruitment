@@ -39,11 +39,14 @@
 			formData.set('coverLetter', data.coverLetter, data.coverLetter.name);
 		}
 
+
 		try {
 			const options: RequestInit = {
 				method: 'POST',
 				body: formData
 			};
+
+      $stepStore = 'payment'
 		} catch (error: any) {}
 	};
 </script>
