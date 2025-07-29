@@ -21,7 +21,7 @@
 	</a>
 	<CardHeader>
 		<CardTitle class="font-headline text-2xl leading-tight">
-			<a {href} class="transition-colors hover:text-primary">{post.title}</a>
+			<a {href} class="transition-colors hover:text-primary line-clamp-1">{post.title}</a>
 		</CardTitle>
 		<p class="pt-2 text-sm text-muted-foreground">
 			{new Date(post.date).toLocaleDateString('en-US', {
