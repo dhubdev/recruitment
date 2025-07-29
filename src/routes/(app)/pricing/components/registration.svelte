@@ -47,7 +47,8 @@
 			};
 
       $stepStore = 'payment'
-      location.href = `${location.href}#top`
+      const url = new URL(location.href)
+      location.href = `${url.pathname}#top`
 		} catch (error: any) {}
 	};
 
