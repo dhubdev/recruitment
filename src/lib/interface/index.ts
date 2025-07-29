@@ -16,7 +16,7 @@ export type FormatToken =
 export type StatusType = 'error' | 'success';
 
 export type iResult = {
-	status: StatusType; 
+	status: StatusType;
 	message: string;
 	data?: any;
 };
@@ -187,5 +187,15 @@ export interface iHTMLSection { id: string, title: string, content: string }
 // To apply, send your CV to: dhubeducation@gmail.com 
 
 export interface iBlog extends iDocument {
-  description: string;
+	description: string;
+}
+
+export interface iPost {
+	slug: string;
+	author: string;
+	imageUrl: string;
+	title: string;
+	imageHint: string;
+	date: string;
+	excerpt: string;
 }

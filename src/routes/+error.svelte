@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import BinocularsIcon from '$lib/components/icons/binoculars-icon.svelte';
-	import { Button } from '$lib/components/ui/button';
+	import ErrorComponent from '$lib/components/ui/error/error-component.svelte';
+
+	let message = $state(page.error?.message ?? '')
 </script> 
  
-<div class="flex items-center justify-center h-screen w-full">
-	<div class="flex flex-col items-center gap-2">
-		<BinocularsIcon />
-		<h1 class="text-2xl font-semibold">{page.status}: {page.error?.message}</h1>
-		<Button href="/">Homepage 👉</Button>
-	</div>
-</div>
+<ErrorComponent
+  code={page.status}
+  {message}
+  description="But if you don't change your direction, and if you keep looking, you may end up where you are
+      heading."
+  href="/"
+/>
