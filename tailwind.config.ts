@@ -24,6 +24,7 @@ const config: Config = {
 			},
 			colors: {
 				alternate: "#188bc4",
+				'primary-glow': 'hsl(var(--primary-glow))',
 				shade: {
 					'1': '#e6bbff',
 					'2': '#be99ff',
@@ -73,13 +74,23 @@ const config: Config = {
 					"accent-foreground": "hsl(var(--sidebar-accent-foreground))",
 					border: "hsl(var(--sidebar-border))",
 					ring: "hsl(var(--sidebar-ring))",
-        		},
+				},
 			},
 			borderRadius: {
 				xl: "calc(var(--radius) + 4px)",
 				lg: "var(--radius)",
 				md: "calc(var(--radius) - 2px)",
 				sm: "calc(var(--radius) - 4px)"
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-hero': 'var(--gradient-hero)',
+			},
+			boxShadow: {
+				'elegant': 'var(--shadow-elegant)',
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)',
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans]
@@ -99,10 +110,10 @@ const config: Config = {
 				},
 			},
 			animation: {
-        		"accordion-down": "accordion-down 0.2s ease-out",
-        		"accordion-up": "accordion-up 0.2s ease-out",
-       			"caret-blink": "caret-blink 1.25s ease-out infinite",
-      		},
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"caret-blink": "caret-blink 1.25s ease-out infinite",
+			},
 		},
 	},
 	plugins: [

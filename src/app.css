@@ -34,6 +34,11 @@
     --popover-foreground: 242 95% 10%;
     --primary: 242 79.2% 56.7%;
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 243 82% 70%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(243 70% 45%) 100%);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --secondary: 242 10% 90%;
     --secondary-foreground: 0 0% 0%;
     --muted: 204 10% 95%;
@@ -64,6 +69,11 @@
     --popover-foreground: 242 0% 100%;
     --primary: 242 79.2% 56.7%;
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 243 82% 70%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(243 70% 45%) 100%);
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --secondary: 242 10% 20%;
     --secondary-foreground: 0 0% 100%;
     --muted: 204 10% 25%;
