@@ -2,10 +2,10 @@
 	import { Calendar, User } from 'lucide-svelte'; 
 	import Wrap from '$lib/components/ui/wrap/wrap.svelte';
 	import type { iPost } from '$lib/interface';
-	import type { PageData } from './$types';
+	import type { PageServerData } from './$types';
 
 	interface Props {
-		data: PageData;
+		data: PageServerData;
 	}
 
 	let { data }: Props = $props();

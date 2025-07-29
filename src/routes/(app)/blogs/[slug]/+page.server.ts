@@ -1,10 +1,10 @@
 // src/routes/blog/[slug]/+page.ts
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
+import type { PageServerLoad } from './$types';
 import type { iPost } from '$lib/interface';
 import { markedToHtml } from '$lib/client';
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
 	const slug = params.slug;
 
 	try {
