@@ -1,5 +1,7 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import Pricing from "./components/pricing.svelte";
 
-	export let data: PageData;
+	
 </script>
+
+<Pricing />
