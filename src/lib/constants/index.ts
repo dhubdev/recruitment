@@ -9,7 +9,6 @@ export enum Role {
 }
 
 export const footerExclusionList = [
-	'/blogs/*',
 	'/courses/*',
 	'/campaigns/*',
 	'/services/*',
