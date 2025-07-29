@@ -20,7 +20,7 @@
 		<img src={post.imageUrl} alt={post.title} class="aspect-video" data-ai-hint={post.imageHint} />
 	</a>
 	<CardHeader>
-		<CardTitle class="font-headline text-2xl leading-tight">
+		<CardTitle class="font-headline text-lg leading-tight">
 			<a {href} class="transition-colors hover:text-primary line-clamp-1">{post.title}</a>
 		</CardTitle>
 		<p class="pt-2 text-sm text-muted-foreground">
