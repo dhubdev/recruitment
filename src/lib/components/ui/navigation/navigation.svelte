@@ -22,15 +22,20 @@
 			isAuthorized: true
 		},
 		{
-			name: 'admin',
-			href: '/admin',
-			isAuthorized: me?.role === Role.ADMIN
+			name: 'about',
+			href: '/about',
+			isAuthorized: true
 		},
 		{
 			name: 'about',
 			href: '/about',
 			isAuthorized: true
-		}
+		},
+		{
+			name: 'admin',
+			href: '/admin',
+			isAuthorized: me?.role === Role.ADMIN
+		},
 	];
 	let { class: className, links = defaultLinks }: Props = $props();
 
