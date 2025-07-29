@@ -24,7 +24,7 @@
 		<div class="mx-auto max-w-4xl rounded-lg bg-card p-4 md:p-8 shadow-xl md:p-12">
 			<article>
 				<header class="mb-8 text-center">
-					<h1 class="font-headline text-3xl font-medium text-foreground md:text-5xl">
+					<h1 class="font-headline text-3xl font-bold text-foreground md:text-5xl">
 						{post.title}
 					</h1>
 					<div class="mt-4 flex items-center justify-center gap-6 text-sm text-muted-foreground">
