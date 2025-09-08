@@ -207,7 +207,7 @@
 				<Textarea
 					id="experience"
 					name="experience"
-					value={formData.experience}
+					bind:value={formData.experience}
 					class="resize-none"
 					required
 					placeholder="Describe your work experience, skills, and qualifications..."
@@ -239,7 +239,7 @@
 						<label for="cv-upload" class="cursor-pointer">
 							<Upload class="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
 							<p class="text-sm text-muted-foreground">
-								{cvFileName || 'Upload your CV'}
+								{cvFileName || 'Upload your CV or Resume'}
 							</p>
 							<p class="mt-1 text-xs text-muted-foreground">PDF, DOC, DOCX up to 10MB</p>
 						</label>
