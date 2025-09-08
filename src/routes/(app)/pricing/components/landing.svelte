@@ -320,7 +320,7 @@
 						<h3 class="mb-2 text-xl font-semibold">Interview Opportunities</h3>
 						<p class="text-muted-foreground">
 							Based on your package, you'll get 1-3 interview opportunities with sponsoring
-							employers. If you don't succeed, you can purchase additional packages.
+							employers. If you don't succeed our team will assess you and you'll get another free package support.
 						</p>
 					</div>
 				</div>
