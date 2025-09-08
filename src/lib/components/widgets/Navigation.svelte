@@ -53,6 +53,13 @@
 	</Button>
 	<Button
 		class="rounded-full"
+		href="/pricing"
+		variant={isActiveRoute('/pricing') ? 'default' : 'outline'}
+	>
+		Pricing
+	</Button>
+	<Button
+		class="rounded-full"
 		href="/blogs"
 		variant={isActiveRoute('/blog') ? 'default' : 'outline'}
 	>
