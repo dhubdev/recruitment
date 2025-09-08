@@ -105,7 +105,7 @@
 					<div class="mb-4">
 						<span class="text-4xl font-bold text-primary">£0</span>
 					</div>
-					<p class="mb-6 text-muted-foreground">1 Interview Opportunity</p>
+					<p class="mb-6 text-muted-foreground">0 Interview Opportunity</p>
 
 					<ul class="mb-8 space-y-2 text-left">
 						<li class="flex items-start gap-2">
@@ -118,15 +118,7 @@
 						</li>
 						<li class="flex items-start gap-2">
 							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
-							<span class="text-sm">1 interview preparation session</span>
-						</li>
-						<li class="flex items-start gap-2">
-							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
-							<span class="text-sm">Interview readiness coaching</span>
-						</li>
-						<li class="flex items-start gap-2">
-							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
-							<span class="text-sm">Sponsorship guidance</span>
+							<span class="text-sm">15 minutes consultation</span>
 						</li>
 					</ul>
 
@@ -149,6 +141,10 @@
 						<li class="flex items-start gap-2">
 							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
 							<span class="text-sm">Cover letter optimization</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">30 minutes consultation</span>
 						</li>
 						<li class="flex items-start gap-2">
 							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
@@ -195,6 +191,10 @@
 						</li>
 						<li class="flex items-start gap-2">
 							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">45 minutes consultation</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
 							<span class="text-sm">2 interview preparation sessions</span>
 						</li>
 						<li class="flex items-start gap-2">
@@ -233,6 +233,10 @@
 						<li class="flex items-start gap-2">
 							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
 							<span class="text-sm">Cover letter optimization</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">1 hour consultation</span>
 						</li>
 						<li class="flex items-start gap-2">
 							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
