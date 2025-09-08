@@ -199,7 +199,7 @@ export interface iBlog extends iDocument {
 		experience: string;
 		cv: string | iFile;
 		coverLetter: string | iFile
-		maritalStatus: 'single' | 'married';
+		maritalStatus: string;
 		employmentStatus: string;
 		language: string;
 		ageRange: string;

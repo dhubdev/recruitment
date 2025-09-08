@@ -7,7 +7,7 @@
 		experience: string;
 		cv: File | null;
 		coverLetter: File | null;
-		maritalStatus: 'single' | 'married';
+		maritalStatus: string;
 		employmentStatus: string;
 		language: string;
 		ageRange: string;
@@ -20,6 +20,9 @@
 	import { ArrowLeft } from 'lucide-svelte';
 	import RegistrationForm from './registration-form.svelte';
 	import { stepStore } from '$lib/stores';
+	import { page } from '$app/state';
+	import type { iResult } from '@toolsntuts/utils';
+	import { toast } from 'svelte-sonner';
 
 	interface Props {
 		registrationData: RegistrationData | null;
@@ -40,7 +43,7 @@
 		formData.set('language', data.language);
 		formData.set('ageRange', data.ageRange);
 		formData.set('qualification', data.qualification);
-		
+
 		if (data.cv) {
 			formData.set('cv', data.cv, data.cv.name);
 		}
@@ -54,12 +57,23 @@
 				body: formData
 			};
 
-			console.log(Object.fromEntries(formData.entries()));
+			const endpoint = `/api/pricing`;
+			const response = await fetch(endpoint, options);
+			const { message, status, data } = (await response.json()) as iResult;
 
-			$stepStore = 'payment';
-			const url = new URL(location.href);
-			location.href = `${url.pathname}#top`;
-		} catch (error: any) {}
+			if (status === 'success') {
+				$stepStore = 'payment';
+				const url = new URL(location.href);
+				location.href = `${url.pathname}#top`;
+				console.log({ data })
+			} else {
+				toast.error('Error saving data', { description: message });
+			}
+
+			console.log(Object.fromEntries(formData.entries()));
+		} catch (error: any) {
+			toast.error('Error saving data', { description: error.message });
+		}
 	};
 
 	$effect(() => {

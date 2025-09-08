@@ -7,6 +7,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { Button } from '$lib/components/ui/button';
+	import SpinLoader from '$lib/components/ui/spin-loader/spin-loader.svelte';
 
 	interface Props {
 		onsubmit: (formData: RegistrationData) => void;
@@ -22,7 +23,7 @@
 		experience: '',
 		cv: null,
 		coverLetter: null,
-		maritalStatus: 'single',
+		maritalStatus: '',
 		employmentStatus: '',
 		language: '', // <-- added
 		ageRange: '', // <-- added
@@ -64,15 +65,21 @@
 		{ label: 'PhD', value: 'phd' }
 	];
 
+	let loading = $state(false);
+
 	const handleSubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
+		loading = true;
 		await onsubmit(formData);
+		loading = false;
 	};
 
 	const handleFileChange = (field: 'cv' | 'coverLetter', evt: Event) => {
 		const target = evt.target as HTMLInputElement;
 		const file = target.files?.[0] || null;
-		formData = { ...formData, [field]: file };
+		// formData = { ...formData, [field]: file };
+
+		formData[field] = file;
 
 		if (field === 'cv') {
 			cvFileName = file?.name ?? '';
@@ -147,7 +154,7 @@
 						options={maritalStatuses}
 						bind:value={formData.maritalStatus}
 						name="maritalStatus"
-						placeholder="Select status"
+						placeholder="Marital Status"
 					/>
 				</div>
 				<div>
@@ -156,7 +163,7 @@
 						options={employmentStatuses}
 						bind:value={formData.employmentStatus}
 						name="employmentStatus"
-						placeholder="Select status"
+						placeholder="Employment Status"
 					/>
 				</div>
 				<div>
@@ -175,7 +182,7 @@
 						options={ageRanges}
 						bind:value={formData.ageRange}
 						name="ageRange"
-						placeholder="Select age range"
+						placeholder="Age Range"
 						required
 					/>
 				</div>
@@ -185,7 +192,7 @@
 						options={qualifications}
 						bind:value={formData.qualification}
 						name="qualification"
-						placeholder="Select qualification"
+						placeholder="Qualification"
 						required
 					/>
 				</div>
@@ -266,9 +273,14 @@
 
 		<Button
 			type="submit"
+			disabled={loading}
 			class="w-full bg-gradient-primary py-6 text-lg shadow-elegant hover:opacity-90"
 		>
-			Complete Registration
+			{#if loading}
+				<SpinLoader /> Loading...
+			{:else}
+				Complete Registration
+			{/if}
 		</Button>
 	</form>
 </Card>

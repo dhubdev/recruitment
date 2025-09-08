@@ -14,7 +14,7 @@ export const DELETE: RequestHandler = async ({ request, locals }) => {
   return new Response();
 };
 
-const saveFile = async (file: File, endpoint: string) => {
+const saveFile = async (file: File, fetch: any) => {
 
   const formData = new FormData()
   formData.set("file", file)
@@ -24,12 +24,12 @@ const saveFile = async (file: File, endpoint: string) => {
     method: 'POST',
     body: formData
   }
-  const response = await fetch(endpoint, options)
+  const response = await fetch(`/api/files`, options)
   const result = await response.json() as iResult
   return result.data
 }
 
-export const POST: RequestHandler = async ({ locals, request, url }) => {
+export const POST: RequestHandler = async ({ locals, request, fetch }) => {
   authGuard(locals)
 
   // const partialPricing = await request.json() as Partial<iPricing>
@@ -41,10 +41,9 @@ export const POST: RequestHandler = async ({ locals, request, url }) => {
 
   const formData = await request.formData()
 
-  const endpoint = `${url.origin}/api/files`
 
-  const cv = await saveFile(formData.get("cv") as File, endpoint)
-  const coverLetter = await saveFile(formData.get("coverLetter") as File, endpoint) 
+  const cv = await saveFile(formData.get("cv") as File, fetch)
+  const coverLetter = await saveFile(formData.get("coverLetter") as File, fetch) 
 
   let partialPricing: Partial<iPricing> = {
     fullName: formData.get('fullName') as string,
@@ -52,7 +51,7 @@ export const POST: RequestHandler = async ({ locals, request, url }) => {
 		phone: formData.get('phone') as string,
 		country: formData.get('country') as string,
 		experience: formData.get('experience') as string,
-		maritalStatus: formData.get('maritalStatus') as "single" | "married",
+		maritalStatus: formData.get('maritalStatus') as string,
 		employmentStatus: formData.get('employmentStatus') as string,
 		language: formData.get('language') as string,
 		ageRange: formData.get('ageRange') as string,
@@ -60,6 +59,8 @@ export const POST: RequestHandler = async ({ locals, request, url }) => {
     cv,
     coverLetter
   }
+
+  console.log({ partialPricing })
 
   const result = await addPricing(partialPricing)
 

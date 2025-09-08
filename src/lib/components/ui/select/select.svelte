@@ -13,7 +13,7 @@
 	let { options, value = $bindable(''), name, class: className, placeholder, required = false }: Props = $props();
 
 	const triggerContent = $derived(
-		options.find((f) => f.value === value)?.label ?? `Select ${name}`
+		options.find((f) => f.value === value)?.label ?? `Select ${placeholder}`
 	);
 </script>
 
@@ -23,7 +23,6 @@
 	</Select.Trigger>
 	<Select.Content>
 		<Select.Group>
-			<Select.GroupHeading class="capitalize">{placeholder}</Select.GroupHeading>
 			{#each options as option (option.value)}
 				<Select.Item value={option.value} label={option.label}>{option.label}</Select.Item>
 			{/each}
