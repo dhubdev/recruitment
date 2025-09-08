@@ -42,7 +42,7 @@
 		},
 		{
 			name: 'mail',
-			href: 'mailto:dhubeducation@gmail.com'
+			href: 'mailto:info@jordanrecruitment.co.uk'
 		}
 	];
 

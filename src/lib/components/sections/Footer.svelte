@@ -126,7 +126,7 @@
 								<Button
 									variant="ghost"
 									class="h-auto p-0 hover:bg-transparent"
-									href="mailto:shomabetereoghenetega43@gmail.com"
+									href="mailto:info@jordanrecruitment.co.uk"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
