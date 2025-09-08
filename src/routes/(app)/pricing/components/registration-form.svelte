@@ -18,30 +18,51 @@
 		fullName: '',
 		email: '',
 		phone: '',
-		address: '',
-		preferredCity: '',
+		country: '',
 		experience: '',
 		cv: null,
-		coverLetter: null
+		coverLetter: null,
+		maritalStatus: 'single',
+		employmentStatus: '',
+		language: '', // <-- added
+		ageRange: '', // <-- added
+		qualification: ''
 	});
 
 	let cvFileName = $state('');
 	let coverLetterFileName = $state('');
 
-	const jordanCities = [
-		'Manchester',
-		'Salford',
-		'Stockport',
-		'Altrincham',
-		'Sale',
-		'Stretford',
-		'Eccles',
-		'Prestwich',
-		'Urmston',
-		'Denton',
-		'Ashton-under-Lyne',
-		'Bolton'
-	].map((label) => ({ label, value: label.toLowerCase() }));
+	const maritalStatuses = ['Single', 'Married'].map((label) => ({
+		label,
+		value: label.toLowerCase()
+	}));
+
+	// Example usage in your Svelte file
+	const employmentStatuses: { label: string; value: string }[] = [
+		{ label: 'Employed', value: 'employed' },
+		{ label: 'Unemployed', value: 'unemployed' },
+		{ label: 'Self-Employed', value: 'self-employed' },
+		{ label: 'Student', value: 'student' },
+		{ label: 'Retired', value: 'retired' },
+		{ label: 'Freelancer', value: 'freelancer' },
+		{ label: 'Part-Time', value: 'part-time' },
+		{ label: 'Intern', value: 'intern' }
+	];
+
+	const ageRanges = [
+		{ label: '18-24', value: '18-24' },
+		{ label: '25-34', value: '25-34' },
+		{ label: '35-44', value: '35-44' },
+		{ label: '45-54', value: '45-54' },
+		{ label: '55+', value: '55+' }
+	];
+
+	const qualifications = [
+		{ label: 'College', value: 'college' },
+		{ label: 'University', value: 'university' },
+		{ label: 'Masters', value: 'masters' },
+		{ label: 'PhD', value: 'phd' }
+	];
 
 	const handleSubmit = async (evt: SubmitEvent) => {
 		evt.preventDefault();
@@ -61,7 +82,7 @@
 	};
 </script>
 
-<Card class="mx-auto max-w-2xl p-8">
+<Card class="mx-auto p-8">
 	<div class="mb-8 text-center">
 		<h2 class="mb-2 text-3xl font-bold text-foreground">Join Our Recruitment Program</h2>
 		<p class="text-muted-foreground">
@@ -76,7 +97,7 @@
 				Personal Information
 			</h3>
 
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
 				<div>
 					<Label for="fullName">Full Name *</Label>
 					<Input
@@ -99,9 +120,6 @@
 						placeholder="your.email@example.com"
 					/>
 				</div>
-			</div>
-
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 				<div>
 					<Label for="phone">Phone Number *</Label>
 					<Input
@@ -114,20 +132,63 @@
 				</div>
 
 				<div>
-					<Label for="preferredCity">Preferred Work City *</Label>
-					<Select bind:value={formData.preferredCity} name="preferredCity" options={jordanCities} />
+					<Label for="country">Your country *</Label>
+					<Input
+						id="country"
+						name="country"
+						bind:value={formData.country}
+						required
+						placeholder="Nigeria"
+					/>
 				</div>
-			</div>
-
-			<div>
-				<Label for="address">Address *</Label>
-				<Input
-					id="address"
-					name="address"
-					value={formData.address}
-					required
-					placeholder="Enter your full address"
-				/>
+				<div>
+					<Label for="maritalStatus">Your Marital Status *</Label>
+					<Select
+						options={maritalStatuses}
+						bind:value={formData.maritalStatus}
+						name="maritalStatus"
+						placeholder="Select status"
+					/>
+				</div>
+				<div>
+					<Label for="employmentStatus">Your Employment Status *</Label>
+					<Select
+						options={employmentStatuses}
+						bind:value={formData.employmentStatus}
+						name="employmentStatus"
+						placeholder="Select status"
+					/>
+				</div>
+				<div>
+					<Label for="language">Language *</Label>
+					<Input
+						id="language"
+						name="language"
+						bind:value={formData.language}
+						required
+						placeholder="Enter your preferred language"
+					/>
+				</div>
+				<div>
+					<Label for="ageRange">Age Range *</Label>
+					<Select
+						options={ageRanges}
+						bind:value={formData.ageRange}
+						name="ageRange"
+						placeholder="Select age range"
+						required
+					/>
+				</div>
+				<div>
+					<Label for="qualification">Qualification *</Label>
+					<Select
+						options={qualifications}
+						bind:value={formData.qualification}
+						name="qualification"
+						placeholder="Select qualification"
+						required
+					/>
+				</div>
 			</div>
 		</div>
 
@@ -165,8 +226,8 @@
 							accept=".pdf,.doc,.docx"
 							onchange={(e) => handleFileChange('cv', e)}
 							class="hidden"
-              name="cv"
-							id="cv-upload" 
+							name="cv"
+							id="cv-upload"
 						/>
 						<label for="cv-upload" class="cursor-pointer">
 							<Upload class="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
@@ -187,9 +248,9 @@
 							type="file"
 							accept=".pdf,.doc,.docx"
 							onchange={(e) => handleFileChange('coverLetter', e)}
-              name="coverLetter"
+							name="coverLetter"
 							class="hidden"
-							id="cover-letter-upload" 
+							id="cover-letter-upload"
 						/>
 						<label for="cover-letter-upload" class="cursor-pointer">
 							<Upload class="mx-auto mb-2 h-8 w-8 text-muted-foreground" />
@@ -205,7 +266,7 @@
 
 		<Button
 			type="submit"
-			class="bg-gradient-primary shadow-elegant w-full py-6 text-lg hover:opacity-90"
+			class="w-full bg-gradient-primary py-6 text-lg shadow-elegant hover:opacity-90"
 		>
 			Complete Registration
 		</Button>

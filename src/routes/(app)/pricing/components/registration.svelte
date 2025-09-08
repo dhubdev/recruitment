@@ -3,11 +3,15 @@
 		fullName: string;
 		email: string;
 		phone: string;
-		address: string;
-		preferredCity: string;
+		country: string;
 		experience: string;
 		cv: File | null;
 		coverLetter: File | null;
+		maritalStatus: "single" | "married"
+		employmentStatus: string;
+		language: string;
+		ageRange: string;
+		qualification: string;
 	}
 </script>
 
@@ -29,8 +33,7 @@
 		formData.set('fullName', data.fullName);
 		formData.set('email', data.email);
 		formData.set('phone', data.phone);
-		formData.set('address', data.address);
-		formData.set('preferredCity', data.preferredCity);
+		formData.set('country', data.country);
 		formData.set('experience', data.experience);
 		if (data.cv) {
 			formData.set('cv', data.cv, data.cv.name);
@@ -45,6 +48,8 @@
 				method: 'POST',
 				body: formData
 			};
+
+			console.log(Object.fromEntries(formData.entries()))
 
       $stepStore = 'payment'
       const url = new URL(location.href)

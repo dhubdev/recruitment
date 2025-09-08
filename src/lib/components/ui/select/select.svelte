@@ -6,22 +6,24 @@
 		value: string;
 		name: string;
 		class?: string;
+		placeholder?: string;
+		required?: boolean
 	}
 
-	let { options, value = $bindable(''), name, class: className }: Props = $props();
+	let { options, value = $bindable(''), name, class: className, placeholder, required = false }: Props = $props();
 
 	const triggerContent = $derived(
 		options.find((f) => f.value === value)?.label ?? `Select ${name}`
 	);
 </script>
 
-<Select.Root type="single" {name} bind:value>
-	<Select.Trigger class={className}>
+<Select.Root type="single" {name} bind:value {required}>
+	<Select.Trigger id={name} class={className}>
 		{triggerContent}
 	</Select.Trigger>
 	<Select.Content>
 		<Select.Group>
-			<Select.GroupHeading class="capitalize">{name}</Select.GroupHeading>
+			<Select.GroupHeading class="capitalize">{placeholder}</Select.GroupHeading>
 			{#each options as option (option.value)}
 				<Select.Item value={option.value} label={option.label}>{option.label}</Select.Item>
 			{/each}
