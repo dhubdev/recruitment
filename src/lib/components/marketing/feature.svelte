@@ -18,18 +18,18 @@
 			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fcare.jpg&w=3840&q=75',
 			type: 'for employers'
 		},
-		{
-			title: 'Cleaning Jobs',
-			description: `Ensure your spaces shine with our top-notch cleaning professionals. Whether it's commercial or residential, we match you with skilled individuals dedicated to maintaining a clean and healthy environment.`,
-			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75',
-			type: 'for employers'
-		},
-		{
-			title: 'Security Jobs',
-			description: `Safety is paramount. Discover skilled security personnel to protect your premises. Our pool of candidates includes trained security officers and personnel to meet your specific security requirements.`,
-			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75',
-			type: 'for employers'
-		},
+		// {
+		// 	title: 'Cleaning Jobs',
+		// 	description: `Ensure your spaces shine with our top-notch cleaning professionals. Whether it's commercial or residential, we match you with skilled individuals dedicated to maintaining a clean and healthy environment.`,
+		// 	src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75',
+		// 	type: 'for employers'
+		// },
+		// {
+		// 	title: 'Security Jobs',
+		// 	description: `Safety is paramount. Discover skilled security personnel to protect your premises. Our pool of candidates includes trained security officers and personnel to meet your specific security requirements.`,
+		// 	src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75',
+		// 	type: 'for employers'
+		// },
 		{
 			title: 'Efficient Recruitment Process',
 			description: `We streamline the hiring process, making it easy for you to find the right candidates. Our platform allows you to post jobs, review applications, and connect with potential hires seamlessly.`,
@@ -42,18 +42,18 @@
 			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fcare.jpg&w=3840&q=75',
 			type: 'job seekers'
 		},
-		{
-			title: 'Cleaning Jobs',
-			description: `Join our network of cleaning professionals dedicated to maintaining pristine environments.`,
-			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75',
-			type: 'job seekers'
-		},
-		{
-			title: 'Security Jobs',
-			description: `Protect and serve. Find fulfilling roles in the security industry.`,
-			src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75',
-			type: 'job seekers'
-		},
+		// {
+		// 	title: 'Cleaning Jobs',
+		// 	description: `Join our network of cleaning professionals dedicated to maintaining pristine environments.`,
+		// 	src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fclean.jpeg&w=3840&q=75',
+		// 	type: 'job seekers'
+		// },
+		// {
+		// 	title: 'Security Jobs',
+		// 	description: `Protect and serve. Find fulfilling roles in the security industry.`,
+		// 	src: 'https://jordan-recruitments.vercel.app/_next/image?url=%2Fsecure.png&w=3840&q=75',
+		// 	type: 'job seekers'
+		// },
 		{
 			title: 'Career and Resource Guidance',
 			description: `Access valuable resources, tips, and guidance to enhance your job search and career growth. We're here to support you every step of the way.`,
