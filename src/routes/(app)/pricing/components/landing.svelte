@@ -3,25 +3,25 @@
 	import { stepStore } from '$lib/stores';
 	import { Award, Globe, Star, Users } from 'lucide-svelte';
 
-  const onclick = () => {
-    $stepStore = 'registration'
-    const url = new URL(location.href)
-    location.href = `${url.pathname}#top`
-  }
+	const onclick = () => {
+		$stepStore = 'registration';
+		const url = new URL(location.href);
+		location.href = `${url.pathname}#top`;
+	};
 </script>
 
 <div class="min-h-screen bg-background">
-	<section class="bg-gradient-hero relative px-4 py-20 text-white">
+	<section class="relative bg-gradient-hero px-4 py-20 text-white">
 		<div class="mx-auto max-w-6xl text-center">
 			<h1 class="mb-6 text-5xl font-bold md:text-6xl">Jordan Recruitment Pathways</h1>
 			<p class="mx-auto mb-8 max-w-3xl text-xl text-white/90 md:text-2xl">
-				Your gateway to sponsored employment in Jordan. We help international professionals secure
-				jobs with visa sponsorship and a path to citizenship.
+				Your gateway to sponsored employment in the world. We help international professionals
+				secure jobs with visa sponsorship guide and a path to citizenship.
 			</p>
 			<Button
-        {onclick}
+				{onclick}
 				size="lg"
-				class="shadow-elegant bg-white px-8 py-6 text-lg text-primary hover:bg-white/90"
+				class="bg-white px-8 py-6 text-lg text-primary shadow-elegant hover:bg-white/90"
 			>
 				Start Your Journey
 			</Button>
@@ -37,19 +37,19 @@
 			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
 				<div class="text-center">
 					<div
-						class="bg-gradient-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
+						class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary"
 					>
 						<Globe class="h-8 w-8 text-white" />
 					</div>
-					<h3 class="mb-2 text-xl font-semibold">Visa Sponsorship</h3>
+					<h3 class="mb-2 text-xl font-semibold">Visa Sponsorship Guide</h3>
 					<p class="text-muted-foreground">
-						Get full visa sponsorship and work authorization in Jordan
+						Get full visa sponsorship guide and work authorization in the world
 					</p>
 				</div>
 
 				<div class="text-center">
 					<div
-						class="bg-gradient-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
+						class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary"
 					>
 						<Users class="h-8 w-8 text-white" />
 					</div>
@@ -61,7 +61,7 @@
 
 				<div class="text-center">
 					<div
-						class="bg-gradient-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
+						class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary"
 					>
 						<Award class="h-8 w-8 text-white" />
 					</div>
@@ -73,13 +73,13 @@
 
 				<div class="text-center">
 					<div
-						class="bg-gradient-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full"
+						class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-primary"
 					>
 						<Star class="h-8 w-8 text-white" />
 					</div>
 					<h3 class="mb-2 text-xl font-semibold">Path to Citizenship</h3>
 					<p class="text-muted-foreground">
-						After 5 years of sponsored work, you can obtain Jordanian citizenship
+						After 5 years of sponsored work, you can obtain international settlement
 					</p>
 				</div>
 			</div>
@@ -91,14 +91,49 @@
 			<div class="mb-12 text-center">
 				<h2 class="mb-4 text-3xl font-bold text-foreground">Choose Your Package</h2>
 				<p class="mx-auto max-w-3xl text-xl text-muted-foreground">
-					Select from our comprehensive sponsorship packages. Each includes professional CV
-					recreation, interview preparation, and full sponsorship support.
+					Select from our comprehensive international recruitment package. Each include professional
+					CV, Guide, Cover Letter, Interview prep, accommodation support, visa application support,
+					dependent visa application support
 				</p>
 			</div>
 
-			<div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+			<div class="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
 				<div
-					class="hover:shadow-elegant transition-smooth rounded-lg border border-border bg-card p-8 text-center"
+					class="transition-smooth rounded-lg border border-border bg-card p-8 text-center hover:shadow-elegant"
+				>
+					<h3 class="mb-2 text-2xl font-bold text-foreground">Free Package</h3>
+					<div class="mb-4">
+						<span class="text-4xl font-bold text-primary">£0</span>
+					</div>
+					<p class="mb-6 text-muted-foreground">1 Interview Opportunity</p>
+
+					<ul class="mb-8 space-y-2 text-left">
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">Professional CV recreation</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">Cover letter optimization</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">1 interview preparation session</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">Interview readiness coaching</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<div class="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-primary"></div>
+							<span class="text-sm">Sponsorship guidance</span>
+						</li>
+					</ul>
+
+					<Button variant="outline" class="w-full" {onclick}>Get Started</Button>
+				</div>
+				<div
+					class="transition-smooth rounded-lg border border-border bg-card p-8 text-center hover:shadow-elegant"
 				>
 					<h3 class="mb-2 text-2xl font-bold text-foreground">Starter Package</h3>
 					<div class="mb-4">
@@ -129,17 +164,15 @@
 						</li>
 					</ul>
 
-					<Button variant="outline" class="w-full" {onclick}>
-						Get Started
-					</Button>
+					<Button variant="outline" class="w-full" {onclick}>Get Started</Button>
 				</div>
 
 				<div
-					class="hover:shadow-elegant transition-smooth relative rounded-lg border-2 border-primary bg-card p-8 text-center"
+					class="transition-smooth relative rounded-lg border-2 border-primary bg-card p-8 text-center hover:shadow-elegant"
 				>
 					<div class="absolute -top-3 left-1/2 -translate-x-1/2">
 						<span
-							class="bg-gradient-primary rounded-full px-4 py-1 text-sm font-medium text-primary-foreground"
+							class="rounded-full bg-gradient-primary px-4 py-1 text-sm font-medium text-primary-foreground"
 						>
 							Most Popular
 						</span>
@@ -178,16 +211,13 @@
 						</li>
 					</ul>
 
-					<Button
-						class="bg-gradient-primary shadow-elegant w-full hover:opacity-90"
-            {onclick}
-					>
+					<Button class="w-full bg-gradient-primary shadow-elegant hover:opacity-90" {onclick}>
 						Get Started
 					</Button>
 				</div>
 
 				<div
-					class="hover:shadow-elegant transition-smooth rounded-lg border border-border bg-card p-8 text-center"
+					class="transition-smooth rounded-lg border border-border bg-card p-8 text-center hover:shadow-elegant"
 				>
 					<h3 class="mb-2 text-2xl font-bold text-foreground">Premium Package</h3>
 					<div class="mb-4">
@@ -316,9 +346,9 @@
 				Join hundreds of professionals who have successfully secured sponsored employment in Jordan
 			</p>
 			<Button
-        {onclick}
+				{onclick}
 				size="lg"
-				class="bg-gradient-primary shadow-elegant px-8 py-6 text-lg hover:opacity-90"
+				class="bg-gradient-primary px-8 py-6 text-lg shadow-elegant hover:opacity-90"
 			>
 				Register Now
 			</Button>

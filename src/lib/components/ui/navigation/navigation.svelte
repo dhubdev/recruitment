@@ -27,6 +27,11 @@
 			isAuthorized: true
 		},
 		{
+			name: 'pricing',
+			href: '/pricing',
+			isAuthorized: true
+		},
+		{
 			name: 'blogs',
 			href: '/blogs',
 			isAuthorized: true
