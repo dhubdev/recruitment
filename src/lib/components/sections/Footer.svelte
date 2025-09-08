@@ -3,8 +3,8 @@
 	import { footerExclusionList } from '$lib/constants';
 	import { cn } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
-	import Wrap from '$lib/components/widgets/Wrap.svelte';
 	import Brand from '$lib/components/sections/Brand.svelte';
+	import Wrap from '../ui/wrap/wrap.svelte';
 
 	const pathname = page.url.pathname;
 </script>

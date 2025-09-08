@@ -5,7 +5,6 @@ import type {
   SchemaInference,
   XataRecord,
 } from "@xata.io/client";
-import { defaultOptions } from "./config";
 
 const tables = [
   {
@@ -613,6 +612,171 @@ const tables = [
     ],
   },
   {
+    name: "package",
+    checkConstraints: {
+      package_xata_id_length_xata_id: {
+        name: "package_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {
+      coverLetter_link: {
+        name: "coverLetter_link",
+        columns: ["coverLetter"],
+        referencedTable: "file",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+      cv_link: {
+        name: "cv_link",
+        columns: ["cv"],
+        referencedTable: "file",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+    },
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_package_xata_id_key: {
+        name: "_pgroll_new_package_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "ageRange",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "country",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "coverLetter",
+        type: "link",
+        link: { table: "file" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "cv",
+        type: "link",
+        link: { table: "file" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"file"}',
+      },
+      {
+        name: "email",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "employmentStatus",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "experience",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "fullName",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "language",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "maritalStatus",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "phone",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "qualification",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "{}",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
     name: "user",
     checkConstraints: {
       user_xata_id_length_xata_id: {
@@ -751,6 +915,9 @@ export type FileRecord = File & XataRecord;
 export type Job = InferredTypes["job"];
 export type JobRecord = Job & XataRecord;
 
+export type Package = InferredTypes["package"];
+export type PackageRecord = Package & XataRecord;
+
 export type User = InferredTypes["user"];
 export type UserRecord = User & XataRecord;
 
@@ -761,10 +928,16 @@ export type DatabaseSchema = {
   documentcategory: DocumentcategoryRecord;
   file: FileRecord;
   job: JobRecord;
+  package: PackageRecord;
   user: UserRecord;
 };
 
 const DatabaseClient = buildClient();
+
+const defaultOptions = {
+  databaseURL:
+    "https://Dhub-Dev-s-workspace-rgovaa.us-east-1.xata.sh/db/recruitment",
+};
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
   constructor(options?: BaseClientOptions) {
