@@ -5,6 +5,7 @@ import type {
   SchemaInference,
   XataRecord,
 } from "@xata.io/client";
+import { defaultOptions } from "./config";
 
 const tables = [
   {
@@ -612,7 +613,7 @@ const tables = [
     ],
   },
   {
-    name: "package",
+    name: "pricing",
     checkConstraints: {
       package_xata_id_length_xata_id: {
         name: "package_xata_id_length_xata_id",
@@ -915,8 +916,8 @@ export type FileRecord = File & XataRecord;
 export type Job = InferredTypes["job"];
 export type JobRecord = Job & XataRecord;
 
-export type Package = InferredTypes["package"];
-export type PackageRecord = Package & XataRecord;
+export type Pricing = InferredTypes["pricing"];
+export type PricingRecord = Pricing & XataRecord;
 
 export type User = InferredTypes["user"];
 export type UserRecord = User & XataRecord;
@@ -928,16 +929,11 @@ export type DatabaseSchema = {
   documentcategory: DocumentcategoryRecord;
   file: FileRecord;
   job: JobRecord;
-  package: PackageRecord;
+  pricing: PricingRecord;
   user: UserRecord;
 };
 
 const DatabaseClient = buildClient();
-
-const defaultOptions = {
-  databaseURL:
-    "https://Dhub-Dev-s-workspace-rgovaa.us-east-1.xata.sh/db/recruitment",
-};
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
   constructor(options?: BaseClientOptions) {

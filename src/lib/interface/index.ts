@@ -190,6 +190,22 @@ export interface iBlog extends iDocument {
 	description: string;
 }
 
+
+	export interface iPricing {
+		fullName: string;
+		email: string;
+		phone: string;
+		country: string;
+		experience: string;
+		cv: string | iFile;
+		coverLetter: string | iFile
+		maritalStatus: 'single' | 'married';
+		employmentStatus: string;
+		language: string;
+		ageRange: string;
+		qualification: string;
+	}
+
 export interface iPost {
 	slug: string;
 	author: string;
