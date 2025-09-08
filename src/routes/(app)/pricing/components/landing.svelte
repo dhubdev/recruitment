@@ -269,7 +269,7 @@
 			<div class="text-center">
 				<p class="mb-4 text-muted-foreground">
 					<strong>Important:</strong> If you don't get a job after your interviews, you can purchase
-					additional packages. If you succeed in getting a job, no additional packages needed!
+					additional packages. If you succeed in getting a job, no additional packages needed!<br/> Furthermore if you want support that is not stated here, you can reach out to <Button variant="link" href="/contact">our team</Button>
 				</p>
 			</div>
 		</div>
