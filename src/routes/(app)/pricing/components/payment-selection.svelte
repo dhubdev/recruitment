@@ -2,13 +2,10 @@
 	import { Card } from '$lib/components/ui/card';
 	import { CheckCircle, User } from 'lucide-svelte';
 	import PricingCard from './pricing-card.svelte';
+	import type { RegistrationData } from './registration.svelte';
 
 	interface Props {
-		userData: {
-			fullName: string;
-			email: string;
-			preferredCity: string;
-		};
+		userData: RegistrationData;
 		onPackageSelect: (packageType: string, price: number) => void;
 	}
 
@@ -74,7 +71,7 @@
 			<div>
 				<h3 class="font-semibold text-green-800">Registration Successful!</h3>
 				<p class="text-green-700">
-					Welcome {userData.fullName}! Your application has been received.
+					Welcome {userData.fullName}! Your application has been received. We will contact you shortly with the provided information
 				</p>
 			</div>
 		</div>
@@ -95,13 +92,45 @@
 				<p class="text-foreground">{userData.email}</p>
 			</div>
 			<div>
-				<span class="font-medium text-muted-foreground">Preferred City:</span>
-				<p class="text-foreground">{userData.preferredCity}</p>
+				<span class="font-medium text-muted-foreground">Phone:</span>
+				<p class="text-foreground">{userData.phone}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Country:</span>
+				<p class="text-foreground">{userData.country}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">CV:</span>
+				<p class="text-foreground">{userData.cv?.name}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Cover Letter:</span>
+				<p class="text-foreground">{userData.coverLetter?.name}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Marital Status:</span>
+				<p class="text-foreground">{userData.maritalStatus}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Employment Status:</span>
+				<p class="text-foreground">{userData.employmentStatus}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Language:</span>
+				<p class="text-foreground">{userData.language}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Age Range:</span>
+				<p class="text-foreground">{userData.ageRange}</p>
+			</div>
+			<div>
+				<span class="font-medium text-muted-foreground">Qualification:</span>
+				<p class="text-foreground">{userData.qualification}</p>
 			</div>
 		</div>
 	</Card>
 
-	<div class="mb-8 text-center">
+	<!-- <div class="mb-8 text-center">
 		<h2 class="mb-4 text-3xl font-bold text-foreground">Choose Your Sponsorship Package</h2>
 		<p class="mx-auto max-w-2xl text-muted-foreground">
 			Select the package that best fits your needs. Each package includes professional CV
@@ -134,5 +163,5 @@
 				• Sponsorship means you get a visa to stay and work, leading to citizenship after 5 years
 			</p>
 		</div>
-	</Card>
+	</Card> -->
 </div>

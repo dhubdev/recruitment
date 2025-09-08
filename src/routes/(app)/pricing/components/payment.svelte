@@ -30,11 +30,7 @@
 			Back to Registration
 		</Button>
 		<PaymentSelection
-			userData={{
-				fullName: registrationData.fullName,
-				email: registrationData.email,
-				preferredCity: registrationData.preferredCity
-			}}
+			userData={registrationData}
 			onPackageSelect={handlePackageSelect}
 		/>
 	</div>
